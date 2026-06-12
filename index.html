@@ -1784,7 +1784,7 @@ async function submitFeedback() {
     btn.textContent = '⏳ 提交中...';
 
     try {
-        const resp = await fetch('/api/feedback', {
+        const resp = await fetch('https://vbench-green.vercel.app/api/feedback', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, rating: feedbackRating, aspect, content })
