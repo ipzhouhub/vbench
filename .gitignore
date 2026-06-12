@@ -3,3 +3,4 @@
 node_modules/
 .vercel
 generated-video/generation_log.json
+generated-video/
