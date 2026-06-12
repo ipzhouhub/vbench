@@ -147,6 +147,19 @@
             color: var(--pink);
             box-shadow: 0 0 12px rgba(244,114,182,0.15);
         }
+                .feedback-btn-row {
+            display: flex; gap: 12px; margin-top: 8px;
+        }
+        .feedback-btn-row .feedback-submit { flex: 1; margin-top: 0; }
+        .feedback-cancel {
+            flex: 0 0 auto; padding: 14px 20px;
+            background: transparent;
+            border: 1px solid var(--border); border-radius: 12px;
+            color: var(--text-muted); font-size: 0.95em; font-weight: 600;
+            cursor: pointer; transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .feedback-cancel:hover { border-color: var(--text-secondary); color: var(--text-secondary); }
         .feedback-submit {
             width: 100%; padding: 14px;
             background: linear-gradient(135deg, var(--pink), var(--purple));
@@ -1045,7 +1058,10 @@
                 <textarea id="fb-content" placeholder="说说你的使用体验、遇到的问题、或者改进建议..."></textarea>
             </div>
 
-            <button class="feedback-submit" id="fb-submit" onclick="submitFeedback()">🚀 提交反馈</button>
+            <div class="feedback-btn-row">
+                            <button class="feedback-submit" id="fb-submit" onclick="submitFeedback()">🚀 提交反馈</button>
+                            <button class="feedback-cancel" onclick="showPage('report')">我再想想</button>
+                        </div>
             <div class="feedback-error" id="fb-error"></div>
         </div>
 
@@ -1053,7 +1069,10 @@
             <div class="success-icon">🎉</div>
             <h3>感谢你的反馈！</h3>
             <p>我们已收到你的体验报告，会认真参考每一条建议</p>
-            <button class="feedback-submit" style="margin-top:24px;max-width:200px;margin-left:auto;margin-right:auto;" onclick="resetFeedback()">继续反馈</button>
+            <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+                            <button class="feedback-submit" style="max-width:180px;margin:0;" onclick="resetFeedback()">继续反馈</button>
+                            <button class="feedback-cancel" style="padding:14px 24px;" onclick="showPage('report')">完成反馈</button>
+                        </div>
         </div>
     </div>
 </div>
