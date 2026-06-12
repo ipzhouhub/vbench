@@ -1,7 +1,7 @@
 // Vercel Serverless Function - 代理企业微信 Webhook
-// webhook key 通过环境变量 WECOM_WEBHOOK_KEY 注入，前端不感知
+// webhook key 通过环境变量 QY_WEBHOOK 注入，前端不感知
 
-const WEBHOOK_URL = `https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${process.env.WECOM_WEBHOOK_KEY}`;
+const WEBHOOK_URL = `https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${process.env.QY_WEBHOOK}`;
 
 // 简单内存级限流（单实例 60s 内最多 5 次）
 const rateMap = new Map();
@@ -34,8 +34,8 @@ export default async function handler(req, res) {
     }
 
     // 环境变量检查
-    if (!process.env.WECOM_WEBHOOK_KEY) {
-        return res.status(500).json({ error: '服务端配置错误：缺少 WECOM_WEBHOOK_KEY' });
+    if (!process.env.QY_WEBHOOK) {
+        return res.status(500).json({ error: '服务端配置错误：缺少 QY_WEBHOOK' });
     }
 
     const { name, rating, aspect, content } = req.body || {};
