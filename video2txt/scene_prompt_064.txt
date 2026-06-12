@@ -1,0 +1,83 @@
+Dimension: scene
+Prompt: driveway
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a suburban evening scene where a woman arrives home. A silver sedan pulls into a driveway at dusk, the engine is turned off, and a woman in a beige trench coat exits the vehicle, closes the door, and walks toward a warmly lit two-story house. The sequence captures the transition from day to evening with natural lighting progression and smooth camera movements that follow the action.",
+  "objects_scene": {
+    "primary_objects": [
+      "Silver Toyota sedan (2000s model, likely Corolla or Camry)",
+      "Woman with long brown hair wearing a beige/khaki trench coat and dark clothing underneath",
+      "Two-story suburban house with stone and siding exterior",
+      "White mailbox on post",
+      "Concrete driveway and sidewalk",
+      "Grass lawn with scattered autumn leaves",
+      "Trees with autumn foliage and evergreen trees in background"
+    ],
+    "scene_details": {
+      "setting": "Suburban residential neighborhood at dusk/sunset",
+      "lighting_condition": "Golden hour transitioning to twilight, with warm interior lights visible through house windows",
+      "camera_angles": [
+        "Low-angle tracking shot of car front/side (00:00:00.000-00:00:01.500)",
+        "Close-up of finger pressing engine start/stop button (00:00:01.500-00:00:02.000)",
+        "Medium shot of woman exiting car (00:00:02.000-00:00:03.500)",
+        "Wide establishing shot of house with woman approaching (00:00:03.500-00:00:04.625)"
+      ]
+    }
+  },
+  "motion_quality": {
+    "overall_smoothness": "High",
+    "temporal_consistency": "Generally consistent with minor issues in motion blur",
+    "specific_motions": {
+      "car_movement": "Slow, smooth forward motion into driveway with natural deceleration",
+      "camera_tracking": "Steady pan following the car's movement, maintaining consistent distance",
+      "human_motion": "Woman's door-opening, exiting, and walking motions appear natural and fluid",
+      "door_closing": "Realistic arc and final closure with appropriate timing"
+    },
+    "motion_blur": "Present on car wheels and background during tracking shot, appropriate for simulated camera movement; slight unnatural blur on woman's hand at 00:00:02.000"
+  },
+  "visual_quality": {
+    "resolution": "High-definition, approximately 1080p or higher based on detail clarity",
+    "lighting": {
+      "quality": "Excellent, with realistic golden hour lighting, natural falloff, and proper exposure for dusk conditions",
+      "color_temperature": "Warm oranges and yellows from sunset transitioning to cooler blue shadows",
+      "interior_lighting": "Believable warm glow from house windows suggesting occupied home"
+    },
+    "color_grading": "Naturalistic with autumn color palette—muted greens, warm golds, soft oranges, and cool twilight blues",
+    "detail_level": {
+      "car_surface": "Realistic metallic paint reflections and environmental mapping",
+      "foliage": "Good detail in trees with appropriate autumn leaf colors",
+      "house_texture": "Clear stone and siding detail, window reflections"
+    },
+    "depth_of_field": "Shallow DOF in close-up shots (start button), deeper focus in wide shots"
+  },
+  "prompt_alignment": {
+    "direct_alignment": "Excellent—the prompt 'driveway' is directly and comprehensively addressed",
+    "scene_elements": {
+      "driveway_as_focus": "Central to narrative; car enters, parks on, and woman walks along driveway",
+      "contextual_elements": "All supporting elements (house, car, suburban setting) naturally integrate with driveway concept"
+    },
+    "narrative_coherence": "The video tells a complete micro-story of arriving home, with driveway serving as the transitional space between public road and private home",
+    "semantic_expansion": "AI appropriately expanded 'driveway' into a full domestic arrival scene rather than just a static shot"
+  },
+  "artifacts": {
+    "minor_issues": [
+      {
+        "location": "00:00:01.500-00:00:02.000",
+        "description": "Slight motion blur and softness on finger pressing start button; button text 'START' partially obscured and slightly distorted"
+      },
+      {
+        "location": "00:00:02.000-00:00:02.500",
+        "description": "Minor temporal inconsistency in lighting transition between interior car shot and exterior shot"
+      },
+      {
+        "location": "00:00:03.500-00:00:04.625",
+        "description": "License plate appears slightly blurred/generic (CKM-232 visible but not perfectly sharp)"
+      }
+    ],
+    "major_issues": "None detected",
+    "overall_artifact_severity": "Low—minor issues do not significantly detract from viewing experience"
+  },
+  "overall_rating": 8
+}
+```

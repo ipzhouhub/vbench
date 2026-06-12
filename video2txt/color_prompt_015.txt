@@ -1,0 +1,38 @@
+Dimension: color
+Prompt: a black vase
+============================================================
+```json
+{
+  "summary": "A smooth camera zoom-out animation reveals a matte black vase resting on a light wooden surface against a neutral beige-gray background. The video demonstrates excellent color consistency for the black vase with subtle lighting variations, though the scene is minimalist with no additional elements.",
+  "objects_scene": {
+    "description": "The scene contains a single central object: a matte black vase with an elegant, traditional silhouette featuring a narrow neck, rounded shoulders, and a tapered base. The vase sits on a light-colored wooden surface (appears to be oak or similar with visible wood grain). The background is a plain, neutral beige-to-gray gradient wall. No other objects, subjects, or decorative elements are present. The composition is minimalist and studio-like, focusing entirely on the vase as the sole subject.",
+    "color_analysis": "The black vase exhibits excellent color consistency throughout—appearing as a deep, rich black with subtle warm undertones in certain lighting areas. The matte finish prevents harsh reflections while maintaining depth. The wooden surface provides warm tan/cream contrast, and the background offers neutral gray-beige tones that don't compete with the primary subject."
+  },
+  "motion_quality": {
+    "description": "The primary motion is a smooth, continuous camera zoom-out from an extreme close-up of the vase's upper body to a full reveal showing the complete vase, surface, and background. The zoom is exceptionally smooth with no jitter, stutter, or abrupt changes. The temporal consistency is high—the lighting and shadow placement remain coherent throughout the camera movement. The vase itself is static; only the camera perspective changes. The shadow beneath the vase gradually becomes visible and properly positioned as the zoom completes, indicating consistent lighting direction.",
+    "smoothness_rating": 9.5,
+    "consistency_rating": 9.0
+  },
+  "visual_quality": {
+    "lighting": "Soft, diffused studio lighting from the upper left creates a gentle highlight on the vase's left shoulder and subtle gradient across its surface. The lighting is consistent and physically plausible—the highlight maintains its relative position during zoom, and the cast shadow on the wooden surface is soft and properly oriented. No harsh shadows or overexposed areas.",
+    "colors": "Color palette is restrained and intentional: deep black (vase), warm tan/cream (wood), neutral gray-beige (background). The black of the vase shows excellent tonal range—not a flat void, but with subtle variation that reveals form. Color grading appears natural without artificial tinting.",
+    "resolution": "High resolution with clean edges and no visible pixelation. The matte surface texture of the vase and wood grain detail are crisp. No compression artifacts or banding in gradients.",
+    "depth_of_field": "Slight shallow depth of field effect in initial close-up that gradually resolves to sharper focus throughout, enhancing the cinematic quality."
+  },
+  "prompt_alignment": {
+    "description": "The video aligns precisely with the prompt 'a black vase'—the vase is unambiguously black, clearly a vase (functional vessel form with opening), and is the sole focus. However, the prompt's extreme simplicity leaves room for interpretation; the AI has chosen a minimalist, elegant presentation that elevates the basic request into a refined aesthetic piece. The color specification is perfectly executed: the vase is distinctly black rather than dark gray or charcoal, with the matte finish preventing it from reading as any other color.",
+    "alignment_score": 9.5,
+    "notes": "No extraneous elements violate the prompt. The simplicity of the prompt means high alignment was achievable, though one could argue for more creative interpretation (environment, flowers, etc.)."
+  },
+  "artifacts": {
+    "description": "Minimal artifacts detected. The primary observation is a slight 'plastic-like' quality to the vase surface in some frames—possibly due to the matte finish being slightly too uniform, lacking the micro-texture of real ceramic. The wood grain, while present, has a somewhat synthetic regularity. No significant issues: no morphing, no incoherent frames, no text/watermark artifacts, no anatomical distortions (not applicable here). The shadow edge is slightly soft in a way that suggests rendered rather than photographed, but this is subtle.",
+    "severity": "low",
+    "specific_issues": [
+      "Slightly synthetic surface quality on vase",
+      "Wood grain pattern slightly too regular",
+      "Shadow softness marginally unrealistic"
+    ]
+  },
+  "overall_rating": 8.5
+}
+```

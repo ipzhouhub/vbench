@@ -1,0 +1,40 @@
+Dimension: overall_consistency
+Prompt: Fireworks.
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a fireworks display over a modern cityscape at night. It begins with a single firework ascending and exploding, then transitions to multiple fireworks of various colors (gold, white, purple, blue) bursting simultaneously against the night sky. The camera work shifts from close-up shots of individual explosions to wider aerial views revealing the urban landscape below, including illuminated skyscrapers, a distinctive stadium-like structure, and highway light trails. The sequence captures the temporal progression of a fireworks show from ignition to full display.",
+  "objects_scene": {
+    "primary_subjects": "Fireworks in various stages—ascending trails, spherical bursts, and dissipating sparks",
+    "background_elements": "Night sky, modern cityscape with multiple high-rise buildings, one distinctive twisted/slender skyscraper, a large curved stadium or arena structure, illuminated highways with moving traffic, scattered urban lights",
+    "scene_type": "Urban nightscape with aerial/pyrotechnic display",
+    "notable_details": "The twisted skyscraper appears to be a landmark building; the stadium has a unique curved roof design; traffic light trails suggest long exposure or time-lapse capture"
+  },
+  "motion_quality": {
+    "smoothness": "Generally smooth with some inconsistencies. Firework trajectories follow plausible physics—ascending rockets leave straight trails, explosions radiate outward symmetrically. However, the transition between close-up and wide shots at 00:00:03.000 is abrupt and lacks natural camera movement.",
+    "temporal_consistency": "The sequence logically progresses from single firework to multiple simultaneous bursts, suggesting a crescendo in the display. Spark decay and smoke dispersal appear reasonably timed. Some explosions seem to lack proper lead-in trails, appearing suddenly in mid-air.",
+    "physics": "Gravity effects on falling sparks are depicted; smoke lingers appropriately between bursts. The speed of ascending rockets varies somewhat unnaturally."
+  },
+  "visual_quality": {
+    "lighting": "High contrast between dark night sky and bright pyrotechnics. Fireworks serve as primary light sources with realistic bloom/glow effects. City lights provide secondary ambient illumination. Some frames show overexposure at explosion centers.",
+    "colors": "Rich palette transitioning from warm golds and oranges to cool purples and blues. Color shifts between frames suggest different chemical compositions. Saturation is vivid but occasionally pushes into unnatural territory for purple/blue bursts.",
+    "resolution": "Moderate to high. Fine details in building windows and highway lights are visible in wide shots. Individual sparks are distinguishable in close-ups. Some softness in smoke regions and distant city elements.",
+    "depth": "Aerial perspective provides clear depth layering—foreground buildings, midground fireworks, background urban sprawl."
+  },
+  "prompt_alignment": {
+    "core_subject": "Excellent—fireworks are unmistakably the central focus throughout",
+    "setting": "Strong—night sky and urban context appropriately frame the pyrotechnics",
+    "completeness": "Good—the video captures the essential experience of a fireworks display: ascent, explosion, and decay",
+    "extras": "The cityscape addition enhances rather than detracts from the prompt; the video delivers more context than strictly required",
+    "score": 9
+  },
+  "artifacts": {
+    "temporal_artifacts": "Sudden scene transitions without natural camera movement; some explosions appear without visible launch origin; frame-to-frame coherence breaks down slightly in smoke regions between 00:00:02.500 and 00:00:03.500",
+    "spatial_artifacts": "Occasional spark trajectories that don't conform to radial explosion patterns; building edges near fireworks show slight warping; the twisted skyscraper appears to change proportions between shots",
+    "color_artifacts": "Purple/blue bursts at 00:00:03.000 exhibit slight color banding; overexposed centers lose detail",
+    "structural_issues": "The smoke from earlier explosions doesn't consistently accumulate or interact with later bursts; some fireworks appear to explode at physically impossible proximities without interference",
+    "ai_typical": "Slight 'dreamlike' quality to building architectures; perfect symmetry in some explosions suggests algorithmic rather than organic generation"
+  },
+  "overall_rating": 7.5
+}
+```

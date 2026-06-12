@@ -1,0 +1,42 @@
+Dimension: overall_consistency
+Prompt: A raccoon that looks like a turtle, digital art.
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a fantastical hybrid creature combining raccoon and turtle features in a lush forest environment. The creature has a raccoon's body, head, and tail, but with a large turtle shell covering its back. The video shows a slow camera movement that reveals the creature from behind, gradually moving around to show its face in a cinematic reveal.",
+  "objects_scene": {
+    "main_subject": "A hybrid creature with raccoon body/head/tail and turtle shell on back",
+    "environment": "Dense forest floor with green moss, ferns, and glowing mushrooms",
+    "lighting_setup": "Dappled sunlight filtering through trees, creating god rays and warm atmospheric lighting",
+    "additional_elements": "Various sizes of mushrooms with soft glow, rocky terrain, lush vegetation"
+  },
+  "motion_quality": {
+    "camera_movement": "Slow, smooth circular tracking shot moving from rear to front of creature",
+    "subject_motion": "Minimal - creature remains mostly stationary with slight head movement and subtle breathing",
+    "temporal_consistency": "Excellent - the shell maintains consistent position on body, fur and shell textures remain stable across frames",
+    "smoothness": "Very smooth gradual reveal with no jarring transitions or jumps"
+  },
+  "visual_quality": {
+    "resolution": "High - fine detail visible in fur texture, shell scutes, and moss",
+    "lighting": "Cinematic quality with volumetric light rays, subsurface scattering on mushrooms, realistic shadow casting",
+    "colors": "Rich natural palette - deep greens, warm browns, golden highlights, soft orange mushroom glow",
+    "textural_detail": "Exceptional - individual fur strands, shell growth rings, moss fibers all clearly rendered",
+    "depth_of_field": "Shallow focus with background bokeh that enhances subject isolation"
+  },
+  "prompt_alignment": {
+    "core_concept": "Perfectly captures 'raccoon that looks like a turtle'",
+    "interpretation": "Intelligent design choice to place turtle shell on raccoon body rather than creating a deformed single animal",
+    "artistic_style": "Digital art aesthetic achieved through stylized realism with fantasy elements",
+    "fidelity": "100% match to prompt intent - immediately recognizable as both raccoon and turtle simultaneously"
+  },
+  "artifacts": {
+    "noticeable_issues": "None significant",
+    "minor_observations": [
+      "Slight ambiguity in how shell attaches to body at neck junction (partially obscured by fur)",
+      "Mushroom glow appears slightly uniform/artificial compared to natural bioluminescence"
+    ],
+    "temporal_stability": "No flickering, morphing, or inconsistent elements across the sequence"
+  },
+  "overall_rating": 9
+}
+```

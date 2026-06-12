@@ -1,0 +1,38 @@
+Dimension: subject_consistency
+Prompt: a truck accelerating to gain speed
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a large black semi-truck tractor (without trailer) accelerating on a desert highway during golden hour. The camera starts with a dramatic low-angle frontal view and executes a sweeping arc around the vehicle as it gains speed, transitioning from front to side to rear three-quarter view. The truck kicks up dust, its chrome grille and bumper catch the warm sunset light, and the overall cinematic quality is remarkably high with smooth, consistent motion throughout.",
+  "objects_scene": {
+    "primary_subject": "A black semi-truck tractor (cab only, no trailer) with prominent chrome bull bar/grille guard, dual vertical exhaust stacks, chrome fuel tanks, and a sleeper cab",
+    "environment": "Two-lane desert highway with yellow center line, arid landscape with sparse desert vegetation (sagebrush, dry grasses), rolling hills and mountains in background",
+    "lighting_conditions": "Golden hour/sunset with sun low on horizon, creating dramatic backlighting, long shadows, and warm orange-amber tones",
+    "atmospheric_elements": "Partly cloudy sky with scattered cumulus clouds catching golden light, dust particles kicked up by truck tires"
+  },
+  "motion_quality": {
+    "truck_motion": "The truck accelerates from stationary to high speed with convincing physics—initial wheel slip with dust burst, progressive speed increase, subtle suspension compression and rebound over road imperfections",
+    "camera_motion": "Smooth, continuous arc from dead-center frontal low angle (0:00) sweeping counter-clockwise around the truck's left side, transitioning to profile view (0:02-0:03), ending at rear three-quarter view (0:04-0:05)",
+    "temporal_consistency": "Excellent motion coherence across all frames; no jarring jumps or discontinuities in truck position, camera trajectory, or environmental parallax. Dust trail maintains logical continuity. Wheel rotation speed appropriately increases with apparent velocity",
+    "physics_realism": "Convincing weight and momentum; truck leans slightly into acceleration, road texture blur increases appropriately with speed, background parallax scales correctly"
+  },
+  "visual_quality": {
+    "resolution_detail": "High resolution with crisp detail on chrome surfaces, individual grille bars, tire treads, and distant mountain textures. No apparent pixelation or compression artifacts",
+    "lighting_rendering": "Sophisticated global illumination with accurate reflections on chrome (sky, ground, sun), subsurface scattering in dust clouds, proper exposure handling of bright sun disc without clipping",
+    "color_grading": "Warm amber-gold palette with cyan-blue sky contrast; cinematic color science with crushed blacks in shadow areas and preserved highlight detail",
+    "material_realism": "Chrome exhibits proper Fresnel reflections, paint shows subtle metallic flake, rubber tires have appropriate matte roughness, glass windshield has realistic transparency and reflection"
+  },
+  "prompt_alignment": {
+    "core_action": "Perfect alignment—truck clearly accelerates from rest to high speed with visual indicators (dust, motion blur, engine rev implication through initial wheel slip)",
+    "subject_fidelity": "Accurate—semi-truck is the sole focus, no extraneous elements distract from the accelerating vehicle",
+    "action_clarity": "Excellent—the acceleration is the dominant narrative action, conveyed through multiple visual channels: linear motion, rotational wheel speed, environmental interaction (dust), and temporal progression of speed",
+    "compositional_support": "Camera movement enhances rather than obscures the acceleration, using the arc to showcase increasing velocity through changing perspective and growing motion blur"
+  },
+  "artifacts": {
+    "detected_issues": "Minimal. Extremely subtle temporal flicker in cloud edges at 0:01-0:02; slight softness in furthest background mountains possibly from depth-of-field or generative smoothing",
+    "missing_elements": "No visible driver through windshield (common AI limitation), no license plate detail, no brand logos discernible on truck (intentional or generative avoidance)",
+    "anatomical_logical_consistency": "Truck proportions remain consistent throughout; wheel count and placement accurate (6x4 configuration: steer axle + dual drive axles); shadow casting direction consistent with sun position"
+  },
+  "overall_rating": 9
+}
+```

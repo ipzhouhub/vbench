@@ -1,0 +1,43 @@
+Dimension: temporal_flickering
+Prompt: A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers
+============================================================
+```json
+{
+  "summary": "A serene, slowly-zooming shot of an ornate wrought-iron garden bench nestled among lush blooming flowers and greenery, with soft morning light filtering through trees. The video exhibits minor temporal flickering in foliage and flower details despite smooth camera motion.",
+  "objects_scene": {
+    "central_subject": "An ornate, dark-colored wrought-iron bench with intricate scrollwork and floral patterns in its backrest and seat design",
+    "surrounding_flora": {
+      "roses": "Clusters of peach/cream-colored roses flanking both sides of the bench; deep magenta/red roses in the foreground",
+      "daisies": "White daisies with yellow centers scattered throughout the lower right and left foreground",
+      "background_flowers": "Tall white blooms (possibly lilies or gladiolus), yellow flowers in the mid-ground, and various purple and pink accents",
+      "foliage": "Dense green shrubs, ferns, and leafy plants filling the scene; large tree trunk on the left, leafy canopy overhead"
+    },
+    "setting": "A cultivated garden scene with a narrow dirt/gravel path leading to the bench, bathed in soft, diffused morning sunlight with atmospheric haze in the background"
+  },
+  "motion_quality": {
+    "camera_movement": "Slow, steady forward zoom/dolly toward the bench throughout the approximately 4.6-second duration",
+    "motion_smoothness": "Camera trajectory is smooth and consistent; no abrupt jumps or shakes",
+    "temporal_consistency": "Moderate issues with temporal flickering—subtle shimmering and instability in fine details, particularly in leaves, flower petals, and background foliage. The motion of individual elements (swaying plants) appears slightly unnatural or inconsistent frame-to-frame, suggesting generative video artifacts rather than real-world physics",
+    "object_motion": "No significant independent object motion; scene is largely static except for camera movement and subtle environmental 'breathing' artifacts"
+  },
+  "visual_quality": {
+    "lighting": "Soft, warm, diffused sunlight with gentle dappled shadows on the bench seat. Atmospheric perspective with hazy background creates depth. Lighting is consistent and aesthetically pleasing",
+    "color_palette": "Rich, saturated natural tones—deep greens, warm peaches and creams, vibrant magentas, crisp whites, and earthy browns. Color grading leans warm and inviting",
+    "resolution_and_detail": "Moderate to high resolution; bench metalwork shows clear detail. However, fine details in distant foliage and some flower edges appear slightly smeared or unstable",
+    "depth_of_field": "Shallow to moderate depth of field with foreground flowers slightly softer than the bench, background pleasantly blurred"
+  },
+  "prompt_alignment": {
+    "bench_accuracy": "Excellent—the wrought-iron bench is clearly the focal point, accurately rendered with ornate, decorative metalwork",
+    "flower_abundance": "Very good—abundant blooming flowers surround the bench on all sides, creating the requested tableau",
+    "tranquil_atmosphere": "Successfully conveyed through soft lighting, stillness, and natural garden setting",
+    "overall_match": "High alignment with prompt intent; the scene captures a peaceful, beautiful garden moment centered on the bench"
+  },
+  "artifacts": {
+    "temporal_flickering": "Present—subtle but noticeable shimmering in foliage details, petal edges, and background greenery. This is the primary quality issue",
+    "spatial_inconsistencies": "Minor—some flower positions and leaf shapes appear to shift slightly or lack coherent physical structure upon close inspection",
+    "texture_artifacts": "Slight waxy or painterly quality to some surfaces, particularly in the background, characteristic of AI video generation",
+    "no_other_major_artifacts": "No significant distortion, color banding, or frame drops observed"
+  },
+  "overall_rating": 7
+}
+```

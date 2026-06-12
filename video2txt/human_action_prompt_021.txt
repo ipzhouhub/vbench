@@ -1,0 +1,52 @@
+Dimension: human_action
+Prompt: A person is motorcycling
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a motorcyclist riding along a scenic coastal highway during golden hour. The rider, clad in black gear and helmet, navigates winding curves beside rocky cliffs with the ocean visible in the background. The video demonstrates relatively smooth camera tracking and consistent subject motion, though with some temporal inconsistencies in the rider's posture and environmental details.",
+  "objects_scene": {
+    "primary_subject": "A motorcyclist wearing full black riding gear, including a helmet with visible branding (appears to be 'SHOEI' or similar), leather jacket, gloves, and boots",
+    "vehicle": "A dark-colored modern motorcycle with distinctive circular LED headlight featuring a unique ring design, exposed engine components, and saddlebags",
+    "environment": "Coastal highway with winding asphalt road marked by white lane lines, rocky cliff face on the left, metal guardrail on the right overlooking ocean, directional arrow signs indicating curves",
+    "lighting_conditions": "Sunset/golden hour with low sun position creating long shadows, warm amber and golden tones, lens flare effects",
+    "background_elements": "Distant coastline, calm sea horizon, scattered clouds with warm coloration, subtle contrails in sky"
+  },
+  "motion_quality": {
+    "camera_movement": "Dynamic tracking shot that follows the motorcycle from a low front-three-quarter angle, maintaining consistent distance while smoothly panning to follow the curve",
+    "subject_motion": "Motorcycle leans into turns with reasonable physics, rider shifts weight appropriately for cornering, wheels rotate consistently",
+    "temporal_consistency": "Generally smooth frame-to-frame motion with minor issues: rider's arm position shifts subtly between frames, motorcycle's lean angle occasionally appears slightly inconsistent, shadow direction remains relatively stable",
+    "speed_perception": "Effective sense of forward momentum conveyed through motion blur on road surface, background parallax, and camera tracking speed"
+  },
+  "visual_quality": {
+    "resolution_clarity": "High apparent resolution with crisp details on motorcycle components, road texture, and cliff face geology",
+    "lighting_rendering": "Sophisticated global illumination with realistic bounce light from warm sunset, properly exposed highlights and shadows, convincing subsurface scattering on skin/materials",
+    "color_grading": "Cinematic warm palette dominated by golds, ambers, and deep blues, strong contrast between sunlit and shadowed areas, natural sky gradient",
+    "material_realism": "Convincing metallic reflections on motorcycle chrome, matte finish on helmet, textured asphalt with appropriate specular response, realistic rock surface detail",
+    "depth_of_field": "Moderate depth keeping subject sharp with slight background softening, though not aggressively shallow"
+  },
+  "prompt_alignment": {
+    "core_prompt_fulfillment": "Excellent - clearly depicts 'a person is motorcycling' with unmistakable rider and motorcycle in active motion",
+    "action_accuracy": "The motorcycling action is authentic and central, showing active riding rather than static posing",
+    "context_enrichment": "The AI has added substantial contextual detail beyond the minimal prompt - scenic coastal environment, specific time of day, professional riding gear, and dynamic camera work",
+    "subject_coherence": "Single consistent subject throughout, no unexpected additions or omissions that contradict the prompt"
+  },
+  "artifacts": {
+    "temporal_artifacts": [
+      "Subtle flickering in the headlight ring illumination pattern between frames",
+      "Minor inconsistency in rider's knee position relative to fuel tank across the sequence",
+      "Guardrail posts occasionally appear to shift position slightly relative to background"
+    ],
+    "spatial_artifacts": [
+      "Occasional geometric distortion in the distant coastline curvature",
+      "Slight unnatural smoothness in the road surface texture in some regions",
+      "Helmet visor reflection lacks clear environmental mapping consistency"
+    ],
+    "rendering_artifacts": [
+      "Minimal but present noise in shadow areas",
+      "Some softness in fine detail like chain/sprocket area when in motion",
+      "Lens flare effects appear slightly synthetic in their geometric precision"
+    ]
+  },
+  "overall_rating": 7.5
+}
+```

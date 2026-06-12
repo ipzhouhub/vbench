@@ -1,0 +1,45 @@
+Dimension: spatial_relationship
+Prompt: a tennis racket on the left of a frisbee, front view
+============================================================
+```json
+{
+  "summary": "A short AI-generated video showing a tennis racket lying on grass, followed by a frisbee flying in and landing next to it, creating a static final scene with both objects positioned side by side in a park setting.",
+  "objects_scene": {
+    "description": "The scene depicts an outdoor park environment with lush green grass covering the ground. The background features blurred trees with green and some reddish foliage, suggesting a sunny day in a natural setting. Two main objects are present: a tennis racket with a white grip and black frame, and a white frisbee. The tennis racket lies flat on the grass throughout the video. The frisbee enters from above and lands on the grass to the right of the tennis racket. The camera maintains a low, ground-level perspective with a shallow depth of field that keeps the foreground objects in focus while softly blurring the background.",
+    "objects": [
+      "tennis racket (white grip, black frame, lying horizontally on grass)",
+      "white frisbee (enters mid-video, lands on grass)",
+      "green grass field",
+      "trees and foliage in background"
+    ]
+  },
+  "motion_quality": {
+    "description": "The video begins with a completely static shot of the tennis racket on grass for approximately 1.5 seconds. At around 00:00:01.541, a white frisbee enters the frame from the top, moving downward in an arc. The frisbee rotates as it descends, showing realistic tumbling motion before making contact with the grass at approximately 00:00:02.500. Upon landing, the frisbee bounces slightly and slides a short distance before coming to rest. The motion appears reasonably smooth with consistent physics—the frisbee's trajectory, rotation, and ground interaction follow believable patterns. The temporal consistency is maintained well; shadows and lighting remain stable throughout the sequence. The transition from dynamic motion to static rest is natural.",
+    "smoothness": "Good - frisbee motion is fluid with appropriate acceleration and deceleration",
+    "consistency": "Strong - lighting, shadows, and object properties remain consistent throughout the sequence"
+  },
+  "visual_quality": {
+    "description": "The visual quality is high with photorealistic rendering. The lighting is natural and warm, suggesting late afternoon or early morning sunlight with soft shadows cast across the grass. Colors are vibrant and natural—the greens of the grass show healthy variation from light to dark, and the white elements (racket grip and frisbee) appear clean and well-defined. The depth of field effect is well-executed, with the foreground grass blades showing fine detail while the background trees are pleasantly bokeh-blurred. Resolution appears adequate for clear object identification, with fine details like individual grass blades and the texture of the racket grip visible. The overall aesthetic is polished and professional.",
+    "lighting": "Natural warm sunlight with soft shadows, consistent throughout",
+    "colors": "Vibrant and realistic, good saturation without being oversaturated",
+    "resolution": "Sufficient for clear detail; grass texture and object surfaces are well-defined"
+  },
+  "prompt_alignment": {
+    "description": "The video aligns well with the prompt 'a tennis racket on the left of a frisbee, front view.' The final composition achieves exactly this spatial arrangement: the tennis racket is positioned on the left side of the frame, and the frisbee comes to rest on the right side. The camera angle is a low front view, looking across the grass at the objects. The temporal aspect adds narrative interest—the frisbee's arrival creates the final arrangement rather than starting with it. However, the prompt implies a static scene, and the video delivers this as the end state. The relative positioning is correct with appropriate spacing between objects. The 'front view' is interpreted as a low-angle perspective looking at the objects from the front rather than from above, which is reasonable.",
+    "spatial_accuracy": "Excellent - final frame shows tennis racket clearly on the left, frisbee on the right",
+    "viewpoint_accuracy": "Good - low front perspective as expected",
+    "completeness": "Strong - both required objects present in correct arrangement"
+  },
+  "artifacts": {
+    "description": "Several minor artifacts and quality issues are present. During the frisbee's descent (particularly around 00:00:01.800 to 00:00:02.500), there is slight motion blur on the frisbee that appears somewhat unnatural—more like a smearing effect than true motion blur. The grass interaction shows minor clipping issues where the frisbee appears to slightly intersect with grass blades rather than fully deforming them upon landing. The tennis racket remains completely static with no subtle environmental movement (no wind effect on grass or slight camera drift), which makes the initial segment feel slightly artificial. The frisbee's shadow is not clearly visible during its flight, though this could be attributed to the lighting angle. No significant temporal flickering or color banding is observed.",
+    "issues": [
+      "Unnatural motion blur on descending frisbee",
+      "Minor grass clipping during frisbee landing",
+      "Overly static initial segment lacking environmental subtlety",
+      "Missing or weak shadow for frisbee during flight"
+    ],
+    "severity": "Minor - does not significantly detract from overall quality"
+  },
+  "overall_rating": 8
+}
+```

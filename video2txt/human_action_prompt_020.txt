@@ -1,0 +1,38 @@
+Dimension: human_action
+Prompt: A person is tasting beer
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a man in a bar setting tasting a glass of beer. The sequence shows him picking up the glass, bringing it to his nose, taking a sip, and then lowering it with a satisfied expression. The video demonstrates generally smooth motion with gradual camera zoom, though with some subtle artifacts typical of AI video generation.",
+  "objects_scene": {
+    "subject": "A man with light brown hair and a short beard, wearing a dark blue long-sleeve shirt",
+    "objects": "A tall glass of amber beer with white foam head, a wooden coaster on the bar counter",
+    "scene": "Interior of a warmly lit bar or pub with wooden shelves stocked with various bottles in the background, exposed Edison-style light bulbs, and a wooden bar counter. The background has a pleasant bokeh effect with warm ambient lighting."
+  },
+  "motion_quality": {
+    "smoothness": "The motion is generally smooth with natural easing. The man's arm movement from table to mouth follows a believable arc. The camera executes a slow, steady zoom-in throughout the sequence, moving from a medium shot to an extreme close-up of the man's face and the glass.",
+    "consistency": "The temporal consistency is reasonably good. The beer level in the glass appears to decrease slightly after drinking, and the foam dynamics look plausible. However, the hand grip on the glass shifts subtly in finger positioning across frames, and the man's facial hair shows minor flickering in the closest shots. The foam patterns on the glass interior change somewhat unrealistically between frames."
+  },
+  "visual_quality": {
+    "lighting": "Warm, atmospheric bar lighting with multiple light sources creating a cozy ambiance. The key light appears to come from the front-right, illuminating the man's face and the beer glass attractively. Background lights create pleasant circular bokeh. The beer glass catches light nicely, showing translucency and liquid depth.",
+    "colors": "Rich, warm color palette dominated by ambers, browns, and warm whites. The beer has an appealing golden-amber hue with creamy white foam. The dark blue shirt provides good color contrast against the warm environment.",
+    "resolution": "High resolution with good detail in the foreground subject. The background maintains appropriate softness due to depth of field. Skin texture and fabric details are reasonably rendered, though perfection breaks down slightly in the closest zoom where skin texture becomes slightly waxy or smoothed in characteristic AI fashion."
+  },
+  "prompt_alignment": {
+    "accuracy": "The video aligns well with the prompt 'A person is tasting beer'. The sequence naturally depicts the full tasting experience: visual appreciation (looking at the beer), olfactory evaluation (bringing to nose), and actual tasting (drinking). The man's closed eyes and slight smile suggest savoring the flavor, which enhances the 'tasting' aspect beyond mere drinking.",
+    "completeness": "The prompt is fully satisfied. The subject is clearly a person, the action is unambiguously beer tasting, and the setting appropriately supports this activity."
+  },
+  "artifacts": {
+    "minor_issues": [
+      "Slight finger position inconsistency on the glass across frames",
+      "Foam pattern on glass interior shifts unrealistically",
+      "Minor facial hair flickering in extreme close-up",
+      "Skin texture becomes slightly smoothed/waxy at maximum zoom",
+      "The beer liquid level decrease after drinking is subtle and could be more pronounced",
+      "Background bottle labels and shapes are appropriately blurry but occasionally morph slightly"
+    ],
+    "major_issues": "No major artifacts that break the illusion. The video maintains coherence throughout."
+  },
+  "overall_rating": 7.5
+}
+```

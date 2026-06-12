@@ -1,0 +1,53 @@
+Dimension: scene
+Prompt: train railway
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a steam locomotive traveling across a railway bridge spanning a deep canyon at sunset. The camera begins with an extreme close-up of the train's wheels and drive rods in motion, then smoothly pulls back and upward to reveal the full train, bridge structure, and expansive landscape. The sequence demonstrates impressive temporal consistency and cinematic camera work, though some minor physics and structural anomalies are present.",
+  "objects_scene": {
+    "primary_subjects": [
+      "Steam locomotive with animated wheels, pistons, and drive rods",
+      "Train cars/freight cars trailing behind the engine",
+      "Metal truss arch bridge with railway decking"
+    ],
+    "environment": [
+      "Deep rocky canyon with steep cliff faces",
+      "Coniferous forest on canyon rims",
+      "Dramatic sunset sky with orange, pink, and purple gradients",
+      "Billowing white steam/smoke from locomotive chimney",
+      "Ground-level steam effects near wheels"
+    ],
+    "scene_composition": "The video employs a classic cinematic reveal structure—starting intimate and mechanical (wheels/rod assembly), expanding to show the full locomotive, then pulling back to establish the epic scale of the bridge and canyon landscape. The train moves from left to right across the frame throughout."
+  },
+  "motion_quality": {
+    "temporal_consistency": "Excellent. The wheel rotation, rod articulation, and steam emission maintain coherent motion throughout the sequence. The smoke trail shows proper advection and dispersion as the train progresses.",
+    "camera_movement": "Smooth, continuous pullback and upward tilt that transitions from macro mechanical detail to wide environmental establishing shot. The motion has subtle easing that feels cinematic rather than mechanical.",
+    "physics_simulation": "Generally convincing. The rod and crank mechanisms animate with approximately correct phase relationships. Wheel rotation speed appears consistent with implied train velocity. However, the wheel-to-rail contact lacks visible slip or compression dynamics, and the rod kinematics simplify some real-world complexities of steam locomotive valve gear.",
+    "frame_transitions": "Seamless. No visible cuts or jumps; the temporal flow is continuous from start to end."
+  },
+  "visual_quality": {
+    "lighting": "Highly stylized and dramatic. Golden-hour sunset illumination with strong rim lighting on the train's metal surfaces, warm bounce light on canyon faces, and atmospheric haze in the canyon depth. The light direction remains physically consistent as the camera moves.",
+    "color_grading": "Rich, saturated warm palette (oranges, ambers, deep magentas) contrasted with cool shadow regions in the canyon and on the train's underside. Color temperature shifts subtly from warm ground level to cooler sky tones.",
+    "resolution_and_detail": "High apparent resolution with crisp mechanical details on the locomotive (rivets, piping, wheel spokes) in close-up. Some softening occurs in distant elements, which appears intentional as atmospheric perspective rather than quality degradation.",
+    "materials_and_textures": "Convincing metal surfaces with appropriate specular highlights, weathered paint on the locomotive, rough stone canyon textures, and volumetric cloud/smoke rendering. The steam exhibits proper subsurface scattering and light interaction."
+  },
+  "prompt_alignment": {
+    "core_prompt": "train railway",
+    "alignment_score": "Strong. Both 'train' and 'railway' are central, unambiguous elements. The video goes substantially beyond the minimal prompt to create a complete narrative scene.",
+    "interpretation_quality": "The generation demonstrates sophisticated prompt expansion—interpreting 'train railway' not as a static image but as a dynamic, cinematic moment with appropriate environmental context (bridge, landscape, time of day). The steam locomotive archetype chosen is visually iconic and immediately readable.",
+    "excess_elements": "The elaborate canyon, sunset, and bridge structure exceed the prompt's specificity, but these additions enhance rather than detract from the core concept. No elements contradict the prompt."
+  },
+  "artifacts": {
+    "minor_issues": [
+      "Bridge structure shows slight geometric impossibilities in truss member connections when examined closely—some gusset plates and connection points appear simplified or ambiguous.",
+      "Train wheel flanges lack definitive rail engagement detail; the wheels appear to ride on a flat surface rather than capturing the exact wheel-rail interface geometry.",
+      "Smoke plume exhibits occasional density inconsistencies where it interfaces with sky clouds, suggesting composited volumetric elements.",
+      "Distant canyon walls show subtle texture repetition patterns indicative of procedural generation.",
+      "The locomotive's specific wheel arrangement (appears roughly 2-6-0 or similar) has slightly ambiguous cylinder and valve gear placement that wouldn't satisfy a train enthusiast's scrutiny."
+    ],
+    "major_issues": "None. No obvious temporal flickering, morphing objects, or gross physical violations.",
+    "temporal_artifacts": "The steam emission from the chimney maintains coherent trajectory but shows slightly non-physical persistence—some smoke puffs appear to move with the train rather than purely with ambient wind, a common diffusion model behavior."
+  },
+  "overall_rating": 8.5
+}
+```

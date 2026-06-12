@@ -1,0 +1,42 @@
+Dimension: object_class
+Prompt: a bowl
+============================================================
+```json
+{
+  "summary": "A high-quality AI-generated video showing golden honey being poured into a white ceramic bowl, with smooth camera zoom and realistic fluid dynamics.",
+  "objects_scene": {
+    "description": "The scene features a white, glossy ceramic bowl with subtle decorative embossed patterns on its inner surface, placed on a rustic wooden table with visible grain and knots. A stream of golden amber liquid (honey or syrup) pours continuously from above into the center of the bowl. The background is dark and out of focus, creating a warm, intimate atmosphere. The wooden surface shows natural texture with horizontal planks. No other objects or subjects are present in the frame.",
+    "objects": ["white ceramic bowl", "golden liquid/honey", "wooden table surface"],
+    "scene_type": "close-up food photography style, studio lighting setup"
+  },
+  "motion_quality": {
+    "description": "The video exhibits two primary motions: the continuous pouring of the viscous liquid and a smooth camera zoom-in toward the bowl. The liquid flow is remarkably consistent and physically plausible, forming natural coiling patterns (known as 'liquid rope coiling' or buckling instability) as it accumulates in the bowl. The honey forms concentric swirling ridges that expand outward as more liquid is added. The camera zoom is steady and gradual, starting from a medium shot and moving to an extreme close-up of the liquid surface. The temporal consistency is excellent—the liquid maintains continuous flow without interruption, and the coiling patterns evolve naturally without jumps or reversals.",
+    "smoothness": "Excellent - fluid motion and camera movement are both smooth and continuous",
+    "consistency": "High - no temporal flickering or sudden changes in physics behavior",
+    "physics_realism": "Very good - accurate viscosity behavior, proper liquid accumulation and spreading"
+  },
+  "visual_quality": {
+    "description": "The visual quality is exceptionally high. Lighting is warm and directional, creating beautiful specular highlights on both the glossy ceramic surface and the translucent honey. The color palette is dominated by rich golden ambers, clean whites, and warm brown wood tones. The resolution appears high with fine detail visible in the liquid's surface tension, the wood grain, and the subtle patterns on the bowl. Depth of field is used effectively—the bowl edges soften slightly while the pouring liquid remains sharp. The translucency of the honey is rendered convincingly, with light penetrating the thinner edges and creating darker, more saturated tones where the liquid pools deeply.",
+    "lighting": "Warm, directional studio lighting with excellent specular highlights and soft shadows",
+    "colors": "Rich golden amber, clean white, warm brown wood tones—cohesive and appetizing palette",
+    "resolution": "High—fine detail in fluid surface, material textures, and subtle gradients",
+    "material_rendering": "Excellent—ceramic gloss, honey translucency, and wood matte texture all convincing"
+  },
+  "prompt_alignment": {
+    "description": "The prompt was simply 'a bowl,' which is an extremely minimal and underspecified request. The video significantly exceeds this basic prompt by creating a complete, aesthetically composed scene with the bowl as the central subject. The bowl is prominently featured and clearly identifiable throughout. However, the addition of the pouring honey, the wooden surface, the specific lighting setup, and the camera movement all represent substantial creative extrapolation beyond the literal prompt. While the bowl is undeniably the focal object, the video delivers far more than what was explicitly requested.",
+    "literal_alignment": "The bowl is present and central—technically satisfies the minimum requirement",
+    "creative_extrapolation": "Extensive—added liquid, surface, lighting, motion, and composition not specified in prompt",
+    "appropriateness": "The extrapolation is aesthetically successful and commercially appealing, typical of AI video generation behavior with minimal prompts"
+  },
+  "artifacts": {
+    "description": "Very few artifacts are visible. The liquid physics, while generally excellent, shows slightly simplified behavior in the coiling patterns—the folds are perhaps slightly too regular and symmetrical compared to real honey pouring. At extreme close-up, the liquid surface shows some minor smoothing that suggests simulation rather than filmed reality. The wooden table texture appears somewhat generic and could benefit from more unique character. No obvious flickering, morphing, or temporal inconsistencies are present. The bowl's embossed patterns remain stable and do not distort unnaturally.",
+    "notable_issues": [
+      "Slightly idealized/symmetric liquid coiling patterns",
+      "Generic wood texture lacking unique character",
+      "Minor surface smoothing on liquid at extreme close-up"
+    ],
+    "severity": "Minimal—does not significantly detract from overall quality"
+  },
+  "overall_rating": 8.5
+}
+```

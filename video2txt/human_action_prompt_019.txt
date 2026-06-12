@@ -1,0 +1,41 @@
+Dimension: human_action
+Prompt: A person is strumming guitar
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a young man playing an acoustic guitar in an outdoor garden setting. The video shows a static medium shot with subtle hand movements indicating guitar playing, though the overall motion is quite minimal and approaches near-static imagery.",
+  "objects_scene": {
+    "main_subject": "A young adult male with light brown/blonde hair, short beard, wearing a plain black t-shirt",
+    "instrument": "Acoustic guitar with natural wood finish, dark fretboard with diamond inlays, gold tuning pegs, and a visible brand logo on the headstock",
+    "setting": "Outdoor garden or backyard with wooden fence in background, various potted plants including succulents and leafy green plants, hanging planters, and overcast daylight",
+    "composition": "Medium shot framing the subject from waist up, centered, with guitar positioned horizontally across the frame"
+  },
+  "motion_quality": {
+    "description": "The video exhibits extremely subtle motion that barely qualifies as true video content. The right hand (strumming hand) shows minimal finger movement near the sound hole, while the left hand (fretting hand) has slight positional shifts along the fretboard. However, the motion is so incremental and sparse that it approaches a series of near-identical still frames rather than fluid video.",
+    "smoothness": "Low to moderate - transitions between frames are smooth but the amplitude of motion is minimal, creating a 'frozen moment' or 'living photograph' effect rather than dynamic action",
+    "consistency": "High in terms of maintaining the same pose and scene elements, but low in terms of delivering expected temporal variation for a 'strumming' action",
+    "temporal_characteristics": "Approximately 4.6 seconds of footage with frame-to-frame changes so subtle they are difficult to perceive without close comparison"
+  },
+  "visual_quality": {
+    "lighting": "Soft, diffused natural daylight consistent with overcast conditions; no harsh shadows, even illumination across the subject",
+    "colors": "Naturalistic and muted - earthy browns of the guitar and fence, greens of foliage, neutral skin tones; color grading appears realistic",
+    "resolution": "High apparent resolution with crisp detail visible in guitar wood grain, fretboard inlays, and fabric texture of the t-shirt",
+    "depth_of_field": "Moderate shallow depth with background slightly soft but still recognizable",
+    "overall_appearance": "Photorealistic quality with good detail preservation"
+  },
+  "prompt_alignment": {
+    "accuracy": "Partial match - the prompt specifies 'strumming guitar' but the video delivers something closer to 'holding guitar with minimal hand movement'",
+    "subject_presence": "Full match - person and guitar are clearly present and central",
+    "action_fidelity": "Poor to moderate - while guitar-related hand positioning is correct, the actual strumming motion is not convincingly depicted. The right hand fingers move slightly but do not demonstrate the rhythmic up-down wrist motion characteristic of strumming. The left hand shows some finger repositioning but no clear chord changes or fretboard navigation",
+    "expectation_gap": "A viewer expecting to see energetic or even moderate guitar playing would be disappointed; the video captures the 'idea' of playing guitar rather than the dynamic action"
+  },
+  "artifacts": {
+    "temporal_artifacts": "Minimal motion creates an uncanny 'slightly moving photograph' effect that may feel unnatural to viewers expecting fluid video",
+    "spatial_artifacts": "No obvious distortion, blurring, or anatomical inconsistencies in the single frames",
+    "fine_details": "Guitar strings do not show realistic vibration or displacement from playing; hands maintain somewhat stiff positions",
+    "background_stability": "Background elements remain perfectly static, which is realistic for a fixed camera but contributes to the overall static feel",
+    "notable_issues": "The near-absence of motion could be interpreted as either a technical limitation (model generating video with insufficient temporal variation) or an intentional 'cinematic still' aesthetic, but given the action prompt, it reads as inadequate motion generation"
+  },
+  "overall_rating": 4
+}
+```

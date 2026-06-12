@@ -1,0 +1,57 @@
+Dimension: human_action
+Prompt: A person is using computer
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a man working at a computer workstation in what appears to be a nighttime office environment. The video begins with a close-up of hands typing on a keyboard and gradually reveals more of the scene through camera movement, showing multiple monitors with data dashboards, the man's face, and his subtle emotional reaction transitioning from concentration to a satisfied smile.",
+  "objects_scene": {
+    "primary_subject": "A man with short brown hair, wearing a dark navy blue polo shirt and jeans, seated at a desk",
+    "computer_equipment": [
+      "White/silver wireless keyboard",
+      "White/silver wireless mouse (appears to be Apple Magic Mouse style)",
+      "Two large computer monitors displaying data dashboards with charts, graphs, code, and analytics interfaces",
+      "A laptop or tablet visible in the background"
+    ],
+    "environment": "Modern office setting with large windows showing nighttime cityscape with bokeh light effects from distant buildings, desk lamp providing task lighting",
+    "screen_content": "Complex data visualization interfaces including line charts, bar graphs, circular gauges, numerical data tables, and what appears to be code or terminal output on the rightmost monitor"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, slow dolly/tracking shot that starts focused on the hands and keyboard, then gradually pulls back and tilts upward to reveal the man's face and upper body, before finally pushing in for a close-up facial shot",
+    "subject_motion": "Realistic typing motion with fingers pressing keys in a natural rhythm; right hand eventually moves to the mouse; subtle head movements; facial expression evolution from neutral concentration to slight smile",
+    "temporal_consistency": "Generally consistent with minor issues. The typing motion maintains reasonable continuity throughout the early frames. The transition from typing to mouse usage at approximately 00:00:02.5 is smooth. The cut to the close-up facial shot at 00:00:03.0 is somewhat abrupt but the expression continuity is maintained",
+    "smoothness": "Overall smooth camera motion with no jarring movements; frame-to-frame transitions are mostly coherent except for the mid-shot to close-up transition"
+  },
+  "visual_quality": {
+    "lighting": "Professional cinematic lighting with cool blue tones from the nighttime window and warm accent lighting from the desk lamp; good contrast between subject and background; monitors cast realistic glow on the workspace",
+    "colors": "Predominantly cool color palette with teals, blues, and dark tones; skin tones appear natural and warm in contrast to the environment; monitor displays feature varied colors (orange, green, blue, white) that add visual interest",
+    "resolution": "High resolution with good detail visible in skin texture, fabric weave of the shirt, and individual keys on the keyboard",
+    "depth_of_field": "Shallow depth of field in early frames focusing on hands, gradually expanding; close-up shot has very shallow depth with soft background bokeh",
+    "texture_quality": "Realistic skin texture, fabric details, and surface reflections; keyboard and mouse have appropriate material appearance"
+  },
+  "prompt_alignment": {
+    "core_prompt_match": "Excellent - the video directly and clearly depicts 'a person is using computer'",
+    "specificity": "The prompt was simple and open-ended, and the video expands upon it with a professional, detailed scene that goes beyond minimum requirements",
+    "action_fidelity": "The 'using computer' action is thoroughly represented through typing, mouse interaction, and focused attention on screen content",
+    "context_enrichment": "The AI has added appropriate context (professional setting, data analysis work, nighttime environment) that logically extends from the simple prompt without contradicting it"
+  },
+  "artifacts": {
+    "temporal_issues": [
+      "Slight hand position jump between 00:00:02.0 and 00:00:02.5 when transitioning from keyboard to mouse",
+      "The cut to extreme close-up at 00:00:03.0 creates a slight discontinuity in spatial context"
+    ],
+    "anatomical_issues": [
+      "Minor inconsistency in finger positioning during typing that doesn't perfectly match actual keystrokes",
+      "Slight unnatural smoothness in some finger movements suggesting motion interpolation or generation artifacts"
+    ],
+    "environmental_issues": [
+      "Monitor content appears somewhat generic and 'busy' without clearly readable specific data",
+      "The laptop/tablet in background changes position slightly between frames"
+    ],
+    "facial_generation": [
+      "In the close-up shots, the eyes show slight inconsistency in gaze direction and reflection patterns",
+      "The smile at the end appears slightly asymmetrical in a way that could be natural or could be a minor artifact"
+    ]
+  },
+  "overall_rating": 7.5
+}
+```

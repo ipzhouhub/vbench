@@ -1,0 +1,46 @@
+Dimension: temporal_style
+Prompt: A boat sailing leisurely along the Seine River with the Eiffel Tower in background, pan left
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a tour boat cruising along the Seine River in Paris during golden hour, with the Eiffel Tower prominently visible in the background. The camera executes a smooth leftward pan, following the boat's movement while gradually revealing more of the iconic landmark. The scene captures the romantic atmosphere of Paris at dusk with warm, soft lighting.",
+  "objects_scene": {
+    "primary_subject": "A white, double-decker tour boat (resembling a 'Bateaux Mouches' style vessel) with enclosed lower deck and open-air upper deck carrying passengers",
+    "background_landmark": "The Eiffel Tower, initially appearing as a single structure but developing into a mirrored/doubled image as the video progresses—this appears to be an artifact where two Eiffel Tower silhouettes become visible",
+    "setting": "The Seine River with stone embankments, tree-lined quays, and a multi-arched stone bridge (likely Pont des Invalides or similar)",
+    "environmental_elements": "Calm river water with gentle wake trailing behind the boat, lush green trees along the riverbanks, classical Parisian buildings, warm sunset sky with soft clouds",
+    "atmospheric_details": "Golden hour lighting with the sun low on the horizon, creating warm amber and peach tones in the sky"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, continuous leftward pan that tracks the boat's movement from right-to-left across the frame",
+    "subject_motion": "The boat maintains a steady, leisurely forward speed creating a consistent wake pattern; passengers visible on upper deck appear static (no individual movement discernible)",
+    "temporal_consistency": "Generally smooth with consistent frame-to-frame transitions. The boat's position relative to the background progresses naturally. However, the Eiffel Tower undergoes an unusual transformation—from a single tower to a doubled/mirrored appearance, suggesting temporal inconsistency in the generative model's handling of the landmark",
+    "motion_smoothness_rating": "7/10 - The primary motion is fluid, but the background landmark distortion indicates temporal instability in the generative process"
+  },
+  "visual_quality": {
+    "lighting": "Warm, atmospheric golden hour illumination with soft directional light from the right (setting sun). Nice gradient in the sky from peach to pale blue. Subtle reflections on water surface",
+    "color_palette": "Rich amber, peach, and warm gray tones with natural green foliage. Color grading is cohesive and evocative of Paris at dusk",
+    "resolution_and_detail": "Moderate to good resolution. The boat structure is reasonably detailed, though fine details like individual passenger features are indistinct. The Eiffel Tower's lattice structure is visible but becomes distorted in the doubling artifact",
+    "depth_and_perspective": "Decent sense of depth with atmospheric perspective softening distant elements. The river's surface shows appropriate specular highlights",
+    "image_quality_rating": "6.5/10 - Pleasant aesthetic but with noticeable generative artifacts in the landmark rendering"
+  },
+  "prompt_alignment": {
+    "boat_on_seine": "Excellent - The boat type, river setting, and Parisian context are all accurately represented",
+    "eiffel_tower_background": "Partially fulfilled - The Eiffel Tower is present and prominent, but the 'doubling' artifact significantly deviates from a realistic depiction",
+    "leisurely_sailing": "Good - The boat's speed and calm water convey a relaxed, unhurried pace appropriate for a sightseeing cruise",
+    "pan_left": "Accurately executed - The camera movement clearly pans left, following the boat's trajectory and revealing more of the scene",
+    "overall_alignment": "The core elements of the prompt are addressed, but the Eiffel Tower artifact undermines the realism that would make this a fully successful generation"
+  },
+  "artifacts": {
+    "major_artifact": "EIFFEL TOWER DOUBLING/MIRRORING: The most significant issue is that the Eiffel Tower appears to split or duplicate as the video progresses. By 00:00:02.500, two distinct Eiffel Tower structures are visible, which is physically impossible. This suggests the generative model struggled with maintaining consistent 3D geometry of the landmark across the camera pan",
+    "secondary_artifacts": [
+      "Passengers on the boat appear as indistinct silhouettes without individual definition—typical of current video generation limitations",
+      "The boat's name/text on the hull is illegible/blurry, indicating difficulty with fine text rendering",
+      "Some subtle warping in the water surface and riverbank geometry as the camera pans",
+      "The bridge in the background appears to shift slightly in position relative to the tower, suggesting inconsistent depth mapping"
+    ],
+    "artifact_severity": "The tower doubling is a high-severity artifact that would be immediately noticeable to viewers familiar with Paris. Other artifacts are more typical of current generative video technology"
+  },
+  "overall_rating": 6
+}
+```

@@ -1,0 +1,69 @@
+Dimension: spatial_relationship
+Prompt: a dog on the left of a horse, front view
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a golden retriever dog walking alongside a large chestnut horse in an open grassy field. The camera tracks their movement from a frontal perspective, maintaining the dog on the left side of the horse as specified in the prompt. The scene unfolds under bright daylight with naturalistic lighting and colors.",
+  "objects_scene": {
+    "main_subjects": [
+      {
+        "object": "dog",
+        "description": "Golden retriever with light golden fur, visible collar, mouth open in a happy expression with tongue out, tail wagging. Positioned consistently on the left side of the frame relative to the horse."
+      },
+      {
+        "object": "horse",
+        "description": "Large chestnut/brown horse with lighter blonde mane, muscular build, dark muzzle. Initially faces camera then turns head to its left (viewer's right) while walking."
+      }
+    ],
+    "environment": {
+      "setting": "Open grassland/prairie",
+      "ground": "Green grass with scattered yellow wildflowers and small clumps of taller vegetation",
+      "sky": "Bright blue with scattered white cumulus clouds",
+      "horizon": "Distant tree line visible across the flat landscape"
+    }
+  },
+  "motion_quality": {
+    "description": "Both animals exhibit walking gait with natural limb movement. The horse's legs move in proper quadrupedal sequence, and its mane flows with motion. The dog maintains pace beside the horse with tail wagging motion. Camera executes a smooth tracking shot that pans right to follow the subjects as they move from center toward the right of frame.",
+    "smoothness": "Generally smooth with consistent frame-to-frame motion",
+    "consistency": "Spatial relationship between dog and horse is maintained throughout; dog stays left of horse. However, the horse's head orientation changes from facing camera to profile view, which slightly alters the 'front view' aspect of the prompt over time.",
+    "temporal_coherence": "Good overall, though subtle morphing in leg positions and mane dynamics suggests generative rather than filmed footage"
+  },
+  "visual_quality": {
+    "lighting": "Bright, natural daylight with soft shadows cast beneath the animals. Consistent directional lighting suggesting sun from upper left. Highlights on the horse's coat and dog's fur appear physically plausible.",
+    "colors": "Vibrant and naturalistic—rich greens in grass, warm golden tones on animals, clear blue sky. Color saturation is slightly enhanced, typical of AI generation.",
+    "resolution": "Appears to be high definition (likely 1080p or higher). Fine details visible in fur texture, individual grass blades, and cloud formations.",
+    "depth_of_field": "Moderate—subjects remain in sharp focus while background shows slight atmospheric haze, enhancing sense of depth."
+  },
+  "prompt_alignment": {
+    "spatial_relationship": "EXCELLENT - The dog is consistently positioned to the left of the horse throughout the entire sequence.",
+    "front_view": "PARTIAL - The initial frame presents a frontal view of both animals. However, as they walk, the horse turns its head to its left and the camera tracks laterally, shifting to more of a side/profile perspective by the end. The 'front view' descriptor is not fully maintained temporally.",
+    "overall_match": "The core spatial requirement (dog left of horse) is perfectly satisfied. The 'front view' aspect degrades over time due to camera tracking and subject rotation."
+  },
+  "artifacts": {
+    "noticeable_issues": [
+      {
+        "issue": "Horse leg morphing",
+        "description": "Subtle inconsistencies in horse leg positioning and joint articulation during gait cycle, particularly in hind legs"
+      },
+      {
+        "issue": "Mane dynamics",
+        "description": "Horse's mane occasionally shows unnatural flow patterns, with strands merging or separating in physically implausible ways"
+      },
+      {
+        "issue": "Shadow consistency",
+        "description": "Shadows beneath animals shift slightly in intensity and position relative to consistent light source"
+      },
+      {
+        "issue": "Ground contact",
+        "description": "Occasional frame where horse hooves appear to float slightly above grass plane or clip through terrain"
+      },
+      {
+        "issue": "Dog gait synchronization",
+        "description": "Dog's walking pace sometimes appears slightly mismatched to ground coverage rate"
+      }
+    ],
+    "severity": "Minor to moderate—artifacts are subtle and require close inspection; not immediately distracting at normal viewing speed"
+  },
+  "overall_rating": 7.5
+}
+```

@@ -1,0 +1,48 @@
+Dimension: spatial_relationship
+Prompt: a bottle on the left of a wine glass, front view
+============================================================
+```json
+{
+  "summary": "A high-quality AI-generated video showing a wine bottle and glass on a wooden surface in a warm, kitchen-like setting. A hand enters from above, grasps the bottle, and smoothly pours red wine into the glass. The spatial arrangement perfectly matches the prompt with the bottle positioned to the left of the glass in a front-facing view throughout the sequence.",
+  "objects_scene": {
+    "primary_objects": [
+      "Dark-colored wine bottle with label and foil capsule",
+      "Empty wine glass (Bordeaux-style with large bowl)",
+      "Human hand (entering from top frame)"
+    ],
+    "setting": "Wooden countertop or table surface with warm ambient lighting",
+    "background": "Blurred wooden cabinetry with soft overhead spotlights creating bokeh effects",
+    "materials": "Glossy wood surface with reflections, clear glass, dark glass bottle, liquid wine with viscosity"
+  },
+  "motion_quality": {
+    "hand_movement": "Smooth descent from top of frame at 00:00:00.500, natural finger grasping motion on bottle neck",
+    "bottle_rotation": "Fluid tilt from vertical to approximately 45-degree pouring angle between 00:00:01.000-00:00:02.500",
+    "pouring_action": "Wine flow initiates at 00:00:02.583 with consistent stream, showing realistic liquid dynamics and splash upon contact with glass bottom",
+    "liquid_behavior": "Natural wine cascade with proper fluid physics—initial splash, bubble formation, rising fill level, and meniscus development",
+    "camera": "Subtle push-in/zoom toward the glass during pouring, enhancing focus on the fill action; stable throughout",
+    "temporal_consistency": "Excellent continuity across frames with no jumps or discontinuities in object positions or lighting"
+  },
+  "visual_quality": {
+    "lighting": "Warm, cinematic lighting with key lights creating specular highlights on bottle and glass; soft fill preventing harsh shadows; color temperature approximately 2700-3000K",
+    "color_grading": "Rich amber-brown palette with deep red wine providing color contrast; consistent tonal harmony",
+    "resolution": "High definition with sharp focus on foreground subjects, gradual depth-of-field falloff in background",
+    "textures": "Realistic wood grain, glass transparency with proper refraction, liquid viscosity and surface tension visible",
+    "reflections": "Accurate surface reflections on countertop and within wine glass itself"
+  },
+  "prompt_alignment": {
+    "spatial_relationship": "EXCELLENT - Bottle consistently positioned to the left of the wine glass from the front view perspective throughout entire video",
+    "composition": "Front view maintained as requested; both primary subjects remain centered in frame with proper relative positioning",
+    "prompt_fidelity": "The prompt 'a bottle on the left of a wine glass, front view' is fully satisfied; the added pouring action enhances without contradicting the base instruction",
+    "viewpoint_stability": "Camera remains at consistent frontal elevation, no undesirable angle shifts"
+  },
+  "artifacts": {
+    "detected_issues": [
+      "Minor: Hand appears slightly abruptly at frame edge (00:00:00.500) without full arm visibility—common in generated content",
+      "Very subtle: Wine label becomes partially obscured and slightly distorted during bottle rotation, though this is physically plausible"
+    ],
+    "quality_assessment": "No significant artifacts, glitches, or temporal inconsistencies detected; no morphing, floating elements, or physics violations",
+    "notable_absence": "No watermarks, no frame duplication, no color banding, no unnatural motion blur"
+  },
+  "overall_rating": 9
+}
+```

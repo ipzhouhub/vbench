@@ -1,0 +1,43 @@
+Dimension: color
+Prompt: a yellow bicycle
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a yellow bicycle in an autumn suburban setting during golden hour. The camera performs a slow, smooth pull-back motion that gradually reveals more of the bicycle and its surroundings. The video demonstrates strong color fidelity to the prompt with a cohesive warm palette of yellows, oranges, and amber tones throughout.",
+  "objects_scene": {
+    "primary_subject": "A vintage-style yellow bicycle with cream/yellow frame, black tires, silver crankset and chain, black pedals with orange reflectors, brown leather saddle with spring suspension, curved silver handlebars with black grips, and front/rear fenders",
+    "setting": "Suburban residential street during autumn",
+    "background_elements": "Maple trees with vibrant fall foliage in shades of orange, red, and yellow; scattered fallen maple leaves on asphalt; houses partially visible through trees; distant vehicle; setting sun creating lens flare effects",
+    "ground_surface": "Textured asphalt road with scattered autumn leaves in foreground"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, continuous pull-back (dolly out) motion starting from a tight shot of the crankset/pedal area and gradually revealing the full bicycle",
+    "temporal_consistency": "Excellent - the motion is perfectly smooth with no jitter, stutter, or abrupt changes in speed",
+    "frame_transitions": "Seamless progression from close-up to wide shot over approximately 4.5 seconds",
+    "subject_motion": "Bicycle remains stationary; only camera moves. Leaves and environmental elements are static",
+    "smoothness_assessment": "High-quality cinematic motion with professional-grade easing"
+  },
+  "visual_quality": {
+    "lighting": "Natural golden hour sunlight with warm, directional lighting from behind the trees. Strong backlighting creates rim lighting on the bicycle frame and lens flare artifacts. Soft shadows on the ground",
+    "color_palette": "Dominant warm tones - yellows, oranges, ambers, with complementary cool shadows. The bicycle yellow is consistent and accurately rendered throughout different lighting angles",
+    "resolution": "High definition with crisp detail visible in chain links, tire texture, leaf veins, and asphalt grain",
+    "depth_of_field": "Shallow to moderate depth of field with foreground leaves in sharp focus and background progressively softening",
+    "dynamic_range": "Good highlight and shadow detail despite strong backlighting; some bloom effect around the sun"
+  },
+  "prompt_alignment": {
+    "primary_prompt_fulfillment": "Excellent - the bicycle is distinctly yellow/cream colored and is the clear focal point throughout",
+    "color_accuracy": "The yellow is consistent and natural-looking, not oversaturated or shifting unnaturally during the camera move",
+    "composition": "The bicycle is well-centered and prominently displayed; the autumn setting enhances rather than distracts from the subject",
+    "semantic_alignment": "Fully matches 'a yellow bicycle' with appropriate context and environment",
+    "color_consistency_across_frames": "The yellow frame maintains its hue despite changing angles and lighting conditions during the pull-back"
+  },
+  "artifacts": {
+    "lens_flare": "Minor greenish lens flare spots visible near the crankset area in some frames (notably around 00:00:02.000-00:00:03.500), likely intentional artistic effect",
+    "temporal_artifacts": "None detected - no flickering, pulsing, or morphing",
+    "spatial_artifacts": "Slight softness in extreme background due to depth of field; bicycle structure remains geometrically consistent",
+    "color_artifacts": "No color banding, noise, or unnatural color shifts observed",
+    "structural_integrity": "Bicycle proportions and mechanical details (chain, spokes, frame geometry) remain physically plausible throughout"
+  },
+  "overall_rating": 8.5
+}
+```

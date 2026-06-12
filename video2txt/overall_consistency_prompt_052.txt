@@ -1,0 +1,53 @@
+Dimension: overall_consistency
+Prompt: A raccoon is playing the electronic guitar.
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a raccoon standing upright and playing an electric guitar on what appears to be a concert stage. The video shows moderate temporal consistency with the raccoon maintaining its pose and guitar-playing motion throughout the sequence, though with some subtle morphing and hand movement inconsistencies typical of current AI video generation.",
+  "objects_scene": {
+    "main_subject": "A raccoon with characteristic gray fur, black facial mask, and ringed tail, standing upright on hind legs",
+    "instrument": "A sunburst-colored electric guitar resembling a Gibson Les Paul style with dual humbucker pickups, four control knobs, and a black pickguard",
+    "left_hand_position": "On the guitar neck, appearing to fret notes",
+    "right_hand_position": "Near the strings, suggesting strumming or picking motion",
+    "background_elements": [
+      "Wooden panel wall backdrop",
+      "Colorful stage lights (red, blue, green, purple, orange) creating atmospheric lighting",
+      "Fender-style guitar amplifier on the right side",
+      "Marshall-style amplifier stack partially visible on the left side"
+    ],
+    "setting": "Indoor concert venue or music club stage environment"
+  },
+  "motion_quality": {
+    "overall_smoothness": "Moderate - motion is present but exhibits typical AI video generation characteristics",
+    "temporal_consistency": "The raccoon maintains its general pose throughout, but there are subtle morphing effects in the fur texture, facial features, and especially the hands",
+    "hand_movement": "The right hand shows repetitive strumming-like motion, though finger positions and exact movements are not physically accurate or consistent frame-to-frame",
+    "left_hand": "Remains relatively static on the neck with minor positional drift",
+    "body_motion": "Slight swaying and head movement suggesting engagement with playing, but with some unnatural fluidity",
+    "guitar_position": "Relatively stable in the raccoon's hold, though slight rotations and shifts occur",
+    "camera_motion": "Slow push-in/zoom effect toward the raccoon, gradually tightening the framing from medium shot to closer view"
+  },
+  "visual_quality": {
+    "resolution": "High - appears to be at least 1080p with good detail in fur texture and guitar finish",
+    "lighting": "Dramatic stage lighting with colored spotlights creating atmospheric haze and depth; well-executed for mood",
+    "color_grading": "Warm tones with vibrant accent colors from stage lights; natural wood tones on guitar and wall",
+    "texture_quality": "Fur rendering is detailed with individual strands visible; guitar has realistic sunburst finish and reflective properties",
+    "depth_of_field": "Shallow focus with background slightly blurred, drawing attention to subject",
+    "coherence": "Generally good within individual frames, though temporal coherence has minor issues"
+  },
+  "prompt_alignment": {
+    "raccoon_presence": "Excellent - clearly identifiable raccoon with accurate species characteristics",
+    "guitar_type": "Good - electric guitar is clearly depicted, though technically the prompt said 'electronic guitar' which typically refers to synthesizers or electronic instruments, while this shows an electric guitar (string instrument). This is a common semantic confusion in AI generation where 'electronic guitar' is interpreted as 'electric guitar'",
+    "playing_action": "Good - the raccoon is posed in a playing stance with hands in appropriate positions",
+    "overall_match": "Strong alignment with the intended concept, with the minor semantic note about 'electronic' vs 'electric' guitar"
+  },
+  "artifacts": {
+    "hand_anomalies": "Right hand fingers occasionally blur, merge, or show incorrect number of digits; strumming motion lacks precise physical accuracy",
+    "temporal_morphing": "Subtle shape-shifting in raccoon's face, ears, and body contours across frames",
+    "guitar_string_inconsistency": "Strings do not consistently vibrate or respond to 'playing' in a physically accurate manner",
+    "finger_position_drift": "Left hand fretting position changes slightly without corresponding musical logic",
+    "minor_blurring": "Some motion blur in faster-moving areas that doesn't perfectly match real-world physics",
+    "amplifier_details": "Fender logo appears slightly distorted or generic upon close inspection"
+  },
+  "overall_rating": 7
+}
+```

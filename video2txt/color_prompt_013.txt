@@ -1,0 +1,41 @@
+Dimension: color
+Prompt: an orange bicycle
+============================================================
+```json
+{
+  "summary": "A cinematic tracking shot of a cyclist riding an orange road bicycle along a coastal highway during golden hour sunset. The camera follows from multiple angles, starting with a low rear wheel close-up and gradually pulling back to reveal the full scene, then transitioning to side tracking shots that showcase the bicycle's vibrant color against the warm sunset backdrop.",
+  "objects_scene": {
+    "primary_subject": "A cyclist wearing dark cycling kit, helmet, and black shoes riding an orange road bicycle with deep-section carbon wheels",
+    "bicycle_details": "Bright orange frame, black handlebars with drop bars, aerodynamic design, disc brakes visible, water bottle mounted on frame",
+    "environment": "Winding paved coastal road with white lane markings, steep rocky cliff face on the left, ocean visible on the right, sparse coastal vegetation, dramatic sunset sky with orange and pink clouds",
+    "lighting_conditions": "Golden hour with warm directional light from the setting sun, creating long shadows and rim lighting on the cyclist and bicycle"
+  },
+  "motion_quality": {
+    "camera_movement": "Extremely smooth tracking shots with professional-grade stabilization. The camera starts at a low angle close to the rear wheel, gradually pulls back and rises to reveal the full rider, then transitions to lateral tracking and finally to a dynamic side angle that swoops alongside the cyclist",
+    "subject_motion": "Cyclist maintains consistent pedaling cadence throughout, body position shifts naturally from upright to more aggressive aero position as the camera angle changes. Motion blur on wheels and background indicates realistic speed",
+    "temporal_consistency": "Excellent continuity in the cyclist's position on the road, lighting conditions remain consistent throughout the sequence, suggesting a single continuous take or seamless edit. The progression from close-up to wide shot to side tracking creates a coherent narrative flow"
+  },
+  "visual_quality": {
+    "resolution": "High resolution with crisp detail visible in the bicycle frame texture, road surface, and distant landscape",
+    "color_grading": "Warm cinematic color palette with rich oranges, ambers, and deep blues. The orange bicycle is specifically color-graded to pop against the complementary blue-teal shadows and warm sky",
+    "lighting": "Naturalistic golden hour lighting with beautiful rim light on the cyclist's silhouette, subtle fill light preserving detail in shadows. The orange frame catches the sunset light particularly well, making it glow",
+    "depth_of_field": "Shallow to moderate depth of field in close-ups, transitioning to deeper focus in wide shots. Background shows pleasant bokeh when out of focus",
+    "dynamic_range": "Good highlight and shadow detail, though some cliff face areas approach near-black, which appears intentional for dramatic contrast"
+  },
+  "prompt_alignment": {
+    "core_prompt_fulfillment": "The 'orange bicycle' is the undeniable visual centerpiece. The color is vivid, saturated, and specifically highlighted through lighting and composition choices",
+    "emphasis_techniques": "The bicycle's orange color is emphasized through: direct sunset lighting that makes the frame glow, contrast against the dark asphalt and blue ocean, repeated camera angles that frame the orange frame against the orange sky creating visual harmony, and the dark clothing of the rider which makes the bicycle stand out as the color focal point",
+    "exceeding_prompt": "The video significantly exceeds a simple 'orange bicycle' prompt by creating a complete cinematic narrative with professional cinematography, atmospheric setting, and dynamic camera work that specifically showcases the bicycle's color as a hero element"
+  },
+  "artifacts": {
+    "detected_issues": [
+      "Minor temporal inconsistency in the shadow direction on the road between the opening shot and the wider shots - the shadow appears to shift slightly",
+      "Slight smearing/motion blur artifact in the background vegetation during the fastest camera movements (around 00:00:03.5-00:00:04.5)",
+      "The cyclist's face lacks sharp detail due to backlighting and helmet shadow, though this appears to be an artistic choice rather than a quality defect",
+      "Possible minor frame interpolation artifact in the wheel spokes during certain rotational phases, common in AI-generated or slow-motion footage"
+    ],
+    "overall_cleanliness": "Very clean generation with no obvious distortions, morphing, or physics-breaking elements. The bicycle wheels maintain proper rotational geometry throughout"
+  },
+  "overall_rating": 8.5
+}
+```

@@ -1,0 +1,40 @@
+Dimension: color
+Prompt: a blue car
+============================================================
+```json
+{
+  "summary": "A cinematic showcase of a blue sports car driving along a scenic coastal highway at sunset, featuring dynamic camera angles including close-ups of spinning wheels, aerial views, side mirror reflections, and wide shots of the vehicle silhouetted against the golden sun over the ocean.",
+  "objects_scene": {
+    "primary_subject": "A sleek, metallic blue sports car with aerodynamic design, black wheels with blue trim accents, and distinctive rear light strips",
+    "environment": "Winding two-lane coastal highway built into cliffside terrain, with rocky mountains on one side and open ocean on the other",
+    "atmospheric_elements": "Golden hour sunset with sun low on the horizon casting warm orange and yellow light across the sky and water, scattered clouds with pink and purple hues, calm ocean surface reflecting sunlight",
+    "road_features": "White lane markings, yellow double center lines, paved asphalt surface with realistic texture",
+    "camera_perspectives": "Ultra-low wheel-level tracking shot, elevated aerial/drone following shot, driver's side mirror POV, static roadside wide shot capturing the car passing by"
+  },
+  "motion_quality": {
+    "smoothness": "Excellent - camera movements are fluid and professionally executed, with no jitter or abrupt transitions",
+    "temporal_consistency": "Strong - the car maintains consistent speed and trajectory throughout all angle changes, wheel rotation speed matches vehicle velocity, background parallax is physically accurate",
+    "motion_blur": "Appropriately applied - spinning wheels show realistic radial blur, roadside elements exhibit directional motion blur during side mirror POV, static wide shot has motion blur on the passing car",
+    "continuity": "The sequence flows logically from close detail to wide environmental context, creating a coherent narrative of a continuous drive"
+  },
+  "visual_quality": {
+    "lighting": "Exceptional - sophisticated three-point lighting with warm key light from sunset, cool fill from sky, and golden rim lighting on the car's edges; realistic caustics and reflections on the metallic paint",
+    "colors": "Rich, saturated palette with dominant blues of the car contrasting against warm oranges, yellows, and ambers of the sunset; natural color grading with cinematic teal-orange complementary scheme",
+    "resolution": "High - fine details visible in paint reflections, road texture, rock formations, and distant landscape elements",
+    "depth_of_field": "Shallow focus appropriately used in wheel close-up and mirror shots, with background softly blurred; deep focus in aerial and wide shots",
+    "material_rendering": "Convincing metallic car paint with environment reflections, realistic glass and chrome surfaces, natural-looking rubber tires"
+  },
+  "prompt_alignment": {
+    "color_accuracy": "Perfect - the car is distinctly and prominently blue in every shot, with the color being a defining visual characteristic",
+    "subject_fulfillment": "Complete - the prompt 'a blue car' is fully satisfied with the vehicle as the undeniable focal point throughout",
+    "contextual_enrichment": "The AI has intelligently expanded the simple prompt with an evocative, premium automotive advertising aesthetic that elevates the basic subject into a compelling visual narrative",
+    "color_consistency": "The blue hue remains stable across different lighting conditions - appearing vibrant in direct light, deeper in shadow, and accurately reflected in the side mirror"
+  },
+  "artifacts": {
+    "detected_issues": "Minimal - slight temporal inconsistency in the exact shade of blue between the brightly lit aerial shots and the shadowed rear views; the license plate area appears slightly indistinct/low-detail",
+    "potential_ai_tells": "The car's specific make/model is ambiguous/generic rather than a recognizable real vehicle; wheel spokes occasionally appear to phase slightly suggesting minor temporal interpolation artifacts",
+    "overall_cleanliness": "Very high quality output with no obvious distortions, morphing, or generation failures"
+  },
+  "overall_rating": 9
+}
+```

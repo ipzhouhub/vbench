@@ -1,0 +1,45 @@
+Dimension: temporal_flickering
+Prompt: A tranquil tableau of bedroom
+============================================================
+```json
+{
+  "summary": "A serene bedroom scene captured through a slow, continuous camera pan from left to right. The video depicts a minimalist, warmly lit bedroom with sheer white curtains filtering golden sunlight, a neatly made bed with neutral-toned linens, a wooden headboard with multiple pillows, and a small potted plant on a bedside table. The overall atmosphere is peaceful and contemplative, matching the 'tranquil tableau' concept well.",
+  "objects_scene": {
+    "primary_elements": [
+      "Sheer white curtains covering a large window, diffusing warm sunlight",
+      "Neatly made bed with light beige/cream colored duvet and multiple pillows",
+      "Wooden headboard with recessed panel design",
+      "Small wooden nightstand",
+      "Potted green plant in terracotta pot on nightstand",
+      "Plain light-colored walls"
+    ],
+    "scene_composition": "The camera begins focused on the window area with curtains as the dominant left-side element, then gradually reveals the bed and headboard as it pans right. The room follows a minimalist, Scandinavian or Japanese aesthetic with natural materials and neutral color palette."
+  },
+  "motion_quality": {
+    "camera_movement": "Slow, continuous horizontal pan from left to right across approximately 4.5 seconds",
+    "smoothness": "Generally smooth with subtle, almost imperceptible jitter in some frames",
+    "temporal_consistency": "Good overall consistency in lighting and object positions throughout the pan. No sudden jumps or discontinuities. The motion appears to be a gentle glide rather than a mechanical tracking shot.",
+    "frame_transitions": "Natural progression with gradual reveal of new elements (headboard, pillows) as camera moves"
+  },
+  "visual_quality": {
+    "lighting": "Warm, golden-hour sunlight streaming through sheer curtains creating soft shadows and highlights on the bed. The light quality suggests late afternoon or early morning. Subtle volumetric light effects visible through curtain fabric.",
+    "color_palette": "Dominated by warm neutrals—creams, beiges, soft whites, natural wood tones, with green from the plant as the only color accent",
+    "resolution": "Appears to be high resolution with good detail in fabric textures and wood grain",
+    "depth_of_field": "Moderate depth keeping most elements in acceptable focus, though slight softness in background areas",
+    "contrast": "Gentle contrast with preserved highlight detail in curtain areas and visible shadow detail in darker regions"
+  },
+  "prompt_alignment": {
+    "tranquil_aspect": "Excellent—slow camera movement, soft lighting, uncluttered space, and absence of human presence all contribute to tranquility",
+    "tableau_aspect": "Good—the composed, almost painterly quality of the scene with careful arrangement of elements suits the 'tableau' description",
+    "bedroom_aspect": "Complete and accurate representation of a bedroom environment",
+    "overall_match": "Strong alignment with prompt intent. The video successfully translates the static concept of a tableau into a gentle motion piece while maintaining the contemplative mood"
+  },
+  "artifacts": {
+    "temporal_flickering": "Minimal. Subtle brightness variations between some frames, particularly noticeable in the curtain areas where light interaction with fabric may cause slight shimmering. Not severe enough to disrupt viewing experience.",
+    "spatial_inconsistencies": "None apparent—objects maintain consistent positions and proportions throughout pan",
+    "ai_generation_artifacts": "Minor texture repetition in bedding fabric. Slight unnatural smoothness in some shadow transitions. The plant leaves show typical AI-generated slight ambiguity in fine detail.",
+    "compression_artifacts": "None visible at provided quality"
+  },
+  "overall_rating": 8
+}
+```

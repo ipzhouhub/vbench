@@ -1,0 +1,62 @@
+Dimension: object_class
+Prompt: a spoon
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a serene, hyper-realistic close-up scene of a spoon stirring and lifting dark liquid from a ceramic cup. The video demonstrates impressive fluid dynamics simulation, warm natural lighting, and smooth temporal consistency, successfully fulfilling the simple prompt 'a spoon' with rich contextual detail.",
+  "objects_scene": {
+    "primary_objects": [
+      "A metallic spoon (stainless steel, highly reflective)",
+      "A ceramic cup with embossed decorative patterns (beige/cream colored)",
+      "Dark liquid (appears to be black coffee or tea)",
+      "Matching ceramic saucer beneath the cup"
+    ],
+    "background_elements": [
+      "Wooden table surface with warm grain patterns",
+      "Softly blurred window with natural daylight streaming in",
+      "Indistinct potted plants and furniture in deep bokeh",
+      "Warm ambient indoor lighting suggesting morning or afternoon"
+    ],
+    "scene_composition": "Intimate macro/close-up perspective focused on the cup's rim and liquid surface, with shallow depth of field isolating the subject from the cozy domestic background"
+  },
+  "motion_quality": {
+    "primary_motions": [
+      "Spoon descends from above into the liquid (00:00:00.000-00:00:00.500)",
+      "Spoon stirs the liquid in smooth circular/swirling motions (00:00:00.500-00:00:03.000)",
+      "Spoon lifts upward, scooping liquid (00:00:03.000-00:00:03.500)",
+      "Liquid pours from spoon back into cup in a continuous stream, forming droplets (00:00:03.500-00:00:04.625)",
+      "Ripples propagate across the liquid surface after the spoon exits (00:00:04.000-00:00:04.625)"
+    ],
+    "smoothness_assessment": "Exceptionally smooth motion with no visible stuttering or frame interpolation artifacts. The stirring motion follows natural fluid dynamics with consistent angular velocity. The liquid's response to the spoon's movement—displacement, vortex formation, and surface waves—appears physically plausible and temporally coherent.",
+    "consistency": "The spoon's reflection and the liquid's surface tension behavior remain consistent throughout. The hand holding the spoon (partially visible) moves with natural human kinematics. The ripple patterns and droplet formation follow predictable physics without sudden jumps or reversals."
+  },
+  "visual_quality": {
+    "lighting": "Warm, golden-hour quality natural light from the background window creates rim lighting on the cup's edge and spoon. Soft fill light illuminates the scene without harsh shadows. Caustic light patterns dance on the liquid surface. The lighting evokes a cozy, serene atmosphere.",
+    "colors": "Rich warm palette dominated by browns, creams, and amber tones. The dark liquid provides strong contrast against the light ceramic. Metallic reflections on the spoon show accurate environmental mapping with subtle color temperature variations.",
+    "resolution_and_detail": "High apparent resolution with crisp edge definition on the cup's embossed patterns. Fine details visible in the liquid's micro-bubbles and surface tension meniscus. The bokeh background shows natural circular aperture characteristics. No visible pixelation or compression artifacts in the subject area.",
+    "material_rendering": "Excellent material differentiation: ceramic's matte glaze, liquid's translucent viscosity, metal's specular reflectivity, and wood's diffuse texture are all convincingly rendered."
+  },
+  "prompt_alignment": {
+    "literal_fulfillment": "The prompt 'a spoon' is directly satisfied with the spoon as the clear protagonist of the scene.",
+    "contextual_enrichment": "The AI has intelligently expanded the minimal prompt with a naturalistic scenario (stirring a beverage) that showcases the spoon's function and material properties. The cup, liquid, and environment provide essential context without distracting from the spoon.",
+    "semantic_appropriateness": "The chosen scene—a spoon in a domestic, contemplative moment—is culturally and semantically aligned with how spoons are commonly encountered and photographed. The AI avoided abstract or decontextualized representations.",
+    "prompt_faithfulness_score": "Excellent—the spoon is unmistakably the focus, with motion designed to highlight its form and interaction with its environment."
+  },
+  "artifacts": {
+    "detected_issues": [
+      "Minor hand visibility: The fingers holding the spoon appear slightly unnatural in proportion and skin texture at certain frames, particularly around 00:00:02.500-00:00:03.500, though this is at the edge of frame and heavily motion-blurred.",
+      "Liquid behavior at lift: The transition from stirred liquid to cohesive scoop shows slightly exaggerated viscosity—the liquid clings to the spoon somewhat more tenaciously than typical water-based beverages, though this could represent a syrupy or oily liquid.",
+      "Background coherence: The deepest background elements (furniture shapes) are so heavily blurred they verge on abstract smears, though this is consistent with extreme shallow depth of field."
+    ],
+    "absence_of_common_artifacts": [
+      "No morphing or shape-shifting of the spoon",
+      "No temporal flickering or sudden lighting changes",
+      "No text or watermark intrusions",
+      "No obvious anatomical impossibilities",
+      "No color banding or posterization in gradients"
+    ],
+    "severity_assessment": "Minimal—artifacts are subtle and do not detract from the primary viewing experience. The video approaches production-quality rendering."
+  },
+  "overall_rating": 9
+}
+```

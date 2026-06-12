@@ -1,0 +1,60 @@
+Dimension: subject_consistency
+Prompt: an airplane taking off
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a commercial airplane taking off during golden hour/sunset. The sequence begins with a close-up of a jet engine, transitions to a dramatic runway perspective as the aircraft lifts off, shows a side view of the plane ascending, and concludes with a silhouette view of the airplane climbing into the colorful sky. The video demonstrates strong subject consistency with the airplane remaining the central focus throughout, though there are some minor morphological changes in the aircraft's appearance across different shots.",
+  "objects_scene": {
+    "primary_subject": "Commercial jet airliner (appears to be a twin-engine wide-body aircraft, possibly Boeing 787 or similar)",
+    "secondary_elements": [
+      "Jet engine with visible turbine blades and spiral logo on cone",
+      "Runway with white centerline markings",
+      "Airport control tower in background",
+      "Airport buildings and infrastructure",
+      "Grass areas surrounding runway",
+      "Setting sun creating golden/orange backlighting",
+      "Atmospheric haze and dust particles near ground"
+    ],
+    "scene_setting": "Airport runway during sunset/golden hour with warm orange and purple sky gradients"
+  },
+  "motion_quality": {
+    "smoothness": "Generally smooth camera movements with good motion blur on background elements suggesting speed",
+    "temporal_consistency": "The sequence flows logically from ground level to airborne, but there are abrupt cuts between camera angles rather than continuous motion",
+    "motion_characteristics": [
+      "Engine shot: Static camera with atmospheric dust movement",
+      "Runway takeoff: Low-angle tracking shot following aircraft from behind as it lifts off",
+      "Side view: Panning shot following aircraft ascent",
+      "Final ascent: Fixed or slightly tracking shot from below as plane climbs into sky"
+    ],
+    "physics_realism": "The takeoff motion appears plausible with appropriate landing gear retraction timing, though the rate of climb in the final shots may be slightly exaggerated"
+  },
+  "visual_quality": {
+    "lighting": "Excellent golden hour cinematography with strong backlighting, lens flares, and warm color temperature. The sun creates dramatic rim lighting on the aircraft",
+    "colors": "Rich orange, amber, and purple gradients in the sky transitioning to darker tones. Good color harmony throughout",
+    "resolution": "High resolution with fine detail visible in engine components and aircraft surfaces",
+    "depth_of_field": "Shallow depth of field in engine shot with atmospheric perspective in wider shots",
+    "texture_quality": "Realistic metallic reflections on engine casing, detailed runway surface texture, natural atmospheric haze"
+  },
+  "prompt_alignment": {
+    "core_prompt_match": "Excellent - the video clearly and comprehensively depicts 'an airplane taking off'",
+    "prompt_fidelity": "The video goes beyond a simple takeoff to create a cinematic, multi-angle sequence of the event",
+    "semantic_accuracy": "The subject is unmistakably an airplane, and the action is unambiguously takeoff (not landing, taxiing, or cruising)",
+    "completeness": "The video captures the complete takeoff sequence from pre-rotation to airborne climb"
+  },
+  "artifacts": {
+    "minor_issues": [
+      "Aircraft livery/details change between shots (first shot engine has markings, side view shows different tail design with blue wave pattern)",
+      "Landing gear appears to retract at slightly different rates in different shots",
+      "The aircraft registration/identification markings are blurry or inconsistent",
+      "Some minor morphological inconsistencies in wing shape and engine placement between shots suggest generative interpolation"
+    ],
+    "quality_issues": [
+      "Slight flickering in atmospheric dust particles",
+      "The transition between the low-angle runway shot and side view is an abrupt cut rather than smooth transition",
+      "In the final silhouette shots, the aircraft appears slightly 'wobbly' or unstable in its form"
+    ],
+    "severe_artifacts": "None - no major distortions, impossible physics, or corrupted frames"
+  },
+  "overall_rating": 8
+}
+```

@@ -1,0 +1,36 @@
+Dimension: human_action
+Prompt: A person is shooting basketball
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a basketball player in a red jersey with number 11 shooting a basketball on an outdoor court during golden hour. The sequence progresses from an intense close-up of the player's face, through the shooting motion, to the ball's trajectory and successful basket, concluding with the player's celebratory reaction. The video demonstrates generally smooth motion and cinematic lighting, though with some minor anatomical inconsistencies and occasional blurring.",
+  "objects_scene": {
+    "subjects": "A male basketball player with dark skin, short hair, and a focused expression. He wears a red basketball jersey with white trim and the number '11' on the front, matching red shorts with white waistband, and white athletic shoes.",
+    "objects": "Spalding basketball, outdoor basketball hoop with white backboard and red rim, chain-link fence, metal bleachers, basketball court with white painted lines.",
+    "scene": "Outdoor basketball court during sunset/golden hour, with warm sunlight creating lens flares. Background includes trees, distant buildings, and a clear sky with faint clouds. The setting appears to be a public park or school recreation area."
+  },
+  "motion_quality": {
+    "smoothness": "Generally smooth with cinematic slow-motion feel. The ball trajectory is fluid and follows a realistic parabolic arc. The player's shooting motion from set position to release is continuous and natural.",
+    "consistency": "Mostly temporally consistent. The player's pose transitions logically from preparation to follow-through. However, there are minor issues: the player's ears appear slightly distorted in the opening close-up (00:00:00.000-00:00:01.000), and the overhead shot shows the player's body position as somewhat awkward during release. The celebration at the end is brief but coherent.",
+    "physics": "The ball's flight path and spin appear physically plausible. The swish through the net is satisfying, though the net physics are slightly simplified."
+  },
+  "visual_quality": {
+    "lighting": "Excellent cinematic golden hour lighting with strong rim lighting on the player's skin and jersey. Warm color temperature with orange-yellow sun tones contrasting against cooler sky blues. Lens flare effects add production value.",
+    "colors": "Rich, saturated colors—deep reds on the jersey, warm skin tones, vibrant orange of the basketball, and natural greens and blues in the environment. Strong color grading with a film-like aesthetic.",
+    "resolution": "High resolution with good detail on skin texture, fabric weave of the jersey, and basketball surface texture. Some minor softening during fast motion (ball in flight) and slight blur in background elements due to shallow depth of field.",
+    "composition": "Professional cinematography with varied camera angles: extreme close-up, low-angle hero shot, overhead bird's eye view, tracking shot following the ball, and medium shot for the reaction."
+  },
+  "prompt_alignment": {
+    "fidelity": "Strong alignment with the prompt 'A person is shooting basketball.' The video comprehensively depicts the complete action of basketball shooting from preparation through execution to result.",
+    "completeness": "Exceeds the basic prompt by including the successful outcome (basket made), environmental context, and emotional reaction. The narrative arc within 5 seconds is impressive: focus → action → result → celebration.",
+    "accuracy": "The shooting form is recognizable as a basketball jump shot, though the overhead angle reveals some anatomical simplification in the player's body positioning."
+  },
+  "artifacts": {
+    "anatomical_issues": "Slight ear distortion in the opening close-up (ears appear somewhat elongated/misshapen). In the overhead shot, the player's body proportions and arm positioning seem slightly unnatural.",
+    "temporal_inconsistencies": "The transition from close-up to full-body shot involves a cut rather than a smooth camera movement, but this is a common cinematic technique. The player's facial features are consistent across shots.",
+    "motion_blur": "Some motion blur on the ball during flight and slight blurring in the background during camera movements, which is aesthetically acceptable and even desirable for cinematic feel.",
+    "other": "The net physics when the ball goes through are somewhat simplified—the net doesn't show complex secondary motion or realistic cloth simulation."
+  },
+  "overall_rating": 8
+}
+```

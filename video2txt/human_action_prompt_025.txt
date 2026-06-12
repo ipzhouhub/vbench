@@ -1,0 +1,54 @@
+Dimension: human_action
+Prompt: A person is dancing ballet
+============================================================
+```json
+{
+  "summary": "A ballerina in a white tutu performs ballet movements in a spacious, sunlit dance studio with large windows and wooden floors. The video captures her executing a series of classical ballet poses including plié, relevé, and turns, demonstrating fluid motion and technical precision.",
+  "objects_scene": {
+    "main_subject": "A female ballet dancer with long dark hair, wearing a white leotard with attached tutu, white tights, and pointe shoes",
+    "setting": "Large, bright dance studio with polished wooden floors, white walls, and floor-to-ceiling industrial-style windows with multiple panes",
+    "architectural_elements": "A prominent white structural column near the center-left, visible radiators along the walls, high ceilings with exposed beams",
+    "lighting": "Natural daylight flooding through the windows, creating soft shadows and reflections on the glossy floor",
+    "background": "Minimalist, uncluttered space typical of professional dance studios, with no mirrors visible in the frame"
+  },
+  "motion_quality": {
+    "smoothness": "Excellent - movements flow seamlessly from one position to the next with natural acceleration and deceleration",
+    "consistency": "High - the dancer's body mechanics, weight distribution, and balance remain physically plausible throughout",
+    "temporal_coherence": "Strong - motion blur on the tutu and hair during turns indicates realistic frame-to-frame continuity",
+    "specific_movements": [
+      "Opening position: Second position plié with arms extended",
+      "Relevé onto pointe with controlled ascent",
+      "Pirouette preparation with spotting head movement",
+      "Full rotation turn with hair and tutu dynamically responding to momentum",
+      "Return to balanced position with arms in classical port de bras"
+    ],
+    "physics": "Realistic - the tutu fabric responds to centrifugal force during turns, hair flows naturally with momentum, and pointe shoe contact with floor shows appropriate pressure"
+  },
+  "visual_quality": {
+    "resolution": "High - sharp detail visible in fabric texture, wood grain, and window frames",
+    "lighting_quality": "Natural and well-balanced, with soft diffused daylight avoiding harsh shadows while maintaining dimensionality",
+    "color_palette": "Predominantly whites and warm neutrals - white tutu, white walls, honey-toned wooden floor, soft blue-white sky through windows",
+    "depth_of_field": "Deep focus - entire scene remains sharp from foreground to background",
+    "reflections": "Subtle, realistic reflections of windows and dancer on the polished floor surface",
+    "texture_detail": "Fine detail in tutu tulle layers, pointe shoe satin, skin tones, and floor varnish"
+  },
+  "prompt_alignment": {
+    "fidelity_to_prompt": "Excellent - directly and comprehensively fulfills 'A person is dancing ballet'",
+    "action_accuracy": "Authentic ballet technique demonstrated with proper form and vocabulary",
+    "completeness": "The prompt is simple and the video exceeds expectations by showing a full sequence rather than a static pose",
+    "interpretation": "The AI correctly interpreted ballet as classical ballet with proper attire, setting, and movement quality"
+  },
+  "artifacts": {
+    "noticeable_issues": [
+      "Slight temporal inconsistency in the tutu's fringe movement between frames 00:00:02.000-00:00:02.500 where the rotation momentum appears slightly accelerated",
+      "Minor foot-floor contact ambiguity during the turn - the supporting foot's position relative to the floor shadow is occasionally unclear"
+    ],
+    "subtle_concerns": [
+      "Hair dynamics, while generally realistic, show slightly uniform flow that lacks the complex strand separation seen in real hair",
+      "The dancer's facial expression remains somewhat static and serene throughout, lacking the nuanced exertion markers of genuine physical effort"
+    ],
+    "absence_of_major_artifacts": "No obvious morphing, limb duplication, background distortion, or impossible physics detected"
+  },
+  "overall_rating": 8.5
+}
+```

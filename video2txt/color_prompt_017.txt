@@ -1,0 +1,66 @@
+Dimension: color
+Prompt: an orange cat
+============================================================
+```json
+{
+  "summary": "A short AI-generated video depicting a fluffy orange tabby cat lounging on a patterned blanket, with subtle movements including head turns, ear twitches, and blinking, captured through a gradual camera zoom from medium shot to extreme close-up.",
+  "objects_scene": {
+    "primary_subject": "A long-haired orange/ginger tabby cat with distinct darker orange stripes, white chest fur, and greenish-amber eyes",
+    "setting": "Indoor domestic scene, likely a living room or bedroom",
+    "background_elements": [
+      "Sheer white curtains diffusing natural daylight",
+      "Window with visible green foliage outside",
+      "Dark-colored furniture (possibly couch arm) partially visible"
+    ],
+    "foreground_elements": [
+      "Soft, plush blanket with geometric patterns in cream/beige, gray, and muted red/brown tones",
+      "Southwestern-style diamond and arrow motifs on the blanket"
+    ],
+    "composition": "The cat is positioned diagonally across the frame, initially in a relaxed reclined pose with front paws extended and hind legs tucked to one side"
+  },
+  "motion_quality": {
+    "temporal_consistency": "Generally smooth with minor inconsistencies in fur texture and lighting across frames",
+    "camera_movement": "Slow, steady zoom-in from medium shot (00:00:00.000) to extreme close-up of face (00:00:02.500 onwards)",
+    "subject_motion": [
+      "Subtle head turning from left to right (00:00:00.500 - 00:00:02.000)",
+      "Slight ear rotations and adjustments",
+      "Gentle blinking and half-lidded eye movements (00:00:03.000 - 00:00:04.500)",
+      "Minimal body movement, maintaining relaxed lounging posture throughout"
+    ],
+    "motion_realism": "Cat movements are plausible and cat-like, though the overall motion is quite restrained—typical of AI video generation where complex articulated motion remains challenging"
+  },
+  "visual_quality": {
+    "resolution": "Appears to be standard HD (1080p), sufficient detail in fur texture when viewed at normal distance",
+    "lighting": "Soft, diffused natural daylight creating gentle shadows and warm tones; no harsh highlights or artificial color casts",
+    "color_palette": [
+      "Warm oranges and ambers (cat fur)",
+      "Creams and beiges (blanket base)",
+      "Muted grays and earthy reds (blanket patterns)",
+      "Soft greens (outdoor foliage, heavily blurred)"
+    ],
+    "depth_of_field": "Shallow to moderate, with background curtains and window pleasantly defocused; the extreme close-up has very shallow depth with nose in sharper focus than ears",
+    "texture_detail": "Fur texture is reasonably convincing with visible guard hairs and softer undercoat; blanket texture shows plush pile and woven pattern detail"
+  },
+  "prompt_alignment": {
+    "primary_prompt_match": "Excellent - the 'orange cat' specification is fully satisfied with a clearly orange/ginger colored feline",
+    "color_accuracy": "The orange is naturalistic—neither too red nor too yellow—with realistic tabby striping variations that add authenticity",
+    "implicit_expectations": [
+      "Cat appears healthy and well-groomed (positive)",
+      "Domestic setting is appropriate and cozy (positive)",
+      "No unexpected elements that contradict 'orange cat' (positive)"
+    ],
+    "semantic_completeness": "The prompt is simple and the video expands it appropriately with context (setting, lighting, mood) without adding incongruous elements"
+  },
+  "artifacts": {
+    "minor_issues": [
+      "Slight temporal flickering in fur texture, particularly noticeable in the chest ruff during the zoom transition (00:00:02.000 - 00:00:03.000)",
+      "Subtle morphing of facial features during extreme close-up—the nose and muzzle area shows minor geometric instability",
+      "Whiskers appear slightly too uniform and occasionally merge with background or fur in a way that suggests generative rather than captured detail",
+      "Eye reflections lack the crisp catchlights that would indicate a real light source; pupils have a somewhat 'painted' quality at times"
+    ],
+    "no_major_artifacts": "No obvious anatomical deformities, extra limbs, or scene-breaking inconsistencies",
+    "overall_artifact_severity": "Low to moderate—typical of current-generation AI video (likely Sora, Runway, or similar circa 2024-2025)"
+  },
+  "overall_rating": 7.5
+}
+```

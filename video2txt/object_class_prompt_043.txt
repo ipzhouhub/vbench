@@ -1,0 +1,49 @@
+Dimension: object_class
+Prompt: a parking meter
+============================================================
+```json
+{
+  "summary": "A short, photorealistic video depicting a vintage-style parking meter on a city sidewalk during golden hour. The scene features a hand briefly interacting with the meter before retracting, leaving the meter static for the remainder of the clip. The video demonstrates strong visual fidelity with cinematic lighting and shallow depth of field, though the motion is minimal and limited to the hand interaction.",
+  "objects_scene": {
+    "primary_object": "A classic, dome-topped parking meter with a dark green/black metal body, featuring a coin slot and a display window showing 'TIME OK' in pixelated/digital-style text",
+    "secondary_elements": [
+      "A human right hand entering from frame right, with index finger extended",
+      "Urban street background with blurred buildings, pedestrians, and vehicles",
+      "Sidewalk with concrete surface and shadows",
+      "Street lamp posts receding into the background"
+    ],
+    "scene_setting": "City street during late afternoon or early evening (golden hour), with warm sunlight casting long shadows. The shallow depth of field keeps the parking meter in sharp focus while the background remains heavily blurred (bokeh effect). The perspective is low, approximately at the height of the parking meter itself."
+  },
+  "motion_quality": {
+    "smoothness": "High. The camera movement is subtle and smooth, with a slow, almost imperceptible drift or stabilization. The hand motion is natural and fluid, entering and exiting the frame without jitter.",
+    "consistency": "Good temporal consistency. The lighting, shadows, and background elements remain stable throughout the clip. The hand's interaction with the meter is brief (approximately 1.5 seconds) and physically plausible.",
+    "motion_description": "The video begins with a static shot of the parking meter. At 00:00:00.500, a hand enters from the right. The index finger touches and presses the top edge of the meter near the coin slot area from 00:00:01.000 to 00:00:02.500, then the hand exits the frame. The remainder of the video (from 00:00:02.500 to 00:00:04.625) returns to a nearly static shot with only subtle environmental movement in the blurred background."
+  },
+  "visual_quality": {
+    "lighting": "Excellent. Warm, golden-hour sunlight creates a cinematic atmosphere. The light rakes across the meter's surface, highlighting its metallic texture and creating realistic specular highlights. Shadows are soft and directional, consistent with a low sun angle.",
+    "colors": "Rich, warm color palette dominated by amber, gold, and teal-green tones. The color grading suggests a film-like aesthetic with slightly crushed blacks and lifted shadows in the background. The 'TIME OK' display has a greenish-yellow glow typical of older LED or LCD screens.",
+    "resolution": "High apparent resolution. Fine details are visible on the parking meter's surface, including scratches, dust, and weathering. The shallow depth of field is well-executed with natural bokeh in the background.",
+    "texture_and_detail": "The parking meter shows realistic material properties—metallic paint with wear, glass or plastic dome with slight grime, and the matte finish of the display area. The hand shows natural skin texture and lighting response."
+  },
+  "prompt_alignment": {
+    "primary_prompt_match": "Excellent. The video directly and accurately depicts 'a parking meter' as requested.",
+    "fidelity_to_concept": "The parking meter is instantly recognizable and correctly rendered as a standalone, single-space mechanical/electronic meter (not a modern multi-space kiosk or digital payment station). The vintage aesthetic aligns with common cultural understanding of parking meters.",
+    "additional_elements": "The prompt did not specify environment, lighting, or interaction, but the AI has added a realistic urban context and human interaction that enhances rather than detracts from the core subject. No elements contradict the prompt.",
+    "semantic_accuracy": "100% - the central object is unambiguously a parking meter with all expected features: coin slot, time display, dome top, pole mounting (implied), and street-side placement."
+  },
+  "artifacts": {
+    "noticeable_issues": [
+      "The 'TIME OK' text appears to be a digital/pixelated display on what seems to be an older mechanical meter, which is slightly anachronistic—vintage dome meters typically had mechanical flags or analog displays, though hybrid electronic-mechanical meters did exist.",
+      "The hand interaction is somewhat ambiguous in purpose—the finger presses near but not clearly on a specific button or mechanism, making the action's intent unclear.",
+      "Extremely shallow depth of field in the background makes it difficult to verify geometric consistency of distant elements, though this appears intentional stylistically."
+    ],
+    "minor_issues": [
+      "The coin slot appears as a dark rectangle without visible depth or interior detail when examined closely.",
+      "Background pedestrian and vehicle motion is so heavily blurred that it approaches abstraction, though this is consistent with the optical properties of a wide-aperture lens.",
+      "No significant temporal flickering, morphing, or physics-breaking artifacts detected."
+    ],
+    "overall_cleanliness": "Very clean generation with minimal AI artifacts. The photorealistic quality is maintained throughout."
+  },
+  "overall_rating": 8
+}
+```

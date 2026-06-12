@@ -1,0 +1,46 @@
+Dimension: multiple_objects
+Prompt: a frisbee and skis
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a skier in an orange jacket performing an aerial trick while catching a colorful frisbee mid-air on a sunny alpine ski slope. The sequence shows the skier approaching a jump, launching into the air, grabbing the frisbee, and landing smoothly.",
+  "objects_scene": {
+    "primary_objects": [
+      "A skier wearing an orange jacket, black pants, helmet, and goggles",
+      "A pair of skis",
+      "A colorful, rainbow-patterned frisbee",
+      "Snow-covered mountain terrain with groomed slopes",
+      "Ski lift infrastructure (chairs, cables, pylons)",
+      "Distant mountain peaks"
+    ],
+    "scene_description": "The setting is a bright, sunny day at a ski resort with clear blue skies. The terrain features a sculpted snow jump/ramp on the left side, with corduroy-groomed snow surfaces. Multiple ski lift chairs are visible in the background traversing across the mountain landscape. The sun is positioned low in the sky, creating a starburst lens flare effect."
+  },
+  "motion_quality": {
+    "smoothness": "Generally smooth camera tracking that follows the skier's trajectory. The motion has a cinematic quality with slow-motion characteristics during the aerial phase.",
+    "consistency": "The skier's body mechanics are largely consistent throughout the jump approach and takeoff. The frisbee maintains a relatively stable position in the sky before being caught. However, there are some inconsistencies in the skier's limb positioning and ski orientation during the landing phase.",
+    "temporal_characteristics": "The video appears to use variable speed - real-time during approach, slow-motion during the aerial peak, and returning toward normal speed for landing. This creates dramatic emphasis on the frisbee catch moment."
+  },
+  "visual_quality": {
+    "lighting": "Bright, high-contrast alpine lighting with strong directional sunlight. The sun creates pronounced shadows and a prominent starburst lens flare that moves relative to the skier during the aerial maneuver.",
+    "colors": "Vibrant and saturated, particularly the orange jacket against the blue sky and white snow. The frisbee displays rainbow/iridescent colors. The color palette is clean and visually appealing.",
+    "resolution": "High resolution with good detail on snow textures, though some areas appear slightly smoothed or painterly characteristic of AI generation.",
+    "depth_of_field": "Moderate depth with background mountains slightly softened, keeping focus on the skier."
+  },
+  "prompt_alignment": {
+    "core_elements": "Both 'frisbee' and 'skis' are prominently featured and central to the action. The video directly integrates both objects into a coherent narrative - skiing while interacting with a frisbee.",
+    "interpretation": "The AI interpreted the prompt creatively by combining the two objects into a single athletic feat rather than showing them separately. This demonstrates compositional understanding.",
+    "alignment_score": "Strong alignment - both requested objects are clearly visible, properly rendered, and functionally integrated into the scene."
+  },
+  "artifacts": {
+    "noticeable_issues": [
+      "The frisbee appears somewhat translucent and artificially glowing/rainbow-colored, not resembling a standard frisbee material",
+      "During landing (around 00:00:03.5-00:00:04.5), the skier's skis appear to compress and deform unnaturally, and leg positioning becomes ambiguous",
+      "The skier's shadow on landing doesn't perfectly match the body position",
+      "Some background ski lift chairs appear to phase or shift slightly between frames",
+      "Snow spray/deformation at landing looks somewhat artificial and lacks proper particle physics"
+    ],
+    "temporal_inconsistencies": "The frisbee's trajectory is somewhat physically implausible - it hovers rather than follows a proper parabolic arc, suggesting it was positioned for compositional rather than physical reasons."
+  },
+  "overall_rating": 7
+}
+```

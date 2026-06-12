@@ -1,0 +1,52 @@
+Dimension: color
+Prompt: a purple bowl
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a purple ceramic bowl on a wooden surface being filled with a stream of clear liquid. The camera gradually zooms out as water pours into the bowl, creating ripples and rising water levels. The video demonstrates reasonable color accuracy for the purple bowl but shows some limitations in liquid physics simulation and temporal consistency.",
+  "objects_scene": {
+    "primary_objects": [
+      "Purple ceramic bowl with matte finish and visible concentric texture rings on interior surface",
+      "Clear liquid (water) being poured from above frame",
+      "Dark wooden table surface with visible grain patterns"
+    ],
+    "background": "Blurred indoor setting with dark cabinetry or paneling, soft ambient lighting from left side creating subtle highlights",
+    "scene_composition": "Centered bowl with top-down pouring action, shallow depth of field keeping focus on bowl interior"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth gradual zoom-out from close-up of bowl interior to wider shot showing full bowl and surroundings (approximately 0-1.5 seconds)",
+    "liquid_motion": "Continuous stream of water with some unnatural characteristics - the stream maintains overly consistent diameter with minimal natural variation, splash dynamics appear somewhat simplified",
+    "temporal_consistency": "Generally smooth frame-to-frame transitions for camera and bowl, but water surface ripples show slight jitter and unnatural persistence patterns. The liquid accumulation doesn't perfectly match volume expectations - water level rises somewhat unevenly relative to pour rate",
+    "physics_realism": "Moderate - basic fluid behavior present but lacks complex secondary motion like droplet separation, surface tension effects, or realistic splash crown formation"
+  },
+  "visual_quality": {
+    "lighting": "Soft diffused lighting from upper left, creating gentle gradients on bowl interior. Subtle caustic effects visible in water pool. Shadow beneath bowl is soft but slightly static",
+    "colors": {
+      "bowl_color": "Muted purple/lavender with good saturation consistency across surface, though slight color shifting between interior and exterior",
+      "water_color": "Clear with slight refraction tinting, plausible transparency",
+      "wood_tone": "Dark brown-gray with natural grain variation"
+    },
+    "resolution": "Appears to be standard HD resolution, adequate detail on ceramic texture but some softness in water edges",
+    "texture_quality": "Bowl surface shows convincing ceramic matte texture with subtle imperfections; wood grain appears somewhat repetitive upon close inspection"
+  },
+  "prompt_alignment": {
+    "core_prompt_match": "Excellent - the purple bowl is clearly the central subject and accurately colored",
+    "prompt_adherence": "The prompt 'a purple bowl' is minimally interpreted with added context (pouring water, wooden surface, indoor setting). The AI has expanded the simple prompt into a complete scene, which is typical generative behavior",
+    "color_fidelity": "Purple hue is consistent and recognizable, not drifting into blue or pink territories. The matte finish helps maintain color perception under varying light angles"
+  },
+  "artifacts": {
+    "noticeable_issues": [
+      "Water stream occasionally shows unnatural straightness and lack of micro-perturbations expected in real fluid flow",
+      "Surface ripples at water-liquid interface sometimes appear to 'reset' or conflict with previous frame patterns",
+      "Minor color banding in shadow regions beneath bowl",
+      "Bowl rim shows very slight geometric instability in some frames"
+    ],
+    "subtle_issues": [
+      "Wood grain pattern appears to shift slightly in peripheral regions during zoom-out",
+      "Reflection of water on bowl interior doesn't perfectly track with water level rise",
+      "No visible bubbles or aeration in poured water, which is physically unlikely"
+    ]
+  },
+  "overall_rating": 6.5
+}
+```

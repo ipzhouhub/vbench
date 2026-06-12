@@ -1,0 +1,42 @@
+Dimension: temporal_style
+Prompt: a shark is swimming in the ocean, with an intense shaking effect
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a great white shark swimming directly toward the camera in deep ocean waters, with a pronounced intense shaking effect applied throughout. The shark gradually approaches from a medium distance to an extreme close-up of its teeth-filled mouth, while the entire frame exhibits vigorous, chaotic motion that creates a sense of aggression and instability.",
+  "objects_scene": {
+    "primary_subject": "A single great white shark (Carcharodon carcharias), rendered with considerable detail including visible scarring on its snout, textured skin, multiple rows of serrated triangular teeth, and characteristic dorsal and pectoral fins",
+    "environment": "Deep underwater ocean scene with dark blue-teal water, volumetric light rays filtering from the surface above, and particulate matter suggesting marine depth",
+    "camera_perspective": "Fixed frontal position facing the shark's approach, creating a direct confrontational viewpoint that intensifies the threatening atmosphere",
+    "notable_details": "The shark's mouth gradually opens wider as it approaches, revealing gum tissue and multiple tooth rows; scarring patterns on the snout suggest prior battles or encounters"
+  },
+  "motion_quality": {
+    "primary_motion": "The shark swims forward toward the camera in a roughly linear trajectory, with subtle side-to-side body undulation characteristic of shark locomotion",
+    "shaking_effect": "An intense, high-frequency camera shake dominates the temporal experience—vertical and horizontal jitter creates constant frame displacement, simulating either camera instability, water turbulence, or aggressive predator movement",
+    "smoothness": "Low; the deliberate shaking effect overrides any natural fluidity. The shark's own motion appears somewhat smooth beneath the shake, but the composite result is jarring and erratic",
+    "temporal_consistency": "Moderate. The shark's approach trajectory remains coherent despite the shake, with consistent scaling indicating continuous forward motion. However, the shaking amplitude varies slightly, and some frames show discontinuous jumps",
+    "motion_blur": "Present in some frames, particularly during peak shake displacement, contributing to a sense of speed and instability"
+  },
+  "visual_quality": {
+    "lighting": "Atmospheric underwater lighting with strong top-down volumetric rays creating a cathedral-like effect. The shark's underside falls into deep shadow while the dorsal surface catches muted highlights. Effective use of contrast to model form despite limited light sources",
+    "color_palette": "Restricted to deep blues, teals, and near-black shadows with subtle warm undertones in the gums and scar tissue. Monochromatic in a way that enhances the ominous mood",
+    "resolution": "Appears to be high resolution (likely 1080p or above based on detail visibility), though the shaking effect reduces perceived sharpness in motion",
+    "textural_detail": "Impressive surface detail on shark skin—dermal denticles, scarring, and mucosal textures in the mouth are visible. Water surface caustics and particulate suspension add environmental realism",
+    "depth_of_field": "Shallow, with the shark's face in critical focus while background water blurs progressively. This intensifies as the shark approaches, with final frames showing extremely narrow focus on teeth"
+  },
+  "prompt_alignment": {
+    "shark_swimming": "Fully satisfied—the shark is unequivocally swimming, with appropriate body mechanics and forward propulsion",
+    "ocean_setting": "Fully satisfied—authentic deep-ocean environment with appropriate lighting, color, and atmospheric effects",
+    "intense_shaking_effect": "Fully satisfied and arguably exceeded—the shaking is pervasive, aggressive, and dominates the viewing experience. The intensity level is high enough to be somewhat disorienting, which aligns with the 'intense' descriptor",
+    "overall_fidelity": "Strong alignment. The video delivers exactly what was requested with no extraneous elements or missing core components"
+  },
+  "artifacts": {
+    "temporal_artifacts": "Occasional frame-to-frame inconsistencies in the shaking pattern suggest algorithmic rather than physical camera motion. Some frames show slight ghosting or doubled edges during peak displacement",
+    "anatomical_minor_issues": "The shark's eyes appear somewhat simplified or recessed in certain frames; the gill slits are not prominently visible, though this is partially due to angle and lighting",
+    "water_physics": "Limited bubble generation or wake turbulence around the shark's body, which would be expected at this approach speed. The water feels somewhat static beyond the shark and shake effect",
+    "shaking_artifact_interaction": "The intense shake occasionally creates moiré-like patterns or edge aliasing on the shark's high-contrast silhouette boundaries, particularly around the fin tips",
+    "no_major_failures": "No obvious morphological corruption, missing anatomy, or scene-breaking inconsistencies detected"
+  },
+  "overall_rating": 7.5
+}
+```

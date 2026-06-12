@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBench 评测报告 - Seedance + Whaleze AI 文生视频能力评估</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --primary: #38bdf8;
+            --purple: #a78bfa;
+            --green: #34d399;
+            --pink: #f472b6;
+            --orange: #fb923c;
+            --red: #f87171;
+            --yellow: #fbbf24;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(15,23,42,0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+        }
+        nav .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; gap: 4px;
+            overflow-x: auto; white-space: nowrap;
+        }
+        nav a {
+            display: inline-block; padding: 14px 20px;
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.9em; font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        nav a:hover, nav a.active { color: var(--primary); border-bottom-color: var(--primary); }
+        nav a.nav-feedback {
+            margin-left: auto;
+            color: var(--pink);
+            border-bottom-color: transparent;
+            position: relative;
+        }
+        nav a.nav-feedback:hover { color: #ff8ed4; border-bottom-color: var(--pink); }
+        nav a.nav-feedback::before {
+            content: '';
+            position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            transition: width 0.3s;
+        }
+        nav a.nav-feedback:hover::before { width: 80%; }
+
+        /* Feedback Page */
+        .feedback-page {
+            min-height: 80vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 40px 20px;
+        }
+        .feedback-card {
+            width: 100%; max-width: 640px;
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .feedback-card::before {
+            content: '';
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 180deg, transparent, var(--pink), transparent, var(--purple), transparent);
+            animation: feedbackGlow 6s linear infinite;
+            opacity: 0.06;
+        }
+        @keyframes feedbackGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .feedback-card > * { position: relative; z-index: 1; }
+        .feedback-title {
+            font-size: 1.8em; font-weight: 800;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .feedback-subtitle { color: var(--text-muted); margin-bottom: 32px; font-size: 0.95em; }
+        .feedback-field { margin-bottom: 20px; }
+        .feedback-field label {
+            display: block; color: var(--text-secondary);
+            font-size: 0.9em; font-weight: 600; margin-bottom: 8px;
+        }
+        .feedback-field input,
+        .feedback-field textarea,
+        .feedback-field select {
+            width: 100%; padding: 12px 16px;
+            background: rgba(51,65,85,0.5);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 0.95em;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .feedback-field input:focus,
+        .feedback-field textarea:focus,
+        .feedback-field select:focus {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(244,114,182,0.15);
+        }
+        .feedback-field textarea { resize: vertical; min-height: 120px; }
+        .feedback-field select option { background: var(--card-bg); }
+        .rating-group {
+            display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .rating-btn {
+            flex: 1; min-width: 60px;
+            padding: 10px 8px;
+            background: rgba(51,65,85,0.4);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 0.9em; font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.25s;
+        }
+        .rating-btn:hover { border-color: var(--pink); color: var(--pink); }
+        .rating-btn.selected {
+            background: linear-gradient(135deg, rgba(244,114,182,0.2), rgba(167,139,250,0.2));
+            border-color: var(--pink);
+            color: var(--pink);
+            box-shadow: 0 0 12px rgba(244,114,182,0.15);
+        }
+        .feedback-submit {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            border: none; border-radius: 12px;
+            color: #fff; font-size: 1em; font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 8px;
+        }
+        .feedback-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(244,114,182,0.3);
+        }
+        .feedback-submit:active { transform: translateY(0); }
+        .feedback-submit:disabled {
+            opacity: 0.5; cursor: not-allowed;
+            transform: none !important; box-shadow: none !important;
+        }
+        .feedback-success {
+            text-align: center; padding: 40px 0;
+            display: none;
+        }
+        .feedback-success .success-icon {
+            font-size: 4em; margin-bottom: 16px;
+            animation: successPop 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        @keyframes successPop {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .feedback-success h3 {
+            font-size: 1.4em;
+            background: linear-gradient(135deg, var(--green), var(--primary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .feedback-success p { color: var(--text-muted); margin-top: 8px; }
+        .feedback-error {
+            color: var(--red); font-size: 0.85em;
+            margin-top: 8px; display: none;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Typography */
+        h1 { font-size: 2.2em; color: var(--primary); margin-bottom: 6px; font-weight: 800; letter-spacing: -0.5px; }
+        h2 { font-size: 1.5em; color: var(--text-secondary); margin: 36px 0 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px; font-weight: 700; }
+        h3 { color: #cbd5e1; margin: 24px 0 12px; font-weight: 600; }
+        h4 { color: var(--text-secondary); margin: 18px 0 10px; font-size: 1.05em; }
+        .subtitle { color: var(--text-muted); font-size: 0.95em; margin-bottom: 30px; }
+        .card {
+            background: var(--card-bg); border-radius: 12px; padding: 24px;
+            margin-bottom: 20px; border: 1px solid var(--border);
+        }
+
+        /* Badge / Tag */
+        .badge {
+            display: inline-block; padding: 3px 10px; border-radius: 6px;
+            font-weight: 600; font-size: 0.85em;
+        }
+        .badge-blue { background: #1d4ed820; color: var(--primary); }
+        .badge-purple { background: #7c3aed20; color: var(--purple); }
+        .badge-green { background: #065f4620; color: var(--green); }
+        .badge-yellow { background: #854d0e20; color: var(--orange); }
+
+        /* Score Hero */
+        .score-hero {
+            text-align: center; padding: 48px 24px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 16px; border: 2px solid var(--primary);
+            margin-bottom: 24px;
+        }
+        .score-number { font-size: 5.5em; font-weight: 800; color: var(--primary); line-height: 1; }
+        .score-label { color: var(--text-secondary); font-size: 1.05em; margin-top: 8px; }
+
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--card-bg); border-radius: 10px; padding: 18px; border: 1px solid var(--border); }
+        .stat-value { font-size: 1.8em; font-weight: 700; color: var(--text); }
+        .stat-label { color: var(--text-muted); font-size: 0.85em; margin-top: 2px; }
+
+        /* Categories */
+        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .cat-card { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); text-align: center; }
+        .cat-name { color: var(--text-secondary); font-size: 0.85em; letter-spacing: 1px; }
+        .cat-score { font-size: 2.8em; font-weight: 700; color: var(--text); margin: 10px 0; }
+        .cat-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+        .cat-bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s; }
+
+        /* Bar Chart */
+        .bar-chart { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+        .bar-row { display: flex; align-items: center; gap: 14px; }
+        .bar-label { width: 170px; font-size: 0.88em; color: var(--text-secondary); text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; height: 22px; background: #1e293b; border-radius: 5px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--primary), #818cf8); transition: width 0.6s; }
+        .bar-value { width: 45px; font-size: 0.88em; font-weight: 700; color: var(--text); }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        th { background: #1e293b; color: var(--text-secondary); padding: 12px 14px; text-align: left; font-size: 0.82em; border-bottom: 1px solid var(--border); white-space: nowrap; }
+        td { padding: 10px 14px; border-bottom: 1px solid #1e293b; }
+        tr:hover td { background: #1e293b50; }
+        .score-badge { display: inline-block; padding: 2px 10px; border-radius: 6px; font-weight: 700; font-size: 0.85em; }
+        .score-high { background: #065f4620; color: var(--green); }
+        .score-mid { background: #854d0e20; color: var(--orange); }
+        .score-low { background: #991b1b20; color: var(--red); }
+
+        /* Prompt lang toggle in table header */
+        .lang-toggle-th {
+            display: inline-block; width: 28px; height: 22px; border-radius: 5px;
+            background: var(--border); color: var(--text); vertical-align: middle;
+            border: none; cursor: pointer; font-size: 0.78em; font-weight: 700;
+            line-height: 22px; text-align: center; padding: 0; margin-left: 6px;
+            transition: all 0.2s;
+        }
+        .lang-toggle-th:hover { background: var(--primary); color: #0f172a; }
+
+        /* Timeline / Workflow */
+        .workflow { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+        .wf-step {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; text-align: center; position: relative;
+        }
+        .wf-step .step-num {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--primary); color: #0f172a;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1em; margin: 0 auto 12px;
+        }
+        .wf-step h4 { color: var(--text); margin: 0 0 8px; font-size: 1em; }
+        .wf-step p { color: var(--text-muted); font-size: 0.82em; line-height: 1.5; }
+
+        /* VBench dims table */
+        .dim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 14px 0; }
+        .dim-item { background: #0f172a; border-radius: 8px; padding: 12px 16px; border: 1px solid #1e293b; }
+        .dim-item .dim-name { font-weight: 600; color: var(--text); }
+        .dim-item .dim-desc { font-size: 0.8em; color: var(--text-muted); margin-top: 4px; }
+
+        /* Footer */
+        .footer { text-align: center; color: #475569; margin-top: 60px; padding: 20px; font-size: 0.85em; border-top: 1px solid var(--border); }
+
+        /* Data pages: filter/search */
+        .toolbar { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+        .toolbar select, .toolbar input {
+            background: var(--card-bg); color: var(--text); border: 1px solid var(--border);
+            border-radius: 8px; padding: 8px 14px; font-size: 0.9em; outline: none;
+        }
+        .toolbar select:focus, .toolbar input:focus { border-color: var(--primary); }
+        .toolbar .count { color: var(--text-muted); font-size: 0.85em; margin-left: auto; }
+
+        /* Link styling */
+        a.data-link { color: var(--primary); text-decoration: none; font-weight: 500; }
+        a.data-link:hover { text-decoration: underline; }
+
+        /* Scrollable table */
+        .table-wrap { overflow-x: auto; border-radius: 8px; }
+
+        /* Modal for video preview */
+        .video-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 200; justify-content: center; align-items: center; }
+        .video-modal.active { display: flex; }
+        .video-modal video { max-width: 90%; max-height: 80%; border-radius: 8px; }
+        .video-modal .close-btn {
+            position: absolute; top: 20px; right: 30px;
+            color: white; font-size: 2em; cursor: pointer; background: none; border: none;
+        }
+
+        /* Warning box */
+        .warning { background: #854d0e18; border: 1px solid #854d0e33; border-radius: 10px; padding: 16px 20px; margin: 16px 0; }
+        .warning p { color: var(--orange); font-size: 0.9em; margin: 4px 0; }
+        .warning strong { color: var(--yellow); }
+
+        /* Process overview diagram */
+        .process-flow { display: flex; align-items: center; justify-content: center; gap: 0; margin: 28px 0; flex-wrap: wrap; }
+        .process-node {
+            background: var(--card-bg); border: 2px solid var(--border);
+            border-radius: 12px; padding: 20px 24px; text-align: center; min-width: 140px;
+        }
+        .process-arrow { font-size: 1.6em; color: var(--primary); margin: 0 8px; }
+        .process-node .node-icon { font-size: 2em; margin-bottom: 6px; }
+        .process-node .node-title { font-weight: 700; font-size: 0.9em; }
+        .process-node .node-desc { font-size: 0.75em; color: var(--text-muted); margin-top: 4px; }
+
+        /* Tabs */
+        .tab-buttons { display: flex; gap: 4px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab-btn {
+            padding: 8px 18px; border-radius: 8px; cursor: pointer;
+            background: transparent; color: var(--text-muted); border: 1px solid var(--border);
+            font-size: 0.9em; font-weight: 500; transition: all 0.2s;
+        }
+        .tab-btn:hover { border-color: var(--primary); color: var(--text); }
+        .tab-btn.active { background: var(--primary); color: #0f172a; border-color: var(--primary); font-weight: 600; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px 12px; }
+            h1 { font-size: 1.6em; }
+            .score-number { font-size: 3.5em; }
+            .bar-label { width: 100px; font-size: 0.78em; }
+            .process-flow { flex-direction: column; }
+            .process-arrow { transform: rotate(90deg); margin: 4px 0; }
+            .dim-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <a href="#report" class="active" onclick="showPage('report')">📊 评测报告</a>
+        <a href="#vbench-intro" onclick="showPage('vbench-intro')">📖 VBench 介绍</a>
+        <a href="#workflow" onclick="showPage('workflow')">🔬 测试流程</a>
+        <a href="#prompts" onclick="showPage('prompts')">📝 提示词数据</a>
+        <a href="#videos" onclick="showPage('videos')">🎬 视频数据</a>
+        <a href="#results" onclick="showPage('results')">📈 结果数据</a>
+        <a href="#feedback" class="nav-feedback" onclick="showPage('feedback')">💬 T2V 反馈</a>
+    </div>
+</nav>
+
+<!-- ==================== PAGE 1: 评测报告 ==================== -->
+<div id="page-report" class="page active">
+<div class="container">
+
+    <h1>VBench 视频生成能力评估报告</h1>
+    <div class="subtitle">
+        生成模型：Seedance (doubao-seedance-2-0-260128) &bull;
+        评测方法：Whaleze AI 3.0（VBench 代理评测） &bull;
+        生成时间：2026-06-07 15:13:51
+    </div>
+
+    <!-- 综合评分 -->
+    <div class="score-hero">
+        <div class="score-number">8.35<span style="font-size:0.3em;color:var(--text-muted)">/10</span></div>
+        <div class="score-label">VBench 综合评分 &bull; 98 个视频 &bull; 11 个评测维度</div>
+    </div>
+
+    <!-- 概览统计 -->
+    <h2>概览统计</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">98</div>
+            <div class="stat-label">成功生成视频数</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">100</div>
+            <div class="stat-label">提示词总数</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">11</div>
+            <div class="stat-label">已评估维度</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">Seedance</div>
+            <div class="stat-label">文生视频模型</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">Whaleze AI</div>
+            <div class="stat-label">AI 测评引擎</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">5s / 720p</div>
+            <div class="stat-label">视频规格</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">~2小时</div>
+            <div class="stat-label">总测试耗时</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">2 个</div>
+            <div class="stat-label">生成失败</div>
+        </div>
+    </div>
+
+    <!-- 类别评分 -->
+    <h2>类别表现</h2>
+    <div class="categories">
+        <div class="cat-card">
+            <div class="cat-name">时间质量</div>
+            <div class="cat-score" style="color:var(--primary)">7.58<span style="font-size:0.4em;color:var(--text-muted)">/10</span></div>
+            <div class="cat-bar"><div class="cat-bar-fill" style="width:75.8%;background:var(--primary)"></div></div>
+        </div>
+        <div class="cat-card">
+            <div class="cat-name">视觉质量</div>
+            <div class="cat-score" style="color:var(--purple)">9.11<span style="font-size:0.4em;color:var(--text-muted)">/10</span></div>
+            <div class="cat-bar"><div class="cat-bar-fill" style="width:91.1%;background:var(--purple)"></div></div>
+        </div>
+        <div class="cat-card">
+            <div class="cat-name">语义质量</div>
+            <div class="cat-score" style="color:var(--green)">8.48<span style="font-size:0.4em;color:var(--text-muted)">/10</span></div>
+            <div class="cat-bar"><div class="cat-bar-fill" style="width:84.8%;background:var(--green)"></div></div>
+        </div>
+    </div>
+
+    <!-- 维度评分柱状图 -->
+    <h2>各维度评分</h2>
+    <div class="card">
+        <div class="bar-chart">
+            <div class="bar-row">
+                <div class="bar-label">外观风格</div>
+                <div class="bar-track"><div class="bar-fill" style="width:94.4%"></div></div>
+                <div class="bar-value">9.44</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">颜色</div>
+                <div class="bar-track"><div class="bar-fill" style="width:91.1%"></div></div>
+                <div class="bar-value">9.11</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">人物动作</div>
+                <div class="bar-track"><div class="bar-fill" style="width:68.0%"></div></div>
+                <div class="bar-value">6.80</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">多对象</div>
+                <div class="bar-track"><div class="bar-fill" style="width:78.9%"></div></div>
+                <div class="bar-value">7.89</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">对象类别</div>
+                <div class="bar-track"><div class="bar-fill" style="width:92.2%"></div></div>
+                <div class="bar-value">9.22</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">整体一致性</div>
+                <div class="bar-track"><div class="bar-fill" style="width:81.1%"></div></div>
+                <div class="bar-value">8.11</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">场景</div>
+                <div class="bar-track"><div class="bar-fill" style="width:91.0%"></div></div>
+                <div class="bar-value">9.00</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">空间关系</div>
+                <div class="bar-track"><div class="bar-fill" style="width:88.9%"></div></div>
+                <div class="bar-value">8.89</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">主体一致性</div>
+                <div class="bar-track"><div class="bar-fill" style="width:81.2%"></div></div>
+                <div class="bar-value">8.12</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">时间闪烁</div>
+                <div class="bar-track"><div class="bar-fill" style="width:65.0%"></div></div>
+                <div class="bar-value">6.50</div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">时间风格</div>
+                <div class="bar-track"><div class="bar-fill" style="width:86.2%"></div></div>
+                <div class="bar-value">8.62</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 维度详情表 -->
+    <h2>维度详细数据</h2>
+    <div class="table-wrap">
+    <table>
+        <thead><tr>
+            <th>评测维度</th>
+            <th>主要得分</th>
+            <th>所有子维度均值</th>
+            <th>最低分</th>
+            <th>最高分</th>
+            <th>视频数</th>
+        </tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>外观风格</strong></td>
+                <td><span class="score-badge score-high">9.44</span></td>
+                <td>8.35</td><td>9</td><td>10</td><td>9</td>
+            </tr>
+            <tr>
+                <td><strong>颜色</strong></td>
+                <td><span class="score-badge score-high">9.11</span></td>
+                <td>8.10</td><td>8</td><td>10</td><td>9</td>
+            </tr>
+            <tr>
+                <td><strong>人物动作</strong></td>
+                <td><span class="score-badge score-mid">6.80</span></td>
+                <td>7.56</td><td>3</td><td>9</td><td>10</td>
+            </tr>
+            <tr>
+                <td><strong>多对象</strong></td>
+                <td><span class="score-badge score-high">7.89</span></td>
+                <td>7.71</td><td>4</td><td>9</td><td>9</td>
+            </tr>
+            <tr>
+                <td><strong>对象类别</strong></td>
+                <td><span class="score-badge score-high">9.22</span></td>
+                <td>8.21</td><td>8</td><td>10</td><td>9</td>
+            </tr>
+            <tr>
+                <td><strong>整体一致性</strong></td>
+                <td><span class="score-badge score-high">8.11</span></td>
+                <td>8.13</td><td>5</td><td>10</td><td>9</td>
+            </tr>
+            <tr>
+                <td><strong>场景</strong></td>
+                <td><span class="score-badge score-high">9.00</span></td>
+                <td>8.35</td><td>8</td><td>10</td><td>10</td>
+            </tr>
+            <tr>
+                <td><strong>空间关系</strong></td>
+                <td><span class="score-badge score-high">8.89</span></td>
+                <td>7.88</td><td>6</td><td>10</td><td>9</td>
+            </tr>
+            <tr>
+                <td><strong>主体一致性</strong></td>
+                <td><span class="score-badge score-high">8.12</span></td>
+                <td>8.10</td><td>5</td><td>10</td><td>8</td>
+            </tr>
+            <tr>
+                <td><strong>时间闪烁</strong></td>
+                <td><span class="score-badge score-mid">6.50</span></td>
+                <td>7.57</td><td>4</td><td>10</td><td>8</td>
+            </tr>
+            <tr>
+                <td><strong>时间风格</strong></td>
+                <td><span class="score-badge score-high">8.62</span></td>
+                <td>7.95</td><td>5</td><td>10</td><td>8</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <!-- 评测方法说明 -->
+    <h2>评测方法</h2>
+    <div class="card">
+        <h3>视频生成流程</h3>
+        <p>从 VBench 数据集中按分层抽样选取了 100 个提示词，涵盖 11 个评测维度（每个维度约 9 个提示词）。每个提示词提交至 Seedance API (doubao-seedance-2-0-260128)，生成 5 秒 720p 视频（16:9 比例）。其中 98 个成功，2 个因版权限制失败。</p>
+
+        <h3>评测方法</h3>
+        <p>由于无法使用 GPU 原生运行 VBench，本测试采用了两阶段 AI 代理评测方案：</p>
+        <ol style="margin-left:20px;color:var(--text-secondary);">
+            <li><strong>视频描述：</strong>每个视频由 Whaleze AI 3.0（GPT-4V 级别多模态模型）分析，生成包含对象、运动、视觉质量和提示词契合度的详细描述。</li>
+            <li><strong>维度评分：</strong>AI 基于视频内容和生成的描述，在 1-10 分制上对每个视频的所有 17 个 VBench 维度进行评分。</li>
+        </ol>
+
+        <div class="warning">
+            <p><strong>⚠ 重要提示：</strong>本报告为 AI 代理评测结果。评分由 Whaleze AI 模型估算得出，可能与使用专用模型（ImageReward、V-JEPA、AMT 等）计算的原生 VBench 分数存在差异。仅供参考相对对比使用。</p>
+            <p><strong>⚠ 覆盖说明：</strong>17 个 VBench 维度中有 6 个（background_consistency、motion_smoothness、dynamic_degree、aesthetic_quality、imaging_quality、overall_quality）未包含在采样提示词中。已评估的 11 个维度覆盖了全部三个质量类别。</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        由 Whaleze AI 评测平台生成 &bull; VBench 评测流程 &bull; 2026-06-07 15:16:31<br>
+        模型：Seedance (文生视频) &bull; Whaleze AI 3.0 (视频理解 + 评分)
+    </div>
+
+</div>
+</div>
+
+<!-- ==================== PAGE 2: VBench 介绍 ==================== -->
+<div id="page-vbench-intro" class="page">
+<div class="container">
+
+    <h1>VBench 基准测试介绍</h1>
+    <div class="subtitle">视频生成模型的全面评测体系</div>
+
+    <div class="card">
+        <h2>什么是 VBench？</h2>
+        <p>VBench 是由上海人工智能实验室（Shanghai AI Lab）联合南洋理工大学、香港中文大学等机构推出的<strong>视频生成模型综合评测基准</strong>。它旨在系统化地评估文生视频（Text-to-Video）模型的质量，通过多个细分维度对视频生成效果进行量化评分，为模型能力的对比与迭代提供客观参考标准。</p>
+        <p style="margin-top:12px;">VBench 覆盖从底层视觉质量到高层语义理解的全面评估体系，已成为业界衡量视频生成模型能力的主流标准之一。其评估维度按类别分为三组：<strong>视频质量</strong>、<strong>视频条件一致性</strong>和<strong>语义理解</strong>。</p>
+    </div>
+
+    <h2>VBench 核心评测维度</h2>
+    <div class="card">
+        <p style="color:var(--text-muted);margin-bottom:16px;">VBench 共包含 17 个细分评测维度，本测试覆盖了其中 11 个维度：</p>
+
+        <h3><span class="badge badge-blue">时间质量</span> — 视频的时间维度表现</h3>
+        <div class="dim-grid">
+            <div class="dim-item">
+                <div class="dim-name">主体一致性 (Subject Consistency)</div>
+                <div class="dim-desc">评估视频中主体对象的外观是否在帧间保持一致，如人物、动物、物体不出现变形或突变。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">背景一致性 (Background Consistency)</div>
+                <div class="dim-desc">评估视频背景场景的整体稳定性和一致性，背景元素不出现闪烁或突变。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">时间闪烁 (Temporal Flickering)</div>
+                <div class="dim-desc">检测视频中是否存在帧间不连续的闪烁现象，评估时间平滑度。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">运动平滑度 (Motion Smoothness)</div>
+                <div class="dim-desc">评估视频中物体运动的自然流畅程度，避免出现卡顿、跳动或不自然的运动轨迹。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">动态程度 (Dynamic Degree)</div>
+                <div class="dim-desc">衡量视频中的运动量和动态范围，评估模型生成丰富动态内容的能力。</div>
+            </div>
+        </div>
+
+        <h3><span class="badge badge-purple">视觉质量</span> — 单帧画面质量</h3>
+        <div class="dim-grid">
+            <div class="dim-item">
+                <div class="dim-name">美学质量 (Aesthetic Quality)</div>
+                <div class="dim-desc">评估视频帧的整体美学吸引力，包括构图、色彩搭配、光影效果等艺术性指标。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">成像质量 (Imaging Quality)</div>
+                <div class="dim-desc">评估生成视频的技术质量，包括清晰度、噪点水平、压缩伪影等。</div>
+            </div>
+        </div>
+
+        <h3><span class="badge badge-green">语义质量</span> — 内容与提示词的契合度</h3>
+        <div class="dim-grid">
+            <div class="dim-item">
+                <div class="dim-name">对象类别 (Object Class)</div>
+                <div class="dim-desc">评估视频是否正确生成了提示词中指定的物体类别（如猫、汽车、树等）。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">多对象 (Multiple Objects)</div>
+                <div class="dim-desc">评估视频中是否同时正确生成了提示词中提到的多个不同对象。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">人物动作 (Human Action)</div>
+                <div class="dim-desc">评估视频中人物动作是否符合提示词描述，动作是否自然、准确。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">颜色 (Color)</div>
+                <div class="dim-desc">评估视频中主体对象的颜色是否与提示词指定的颜色一致。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">空间关系 (Spatial Relationship)</div>
+                <div class="dim-desc">评估视频中多个对象之间的空间位置关系是否符合提示词描述。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">场景 (Scene)</div>
+                <div class="dim-desc">评估视频场景环境与提示词描述的场景是否匹配（如海滩、森林、城市等）。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">外观风格 (Appearance Style)</div>
+                <div class="dim-desc">评估视频的视觉风格是否符合提示词指定的风格（如油画、像素风、赛博朋克等）。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">时间风格 (Temporal Style)</div>
+                <div class="dim-desc">评估视频的镜头运动风格是否符合提示词要求（如平移、缩放、慢动作等）。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">整体一致性 (Overall Consistency)</div>
+                <div class="dim-desc">综合评估视频各维度之间的一致性，确保整体效果的协调统一。</div>
+            </div>
+            <div class="dim-item">
+                <div class="dim-name">整体质量 (Overall Quality)</div>
+                <div class="dim-desc">对所有维度的综合评估，反映视频的整体生成质量水平。</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>VBench 的重要意义</h2>
+    <div class="card">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">标准化</div>
+                <div class="stat-label">统一评测标准，便于不同模型横向对比</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">细粒度</div>
+                <div class="stat-label">17 个维度精细刻画模型优劣势</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">自动化</div>
+                <div class="stat-label">基于专用AI模型自动评分，客观高效</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">可复现</div>
+                <div class="stat-label">开放数据集和评测代码，确保结果可复现</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        VBench 论文：VBench: Comprehensive Benchmark Suite for Video Generative Models &bull; 上海AI实验室等
+    </div>
+
+</div>
+</div>
+
+<!-- ==================== PAGE 3: 测试流程 ==================== -->
+<div id="page-workflow" class="page">
+<div class="container">
+
+    <h1>测试流程详解</h1>
+    <div class="subtitle">从提示词选择到评测报告生成，端到端全流程自动化</div>
+
+    <h2>流程总览</h2>
+    <div class="card">
+        <div class="process-flow">
+            <div class="process-node">
+                <div class="node-icon">📋</div>
+                <div class="node-title">选择提示词</div>
+                <div class="node-desc">100 个 VBench 提示词</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon">🎥</div>
+                <div class="node-title">文生视频</div>
+                <div class="node-desc">Seedance API<br>生成 5s/720p 视频</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon">📝</div>
+                <div class="node-title">视频理解</div>
+                <div class="node-desc">Whaleze AI<br>视频转文字描述</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon">📊</div>
+                <div class="node-title">VBench 评分</div>
+                <div class="node-desc">多维度自动化打分</div>
+            </div>
+            <div class="process-arrow">→</div>
+            <div class="process-node">
+                <div class="node-icon">📄</div>
+                <div class="node-title">生成报告</div>
+                <div class="node-desc">综合评测报告</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 步骤详情 -->
+    <h2>详细步骤</h2>
+
+    <div class="workflow">
+        <div class="wf-step">
+            <div class="step-num">1</div>
+            <h4>提示词选择</h4>
+            <p>从 VBench 数据集的 <code>prompts/</code> 目录中按分层抽样选取 100 个提示词，覆盖 11 个评测维度，确保每个维度有足够的测试样本。</p>
+            <p style="margin-top:6px;font-size:0.8em;color:var(--primary);">数据来源：prompts/*.txt → selected_prompts.json</p>
+        </div>
+        <div class="wf-step">
+            <div class="step-num">2</div>
+            <h4>调用文生视频 API</h4>
+            <p>将 100 个提示词逐一提交至<strong>豆包 Seedance API</strong> (doubao-seedance-2-0-260128)，生成 5 秒 720p 视频（16:9）。100 个任务中 98 个成功，2 个因版权限制被拒绝。</p>
+            <p style="margin-top:6px;font-size:0.8em;color:var(--purple);">输出：generated-video/*.mp4 + generation_log.json</p>
+        </div>
+        <div class="wf-step">
+            <div class="step-num">3</div>
+            <h4>视频转文字理解</h4>
+            <p>由 <strong>Whaleze AI 3.0</strong> 对每个生成视频进行多模态理解分析，生成详细文字描述，覆盖对象、运动、视觉质量和提示词契合度。</p>
+            <p style="margin-top:6px;font-size:0.8em;color:var(--green);">输出：video2txt/*.txt + videotxt_log.json</p>
+        </div>
+        <div class="wf-step">
+            <div class="step-num">4</div>
+            <h4>VBench 多维度评分</h4>
+            <p>Whaleze AI 基于视频内容和生成的描述，对每个视频在全部 17 个 VBench 子维度上进行 1-10 评分，并计算各维度统计指标。</p>
+            <p style="margin-top:6px;font-size:0.8em;color:var(--orange);">输出：results/vbench_scores.json<br>results/vbench_results.json</p>
+        </div>
+        <div class="wf-step">
+            <div class="step-num">5</div>
+            <h4>生成评测报告</h4>
+            <p>汇总所有评分数据，计算类别平均分和综合得分，进行数据可视化，形成本份完整的 HTML 评测报告，包含交互式数据浏览。</p>
+            <p style="margin-top:6px;font-size:0.8em;color:var(--pink);">输出：index.html（本报告）</p>
+        </div>
+    </div>
+
+    <h2>技术栈与工具链</h2>
+    <div class="card">
+        <table>
+            <thead><tr><th>环节</th><th>技术/工具</th><th>说明</th></tr></thead>
+            <tbody>
+                <tr><td>提示词选择</td><td>VBench 数据集</td><td>从官方 VBench prompt 库中分层抽样选取 100 个提示词</td></tr>
+                <tr><td>文生视频</td><td>Seedance API</td><td>豆包大模型文生视频接口，生成 720p/5s/16:9 视频</td></tr>
+                <tr><td>视频理解</td><td>Whaleze AI 3.0</td><td>GPT-4V 级别多模态大模型，实现视频到文字描述的转换</td></tr>
+                <tr><td>维度评分</td><td>Whaleze AI 3.0</td><td>基于视频内容和文字描述，按 VBench 标准进行 17 维度评分</td></tr>
+                <tr><td>数据汇总</td><td>Python / JSON</td><td>分数聚合、统计计算，输出结构化 JSON 数据</td></tr>
+                <tr><td>报告生成</td><td>HTML / CSS / JS</td><td>交互式单页报告，支持数据筛选、排序和视频预览</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>过程数据</h2>
+    <div class="card">
+        <table>
+            <thead><tr><th>数据文件</th><th>说明</th><th>链接</th></tr></thead>
+            <tbody>
+                <tr><td>selected_prompts.json</td><td>100 个分层抽样选中的提示词</td><td><a class="data-link" href="prompts/selected_prompts.json" target="_blank">查看文件 →</a></td></tr>
+                <tr><td>generation_log.json</td><td>98 个视频生成详细日志（含 task_id、耗时、文件大小等）</td><td><a class="data-link" href="generated-video/generation_log.json" target="_blank">查看文件 →</a></td></tr>
+                <tr><td>videotxt_log.json</td><td>98 个视频的文字描述生成日志</td><td><a class="data-link" href="video2txt/videotxt_log.json" target="_blank">查看文件 →</a></td></tr>
+                <tr><td>vbench_scores.json</td><td>98 个视频的逐个维度评分详情（含 AI 原始响应）</td><td><a class="data-link" href="results/vbench_scores.json" target="_blank">查看文件 →</a></td></tr>
+                <tr><td>vbench_results.json</td><td>按维度聚合的统计评分（均值/最大/最小/类别）</td><td><a class="data-link" href="results/vbench_results.json" target="_blank">查看文件 →</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">测试流程全自动化 &bull; 端到端耗时约 2 小时 &bull; Whaleze AI 评测平台</div>
+</div>
+</div>
+
+<!-- ==================== PAGE 4: 提示词数据 ==================== -->
+<div id="page-prompts" class="page">
+<div class="container">
+
+    <h1>提示词数据</h1>
+    <div class="subtitle">VBench 分层抽样选取的 100 个提示词，按评测维度分类展示</div>
+
+    <div class="toolbar">
+        <label style="color:var(--text-muted);font-size:0.9em;">按维度筛选：</label>
+        <select id="prompt-filter" onchange="renderPrompts()">
+            <option value="all">全部维度</option>
+        </select>
+        <input type="text" id="prompt-search" placeholder="搜索提示词关键词..." oninput="renderPrompts()">
+        <span class="count" id="prompt-count">共 100 条</span>
+    </div>
+
+    <div class="table-wrap" id="prompt-table-wrap">
+        <table>
+            <thead><tr>
+                <th>序号</th>
+                <th>评测维度</th>
+                <th>提示词（英文原文）</th>
+                <th>提示词（中文翻译）</th>
+            </tr></thead>
+            <tbody id="prompt-tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="footer" style="margin-top:20px;">
+        原始数据文件：<a class="data-link" href="prompts/selected_prompts.json" target="_blank">prompts/selected_prompts.json</a> &bull;
+        各维度提示词文件：<a class="data-link" href="prompts/all_prompts.txt" target="_blank">prompts/all_prompts.txt</a>
+    </div>
+</div>
+</div>
+
+<!-- ==================== PAGE 5: 视频数据 ==================== -->
+<div id="page-videos" class="page">
+<div class="container">
+
+    <h1>视频生成数据</h1>
+    <div class="subtitle">98 个成功生成的视频详情，含生成参数、文件信息和视频预览</div>
+
+    <div class="toolbar">
+        <label style="color:var(--text-muted);font-size:0.9em;">按维度筛选：</label>
+        <select id="video-filter" onchange="renderVideos()">
+            <option value="all">全部维度</option>
+        </select>
+        <label style="color:var(--text-muted);font-size:0.9em;margin-left:12px;">按状态筛选：</label>
+        <select id="video-status-filter" onchange="renderVideos()">
+            <option value="all">全部状态</option>
+            <option value="downloaded">成功生成</option>
+            <option value="failed">生成失败</option>
+        </select>
+        <span class="count" id="video-count">共 100 条记录</span>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead><tr>
+                <th>序号</th>
+                <th>维度</th>
+                <th>提示词 <button class="lang-toggle-th" id="video-lang-btn" onclick="togglePromptLang('video')">中</button></th>
+                <th>状态</th>
+                <th>文件大小</th>
+                <th>视频预览</th>
+                <th>文字描述</th>
+            </tr></thead>
+            <tbody id="video-tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="footer" style="margin-top:20px;">
+        生成日志：<a class="data-link" href="generated-video/generation_log.json" target="_blank">generated-video/generation_log.json</a> &bull;
+        描述日志：<a class="data-link" href="video2txt/videotxt_log.json" target="_blank">video2txt/videotxt_log.json</a>
+    </div>
+</div>
+</div>
+
+<!-- ==================== PAGE 6: 结果数据 ==================== -->
+<div id="page-results" class="page">
+<div class="container">
+
+    <h1>结果数据详情</h1>
+    <div class="subtitle">98 个视频在各评测维度上的详细得分及 AI 评估原始输出</div>
+
+    <div class="tabs">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="switchResultTab('scores')">得分汇总</button>
+            <button class="tab-btn" onclick="switchResultTab('details')">逐视频详情</button>
+            <button class="tab-btn" onclick="switchResultTab('dimensions')">子维度分析</button>
+        </div>
+
+        <!-- 得分汇总 -->
+        <div id="result-tab-scores" class="tab-content active">
+            <div class="card" style="padding:0;overflow-x:auto;">
+                <table>
+                    <thead><tr>
+                        <th>维度</th>
+                        <th>主得分</th>
+                        <th>主体一致性</th>
+                        <th>背景一致性</th>
+                        <th>时间闪烁</th>
+                        <th>运动平滑</th>
+                        <th>动态程度</th>
+                        <th>美学质量</th>
+                        <th>成像质量</th>
+                        <th>对象类别</th>
+                        <th>多对象</th>
+                        <th>人物动作</th>
+                        <th>颜色</th>
+                        <th>空间关系</th>
+                        <th>场景</th>
+                        <th>时间风格</th>
+                        <th>整体一致性</th>
+                    </tr></thead>
+                    <tbody id="result-summary-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 逐视频详情 -->
+        <div id="result-tab-details" class="tab-content">
+            <div class="toolbar">
+                <label style="color:var(--text-muted);font-size:0.9em;">按维度筛选：</label>
+                <select id="result-dim-filter" onchange="renderResultDetails()">
+                    <option value="all">全部维度</option>
+                </select>
+                <input type="text" id="result-search" placeholder="搜索提示词关键词..." oninput="renderResultDetails()">
+                <span class="count" id="result-detail-count">共 98 条</span>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr>
+                        <th>视频</th>
+                        <th>维度</th>
+                        <th>提示词 <button class="lang-toggle-th" id="result-lang-btn" onclick="togglePromptLang('result')">中</button></th>
+                        <th>主得分</th>
+                        <th>原始评估</th>
+                    </tr></thead>
+                    <tbody id="result-detail-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 子维度分析 -->
+        <div id="result-tab-dimensions" class="tab-content">
+            <div class="card">
+                <h3>子维度交叉分析</h3>
+                <p style="color:var(--text-muted);margin-bottom:16px;">以下展示各维度下所有子维度的平均得分，颜色深浅反映评分高低（深色=高分，浅色=低分）。</p>
+                <div class="table-wrap" id="result-heatmap-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer" style="margin-top:20px;">
+        详细评分数据：<a class="data-link" href="results/vbench_scores.json" target="_blank">results/vbench_scores.json</a> &bull;
+        聚合统计数据：<a class="data-link" href="results/vbench_results.json" target="_blank">results/vbench_results.json</a>
+    </div>
+</div>
+</div>
+
+<!-- ==================== PAGE 7: T2V 反馈 ==================== -->
+<div id="page-feedback" class="page">
+<div class="feedback-page">
+    <div class="feedback-card">
+        <div id="feedback-form-wrap">
+            <div class="feedback-title">✨ T2V 体验反馈</div>
+            <div class="feedback-subtitle">分享你对 Text-to-Video 生成效果的真实感受，帮助我们持续优化</div>
+
+            <div class="feedback-field">
+                <label>👤 你的名字（选填）</label>
+                <input type="text" id="fb-name" placeholder="匿名也行，但留个名更方便跟进~">
+            </div>
+
+            <div class="feedback-field">
+                <label>⭐ 整体体验评分</label>
+                <div class="rating-group" id="fb-rating">
+                    <div class="rating-btn" data-val="1" onclick="selectRating(this)">😞 很差</div>
+                    <div class="rating-btn" data-val="2" onclick="selectRating(this)">😐 一般</div>
+                    <div class="rating-btn" data-val="3" onclick="selectRating(this)">🙂 还行</div>
+                    <div class="rating-btn" data-val="4" onclick="selectRating(this)">😍 很好</div>
+                    <div class="rating-btn" data-val="5" onclick="selectRating(this)">🤩 超赞</div>
+                </div>
+            </div>
+
+            <div class="feedback-field">
+                <label>🏷️ 最满意的方面</label>
+                <select id="fb-aspect">
+                    <option value="">请选择...</option>
+                    <option value="画面质量">画面质量</option>
+                    <option value="动作流畅度">动作流畅度</option>
+                    <option value="提示词遵循">提示词遵循度</option>
+                    <option value="风格一致性">风格一致性</option>
+                    <option value="生成速度">生成速度</option>
+                    <option value="综合都不错">综合都不错</option>
+                </select>
+            </div>
+
+            <div class="feedback-field">
+                <label>💭 详细反馈</label>
+                <textarea id="fb-content" placeholder="说说你的使用体验、遇到的问题、或者改进建议..."></textarea>
+            </div>
+
+            <button class="feedback-submit" id="fb-submit" onclick="submitFeedback()">🚀 提交反馈</button>
+            <div class="feedback-error" id="fb-error"></div>
+        </div>
+
+        <div class="feedback-success" id="feedback-success">
+            <div class="success-icon">🎉</div>
+            <h3>感谢你的反馈！</h3>
+            <p>我们已收到你的体验报告，会认真参考每一条建议</p>
+            <button class="feedback-submit" style="margin-top:24px;max-width:200px;margin-left:auto;margin-right:auto;" onclick="resetFeedback()">继续反馈</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Video Modal -->
+<div id="video-modal" class="video-modal" onclick="closeVideoModal()">
+    <button class="close-btn">&times;</button>
+    <video id="video-player" controls autoplay loop muted></video>
+</div>
+
+<script>
+// ==================== DATA ====================
+
+// Prompt data
+const PROMPT_DATA = [
+    {"dimension":"appearance_style","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, Van Gogh style","zh":"雪覆岩石山峦环绕深邃峡谷，梵高风格"},
+    {"dimension":"appearance_style","prompt":"The bund Shanghai, in cyberpunk style","zh":"上海外滩，赛博朋克风格"},
+    {"dimension":"appearance_style","prompt":"A beautiful coastal beach in spring, waves lapping on sand, black and white","zh":"春天美丽的海滩，浪花拍打沙滩，黑白风格"},
+    {"dimension":"appearance_style","prompt":"A panda drinking coffee in a cafe in Paris, surrealism style","zh":"熊猫在巴黎咖啡馆喝咖啡，超现实主义风格"},
+    {"dimension":"appearance_style","prompt":"A panda drinking coffee in a cafe in Paris, pixel art","zh":"熊猫在巴黎咖啡馆喝咖啡，像素艺术风格"},
+    {"dimension":"appearance_style","prompt":"A panda drinking coffee in a cafe in Paris, oil painting","zh":"熊猫在巴黎咖啡馆喝咖啡，油画风格"},
+    {"dimension":"appearance_style","prompt":"The bund Shanghai, surrealism style","zh":"上海外滩，超现实主义风格"},
+    {"dimension":"appearance_style","prompt":"The bund Shanghai, pixel art","zh":"上海外滩，像素艺术风格"},
+    {"dimension":"appearance_style","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, in cyberpunk style","zh":"雪覆岩石山峦环绕深邃峡谷，赛博朋克风格"},
+    {"dimension":"color","prompt":"a blue clock","zh":"一个蓝色时钟"},
+    {"dimension":"color","prompt":"a blue car","zh":"一辆蓝色汽车"},
+    {"dimension":"color","prompt":"a white clock","zh":"一个白色时钟"},
+    {"dimension":"color","prompt":"a purple bowl","zh":"一个紫色碗"},
+    {"dimension":"color","prompt":"an orange bicycle","zh":"一辆橙色自行车"},
+    {"dimension":"color","prompt":"a yellow bicycle","zh":"一辆黄色自行车"},
+    {"dimension":"color","prompt":"a black vase","zh":"一个黑色花瓶"},
+    {"dimension":"color","prompt":"a black cat","zh":"一只黑猫"},
+    {"dimension":"color","prompt":"an orange cat","zh":"一只橘猫"},
+    {"dimension":"human_action","prompt":"A person is doing laundry","zh":"一个人正在洗衣服"},
+    {"dimension":"human_action","prompt":"A person is strumming guitar","zh":"一个人在弹吉他"},
+    {"dimension":"human_action","prompt":"A person is tasting beer","zh":"一个人在品尝啤酒"},
+    {"dimension":"human_action","prompt":"A person is motorcycling","zh":"一个人在骑摩托车"},
+    {"dimension":"human_action","prompt":"A person is shooting basketball","zh":"一个人在投篮"},
+    {"dimension":"human_action","prompt":"A person is running on treadmill","zh":"一个人在跑步机上跑步"},
+    {"dimension":"human_action","prompt":"A person is using computer","zh":"一个人在使用电脑"},
+    {"dimension":"human_action","prompt":"A person is dancing ballet","zh":"一个人在跳芭蕾舞"},
+    {"dimension":"human_action","prompt":"A person is brushing teeth","zh":"一个人在刷牙"},
+    {"dimension":"human_action","prompt":"A person is cutting watermelon","zh":"一个人在切西瓜"},
+    {"dimension":"multiple_objects","prompt":"a frisbee and skis","zh":"一个飞盘和滑雪板"},
+    {"dimension":"multiple_objects","prompt":"a fork and a potted plant","zh":"一个叉子和一盆植物"},
+    {"dimension":"multiple_objects","prompt":"a bicycle and an airplane","zh":"一辆自行车和一架飞机"},
+    {"dimension":"multiple_objects","prompt":"a skateboard and a surfboard","zh":"一个滑板和一个冲浪板"},
+    {"dimension":"multiple_objects","prompt":"a bird and a cat","zh":"一只鸟和一只猫"},
+    {"dimension":"multiple_objects","prompt":"a backpack and an umbrella","zh":"一个背包和一把雨伞"},
+    {"dimension":"multiple_objects","prompt":"a sink and a toilet","zh":"一个水槽和一个马桶"},
+    {"dimension":"multiple_objects","prompt":"a car and a motorcycle","zh":"一辆汽车和一辆摩托车"},
+    {"dimension":"multiple_objects","prompt":"a person and a toilet","zh":"一个人和一个马桶"},
+    {"dimension":"object_class","prompt":"a cow","zh":"一头牛"},
+    {"dimension":"object_class","prompt":"a tie","zh":"一条领带"},
+    {"dimension":"object_class","prompt":"a knife","zh":"一把刀"},
+    {"dimension":"object_class","prompt":"a bench","zh":"一个长凳"},
+    {"dimension":"object_class","prompt":"a stop sign","zh":"一个停车标志"},
+    {"dimension":"object_class","prompt":"a sandwich","zh":"一个三明治"},
+    {"dimension":"object_class","prompt":"a parking meter","zh":"一个停车计费器"},
+    {"dimension":"object_class","prompt":"a bowl","zh":"一个碗"},
+    {"dimension":"object_class","prompt":"a spoon","zh":"一把勺子"},
+    {"dimension":"overall_consistency","prompt":"A modern art museum, with colorful paintings","zh":"一座现代艺术博物馆，挂满彩色画作"},
+    {"dimension":"overall_consistency","prompt":"A raccoon that looks like a turtle, digital art.","zh":"一只看起来像乌龟的浣熊，数字艺术"},
+    {"dimension":"overall_consistency","prompt":"Two pandas discussing an academic paper.","zh":"两只熊猫在讨论学术论文"},
+    {"dimension":"overall_consistency","prompt":"A super cool giant robot in Cyberpunk Beijing","zh":"赛博朋克北京中的超酷巨型机器人"},
+    {"dimension":"overall_consistency","prompt":"A car moving slowly on an empty street, rainy evening","zh":"雨夜空荡的街道上，一辆车缓缓行驶"},
+    {"dimension":"overall_consistency","prompt":"A cat wearing sunglasses and working as a lifeguard at a pool.","zh":"一只戴墨镜的猫在泳池边担任救生员"},
+    {"dimension":"overall_consistency","prompt":"A raccoon is playing the electronic guitar.","zh":"一只浣熊在弹电吉他"},
+    {"dimension":"overall_consistency","prompt":"Fireworks.","zh":"烟花"},
+    {"dimension":"overall_consistency","prompt":"A cat wearing sunglasses at a pool","zh":"一只戴墨镜的猫在泳池边"},
+    {"dimension":"scene","prompt":"golf course","zh":"高尔夫球场"},
+    {"dimension":"scene","prompt":"train station platform","zh":"火车站站台"},
+    {"dimension":"scene","prompt":"train railway","zh":"火车铁路"},
+    {"dimension":"scene","prompt":"junkyard","zh":"废车场"},
+    {"dimension":"scene","prompt":"staircase","zh":"楼梯间"},
+    {"dimension":"scene","prompt":"construction site","zh":"建筑工地"},
+    {"dimension":"scene","prompt":"bar","zh":"酒吧"},
+    {"dimension":"scene","prompt":"bathroom","zh":"浴室"},
+    {"dimension":"scene","prompt":"waterfall","zh":"瀑布"},
+    {"dimension":"scene","prompt":"driveway","zh":"车道"},
+    {"dimension":"spatial_relationship","prompt":"a tennis racket on the left of a frisbee, front view","zh":"网球拍在飞盘左侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a bird on the left of a cat, front view","zh":"一只鸟在猫的左侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a clock on the left of a vase, front view","zh":"时钟在花瓶左侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a dog on the left of a horse, front view","zh":"一只狗在马的左侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a train on the right of a boat, front view","zh":"火车在船的右侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a baseball bat on the left of a baseball glove, front view","zh":"棒球棒在手套左侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"an apple on the top of a sandwich, front view","zh":"一个苹果在三明治上方，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a dining table on the left of a chair, front view","zh":"餐桌在椅子左侧，正面视角"},
+    {"dimension":"spatial_relationship","prompt":"a bottle on the left of a wine glass, front view","zh":"瓶子在酒杯左侧，正面视角"},
+    {"dimension":"subject_consistency","prompt":"a dog drinking water","zh":"一只狗在喝水"},
+    {"dimension":"subject_consistency","prompt":"a dog enjoying a peaceful walk","zh":"一只狗在悠闲散步"},
+    {"dimension":"subject_consistency","prompt":"a bus accelerating to gain speed","zh":"一辆公交车加速行驶"},
+    {"dimension":"subject_consistency","prompt":"a truck accelerating to gain speed","zh":"一辆卡车加速行驶"},
+    {"dimension":"subject_consistency","prompt":"a bicycle slowing down to stop","zh":"一辆自行车减速停下"},
+    {"dimension":"subject_consistency","prompt":"an airplane taking off","zh":"一架飞机起飞"},
+    {"dimension":"subject_consistency","prompt":"a truck anchored in a tranquil bay","zh":"一辆卡车停靠在宁静海湾"},
+    {"dimension":"subject_consistency","prompt":"an airplane soaring through a clear blue sky","zh":"一架飞机翱翔在清澈的蓝天"},
+    {"dimension":"temporal_flickering","prompt":"A tranquil tableau of the lampposts were adorned with Art Deco motifs, their geometric shapes and frosted glass creating a sense of vintage glamour","zh":"灯柱装饰着艺术装饰图案，几何造型和磨砂玻璃营造复古魅力"},
+    {"dimension":"temporal_flickering","prompt":"static view on a desert scene with an oasis, palm trees, and a clear, calm pool of water","zh":"沙漠场景静态画面，绿洲、棕榈树和一池清澈平静的水"},
+    {"dimension":"temporal_flickering","prompt":"A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers","zh":"一张精美的锻铁长椅被盛开的鲜花环绕"},
+    {"dimension":"temporal_flickering","prompt":"In a still frame, a tranquil pond was fringed by weeping cherry trees, their blossoms drifting lazily onto the glassy surface","zh":"宁静的池塘边垂樱树环绕，花瓣慵懒飘落在如镜水面上"},
+    {"dimension":"temporal_flickering","prompt":"A tranquil tableau of a bunch of grapes","zh":"一串葡萄的宁静画面"},
+    {"dimension":"temporal_flickering","prompt":"A tranquil tableau of a picturesque barn was painted a warm shade of red and nestled in a picturesque meadow","zh":"一座如画的红色谷仓坐落于风景如画的草地上"},
+    {"dimension":"temporal_flickering","prompt":"A tranquil tableau of bedroom","zh":"卧室的宁静画面"},
+    {"dimension":"temporal_flickering","prompt":"A tranquil tableau of a bowl on the kitchen counter","zh":"厨房台面上一个碗的宁静画面"},
+    {"dimension":"temporal_style","prompt":"A beautiful coastal beach in spring, waves lapping on sand, pan right","zh":"春日美丽的海滩，海浪拍打沙滩，向右平移"},
+    {"dimension":"temporal_style","prompt":"A cute happy Corgi playing in park, sunset, in super slow motion","zh":"一只快乐的柯基在公园玩耍，日落，极慢动作"},
+    {"dimension":"temporal_style","prompt":"Gwen Stacy reading a book, zoom in","zh":"格温·斯泰西在看书，镜头推进"},
+    {"dimension":"temporal_style","prompt":"A panda drinking coffee in a cafe in Paris, pan right","zh":"熊猫在巴黎咖啡馆喝咖啡，向右平移"},
+    {"dimension":"temporal_style","prompt":"A beautiful coastal beach in spring, waves lapping on sand, featuring a steady and smooth perspective","zh":"春日美丽海滩，海浪拍打沙滩，稳定平滑的视角"},
+    {"dimension":"temporal_style","prompt":"a shark is swimming in the ocean, with an intense shaking effect","zh":"一条鲨鱼在海洋中游泳，伴随剧烈震动效果"},
+    {"dimension":"temporal_style","prompt":"A couple in formal evening wear going home get caught in a heavy downpour with umbrellas, zoom out","zh":"穿晚礼服的夫妇回家途中遇暴雨，撑伞，镜头拉远"},
+    {"dimension":"temporal_style","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, zoom in","zh":"雪覆岩石山峦环绕峡谷，镜头推进"},
+    {"dimension":"temporal_style","prompt":"An astronaut flying in space, pan left","zh":"宇航员在太空中飞行，向左平移"},
+    {"dimension":"temporal_style","prompt":"A boat sailing leisurely along the Seine River with the Eiffel Tower in background, pan left","zh":"小船沿塞纳河悠闲航行，背景是埃菲尔铁塔，向左平移"}
+];
+
+// Video log data (partial - key fields)
+const VIDEO_LOG = {
+"prompt_000":{"dimension":"appearance_style","status":"downloaded","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, Van Gogh style","file_size":3918920,"duration":5},
+"prompt_001":{"dimension":"appearance_style","status":"downloaded","prompt":"The bund Shanghai, in cyberpunk style","file_size":3363043,"duration":5},
+"prompt_002":{"dimension":"appearance_style","status":"downloaded","prompt":"A beautiful coastal beach in spring, waves lapping on sand, black and white","file_size":2981848,"duration":5},
+"prompt_003":{"dimension":"appearance_style","status":"downloaded","prompt":"A panda drinking coffee in a cafe in Paris, surrealism style","file_size":1961878,"duration":5},
+"prompt_004":{"dimension":"appearance_style","status":"downloaded","prompt":"A panda drinking coffee in a cafe in Paris, pixel art","file_size":1940064,"duration":5},
+"prompt_005":{"dimension":"appearance_style","status":"downloaded","prompt":"A panda drinking coffee in a cafe in Paris, oil painting","file_size":2442075,"duration":5},
+"prompt_006":{"dimension":"appearance_style","status":"downloaded","prompt":"The bund Shanghai, surrealism style","file_size":2791974,"duration":5},
+"prompt_007":{"dimension":"appearance_style","status":"downloaded","prompt":"The bund Shanghai, pixel art","file_size":3000821,"duration":5},
+"prompt_008":{"dimension":"appearance_style","status":"downloaded","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, in cyberpunk style","file_size":3120467,"duration":5},
+"prompt_009":{"dimension":"color","status":"downloaded","prompt":"a blue clock","file_size":1998775,"duration":5},
+"prompt_010":{"dimension":"color","status":"downloaded","prompt":"a blue car","file_size":2087422,"duration":5},
+"prompt_011":{"dimension":"color","status":"downloaded","prompt":"a white clock","file_size":1398413,"duration":5},
+"prompt_012":{"dimension":"color","status":"downloaded","prompt":"a purple bowl","file_size":2318529,"duration":5},
+"prompt_013":{"dimension":"color","status":"downloaded","prompt":"an orange bicycle","file_size":2271621,"duration":5},
+"prompt_014":{"dimension":"color","status":"downloaded","prompt":"a yellow bicycle","file_size":2120559,"duration":5},
+"prompt_015":{"dimension":"color","status":"downloaded","prompt":"a black vase","file_size":1410287,"duration":5},
+"prompt_016":{"dimension":"color","status":"downloaded","prompt":"a black cat","file_size":1688090,"duration":5},
+"prompt_017":{"dimension":"color","status":"downloaded","prompt":"an orange cat","file_size":1998736,"duration":5},
+"prompt_018":{"dimension":"human_action","status":"downloaded","prompt":"A person is doing laundry","file_size":1872144,"duration":5},
+"prompt_019":{"dimension":"human_action","status":"downloaded","prompt":"A person is strumming guitar","file_size":1420315,"duration":5},
+"prompt_020":{"dimension":"human_action","status":"downloaded","prompt":"A person is tasting beer","file_size":1652680,"duration":5},
+"prompt_021":{"dimension":"human_action","status":"downloaded","prompt":"A person is motorcycling","file_size":2617308,"duration":5},
+"prompt_022":{"dimension":"human_action","status":"downloaded","prompt":"A person is shooting basketball","file_size":2785996,"duration":5},
+"prompt_023":{"dimension":"human_action","status":"downloaded","prompt":"A person is running on treadmill","file_size":2597634,"duration":5},
+"prompt_024":{"dimension":"human_action","status":"downloaded","prompt":"A person is using computer","file_size":1705806,"duration":5},
+"prompt_025":{"dimension":"human_action","status":"downloaded","prompt":"A person is dancing ballet","file_size":1650030,"duration":5},
+"prompt_026":{"dimension":"human_action","status":"downloaded","prompt":"A person is brushing teeth","file_size":1677000,"duration":5},
+"prompt_027":{"dimension":"human_action","status":"downloaded","prompt":"A person is cutting watermelon","file_size":1898598,"duration":5},
+"prompt_028":{"dimension":"multiple_objects","status":"downloaded","prompt":"a frisbee and skis","file_size":2790629,"duration":5},
+"prompt_029":{"dimension":"multiple_objects","status":"downloaded","prompt":"a fork and a potted plant","file_size":1219018,"duration":5},
+"prompt_030":{"dimension":"multiple_objects","status":"downloaded","prompt":"a bicycle and an airplane","file_size":2240259,"duration":5},
+"prompt_031":{"dimension":"multiple_objects","status":"downloaded","prompt":"a skateboard and a surfboard","file_size":3487997,"duration":5},
+"prompt_032":{"dimension":"multiple_objects","status":"downloaded","prompt":"a bird and a cat","file_size":2258665,"duration":5},
+"prompt_033":{"dimension":"multiple_objects","status":"downloaded","prompt":"a backpack and an umbrella","file_size":1923144,"duration":5},
+"prompt_034":{"dimension":"multiple_objects","status":"downloaded","prompt":"a sink and a toilet","file_size":1444215,"duration":5},
+"prompt_035":{"dimension":"multiple_objects","status":"downloaded","prompt":"a car and a motorcycle","file_size":4433882,"duration":5},
+"prompt_036":{"dimension":"multiple_objects","status":"downloaded","prompt":"a person and a toilet","file_size":1648815,"duration":5},
+"prompt_037":{"dimension":"object_class","status":"downloaded","prompt":"a cow","file_size":2553093,"duration":5},
+"prompt_038":{"dimension":"object_class","status":"downloaded","prompt":"a tie","file_size":1953124,"duration":5},
+"prompt_039":{"dimension":"object_class","status":"downloaded","prompt":"a knife","file_size":1374818,"duration":5},
+"prompt_040":{"dimension":"object_class","status":"downloaded","prompt":"a bench","file_size":1729637,"duration":5},
+"prompt_041":{"dimension":"object_class","status":"downloaded","prompt":"a stop sign","file_size":2886372,"duration":5},
+"prompt_042":{"dimension":"object_class","status":"downloaded","prompt":"a sandwich","file_size":2010921,"duration":5},
+"prompt_043":{"dimension":"object_class","status":"downloaded","prompt":"a parking meter","file_size":1430621,"duration":5},
+"prompt_044":{"dimension":"object_class","status":"downloaded","prompt":"a bowl","file_size":1680765,"duration":5},
+"prompt_045":{"dimension":"object_class","status":"downloaded","prompt":"a spoon","file_size":1989617,"duration":5},
+"prompt_046":{"dimension":"overall_consistency","status":"downloaded","prompt":"A modern art museum, with colorful paintings","file_size":1871002,"duration":5},
+"prompt_047":{"dimension":"overall_consistency","status":"downloaded","prompt":"A raccoon that looks like a turtle, digital art.","file_size":2249381,"duration":5},
+"prompt_048":{"dimension":"overall_consistency","status":"downloaded","prompt":"Two pandas discussing an academic paper.","file_size":1486073,"duration":5},
+"prompt_049":{"dimension":"overall_consistency","status":"downloaded","prompt":"A super cool giant robot in Cyberpunk Beijing","file_size":3575807,"duration":5},
+"prompt_050":{"dimension":"overall_consistency","status":"downloaded","prompt":"A car moving slowly on an empty street, rainy evening","file_size":3325216,"duration":5},
+"prompt_051":{"dimension":"overall_consistency","status":"downloaded","prompt":"A cat wearing sunglasses and working as a lifeguard at a pool.","file_size":2083385,"duration":5},
+"prompt_052":{"dimension":"overall_consistency","status":"downloaded","prompt":"A raccoon is playing the electronic guitar.","file_size":2370754,"duration":5},
+"prompt_053":{"dimension":"overall_consistency","status":"downloaded","prompt":"Fireworks.","file_size":5775459,"duration":5},
+"prompt_054":{"dimension":"overall_consistency","status":"downloaded","prompt":"A cat wearing sunglasses at a pool","file_size":2418312,"duration":5},
+"prompt_055":{"dimension":"scene","status":"downloaded","prompt":"golf course","file_size":2220432,"duration":5},
+"prompt_056":{"dimension":"scene","status":"downloaded","prompt":"train station platform","file_size":2190240,"duration":5},
+"prompt_057":{"dimension":"scene","status":"downloaded","prompt":"train railway","file_size":3252035,"duration":5},
+"prompt_058":{"dimension":"scene","status":"downloaded","prompt":"junkyard","file_size":2092065,"duration":5},
+"prompt_059":{"dimension":"scene","status":"downloaded","prompt":"staircase","file_size":1982183,"duration":5},
+"prompt_060":{"dimension":"scene","status":"downloaded","prompt":"construction site","file_size":3516373,"duration":5},
+"prompt_061":{"dimension":"scene","status":"downloaded","prompt":"bar","file_size":2132439,"duration":5},
+"prompt_062":{"dimension":"scene","status":"downloaded","prompt":"bathroom","file_size":1459060,"duration":5},
+"prompt_063":{"dimension":"scene","status":"downloaded","prompt":"waterfall","file_size":2238364,"duration":5},
+"prompt_064":{"dimension":"scene","status":"downloaded","prompt":"driveway","file_size":1986543,"duration":5},
+"prompt_065":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a tennis racket on the left of a frisbee, front view","file_size":2473174,"duration":5},
+"prompt_066":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a bird on the left of a cat, front view","file_size":1570760,"duration":5},
+"prompt_067":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a clock on the left of a vase, front view","file_size":1372871,"duration":5},
+"prompt_068":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a dog on the left of a horse, front view","file_size":2744660,"duration":5},
+"prompt_069":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a train on the right of a boat, front view","file_size":2546371,"duration":5},
+"prompt_070":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a baseball bat on the left of a baseball glove, front view","file_size":2115790,"duration":5},
+"prompt_071":{"dimension":"spatial_relationship","status":"downloaded","prompt":"an apple on the top of a sandwich, front view","file_size":1598093,"duration":5},
+"prompt_072":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a dining table on the left of a chair, front view","file_size":1474549,"duration":5},
+"prompt_073":{"dimension":"spatial_relationship","status":"downloaded","prompt":"a bottle on the left of a wine glass, front view","file_size":1682925,"duration":5},
+"prompt_074":{"dimension":"subject_consistency","status":"downloaded","prompt":"a dog drinking water","file_size":2713292,"duration":5},
+"prompt_075":{"dimension":"subject_consistency","status":"downloaded","prompt":"a dog enjoying a peaceful walk","file_size":1989160,"duration":5},
+"prompt_076":{"dimension":"subject_consistency","status":"downloaded","prompt":"a bus accelerating to gain speed","file_size":2894491,"duration":5},
+"prompt_077":{"dimension":"subject_consistency","status":"downloaded","prompt":"a truck accelerating to gain speed","file_size":2740323,"duration":5},
+"prompt_078":{"dimension":"subject_consistency","status":"downloaded","prompt":"a bicycle slowing down to stop","file_size":3752088,"duration":5},
+"prompt_079":{"dimension":"subject_consistency","status":"downloaded","prompt":"an airplane taking off","file_size":2274330,"duration":5},
+"prompt_080":{"dimension":"subject_consistency","status":"downloaded","prompt":"a truck anchored in a tranquil bay","file_size":1899813,"duration":5},
+"prompt_081":{"dimension":"subject_consistency","status":"downloaded","prompt":"an airplane soaring through a clear blue sky","file_size":2051782,"duration":5},
+"prompt_082":{"dimension":"temporal_flickering","status":"downloaded","prompt":"A tranquil tableau of the lampposts were adorned with Art Deco motifs, their geometric shapes and frosted glass creating a sense of vintage glamour","file_size":1655810,"duration":5},
+"prompt_083":{"dimension":"temporal_flickering","status":"downloaded","prompt":"static view on a desert scene with an oasis, palm trees, and a clear, calm pool of water","file_size":1601198,"duration":5},
+"prompt_084":{"dimension":"temporal_flickering","status":"downloaded","prompt":"A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers","file_size":2857120,"duration":5},
+"prompt_085":{"dimension":"temporal_flickering","status":"downloaded","prompt":"In a still frame, a tranquil pond was fringed by weeping cherry trees, their blossoms drifting lazily onto the glassy surface","file_size":2424687,"duration":5},
+"prompt_086":{"dimension":"temporal_flickering","status":"downloaded","prompt":"A tranquil tableau of a bunch of grapes","file_size":1102938,"duration":5},
+"prompt_087":{"dimension":"temporal_flickering","status":"downloaded","prompt":"A tranquil tableau of a picturesque barn was painted a warm shade of red and nestled in a picturesque meadow","file_size":2649938,"duration":5},
+"prompt_088":{"dimension":"temporal_flickering","status":"downloaded","prompt":"A tranquil tableau of bedroom","file_size":1503533,"duration":5},
+"prompt_089":{"dimension":"temporal_flickering","status":"downloaded","prompt":"A tranquil tableau of a bowl on the kitchen counter","file_size":1333438,"duration":5},
+"prompt_090":{"dimension":"temporal_style","status":"downloaded","prompt":"A beautiful coastal beach in spring, waves lapping on sand, pan right","file_size":2942100,"duration":5},
+"prompt_091":{"dimension":"temporal_style","status":"downloaded","prompt":"A cute happy Corgi playing in park, sunset, in super slow motion","file_size":1962872,"duration":5},
+"prompt_092":{"dimension":"temporal_style","status":"failed","prompt":"Gwen Stacy reading a book, zoom in","file_size":0,"duration":0,"error":"版权限制"},
+"prompt_093":{"dimension":"temporal_style","status":"downloaded","prompt":"A panda drinking coffee in a cafe in Paris, pan right","file_size":1682663,"duration":5},
+"prompt_094":{"dimension":"temporal_style","status":"downloaded","prompt":"A beautiful coastal beach in spring, waves lapping on sand, featuring a steady and smooth perspective","file_size":2444480,"duration":5},
+"prompt_095":{"dimension":"temporal_style","status":"downloaded","prompt":"a shark is swimming in the ocean, with an intense shaking effect","file_size":1837531,"duration":5},
+"prompt_096":{"dimension":"temporal_style","status":"failed","prompt":"A couple in formal evening wear going home get caught in a heavy downpour with umbrellas, zoom out","file_size":0,"duration":0,"error":"版权限制"},
+"prompt_097":{"dimension":"temporal_style","status":"downloaded","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, zoom in","file_size":3334505,"duration":5},
+"prompt_098":{"dimension":"temporal_style","status":"downloaded","prompt":"An astronaut flying in space, pan left","file_size":3303518,"duration":5},
+"prompt_099":{"dimension":"temporal_style","status":"downloaded","prompt":"A boat sailing leisurely along the Seine River with the Eiffel Tower in background, pan left","file_size":3028273,"duration":5}
+};
+
+// Score results data - key scores per prompt  
+const SCORE_RESULTS = {
+"prompt_000":{"dimension":"appearance_style","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, Van Gogh style","main_score":9,"scores":{"appearance_style":9}},
+"prompt_001":{"dimension":"appearance_style","prompt":"The bund Shanghai, in cyberpunk style","main_score":9,"scores":{"appearance_style":9}},
+"prompt_002":{"dimension":"appearance_style","prompt":"A beautiful coastal beach in spring, waves lapping on sand, black and white","main_score":10,"scores":{"appearance_style":10}},
+"prompt_003":{"dimension":"appearance_style","prompt":"A panda drinking coffee in a cafe in Paris, surrealism style","main_score":9,"scores":{"appearance_style":9}},
+"prompt_004":{"dimension":"appearance_style","prompt":"A panda drinking coffee in a cafe in Paris, pixel art","main_score":10,"scores":{"appearance_style":10}},
+"prompt_005":{"dimension":"appearance_style","prompt":"A panda drinking coffee in a cafe in Paris, oil painting","main_score":9,"scores":{"appearance_style":9}},
+"prompt_006":{"dimension":"appearance_style","prompt":"The bund Shanghai, surrealism style","main_score":9,"scores":{"appearance_style":9}},
+"prompt_007":{"dimension":"appearance_style","prompt":"The bund Shanghai, pixel art","main_score":10,"scores":{"appearance_style":10}},
+"prompt_008":{"dimension":"appearance_style","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, in cyberpunk style","main_score":10,"scores":{"appearance_style":10}},
+"prompt_009":{"dimension":"color","prompt":"a blue clock","main_score":9,"scores":{"color":9}},
+"prompt_010":{"dimension":"color","prompt":"a blue car","main_score":9,"scores":{"color":9}},
+"prompt_011":{"dimension":"color","prompt":"a white clock","main_score":9,"scores":{"color":9}},
+"prompt_012":{"dimension":"color","prompt":"a purple bowl","main_score":10,"scores":{"color":10}},
+"prompt_013":{"dimension":"color","prompt":"an orange bicycle","main_score":9,"scores":{"color":9}},
+"prompt_014":{"dimension":"color","prompt":"a yellow bicycle","main_score":9,"scores":{"color":9}},
+"prompt_015":{"dimension":"color","prompt":"a black vase","main_score":9,"scores":{"color":9}},
+"prompt_016":{"dimension":"color","prompt":"a black cat","main_score":9,"scores":{"color":9}},
+"prompt_017":{"dimension":"color","prompt":"an orange cat","main_score":9,"scores":{"color":9}},
+"prompt_018":{"dimension":"human_action","prompt":"A person is doing laundry","main_score":7,"scores":{"human_action":7}},
+"prompt_019":{"dimension":"human_action","prompt":"A person is strumming guitar","main_score":8,"scores":{"human_action":8}},
+"prompt_020":{"dimension":"human_action","prompt":"A person is tasting beer","main_score":7,"scores":{"human_action":7}},
+"prompt_021":{"dimension":"human_action","prompt":"A person is motorcycling","main_score":7,"scores":{"human_action":7}},
+"prompt_022":{"dimension":"human_action","prompt":"A person is shooting basketball","main_score":7,"scores":{"human_action":7}},
+"prompt_023":{"dimension":"human_action","prompt":"A person is running on treadmill","main_score":7,"scores":{"human_action":7}},
+"prompt_024":{"dimension":"human_action","prompt":"A person is using computer","main_score":8,"scores":{"human_action":8}},
+"prompt_025":{"dimension":"human_action","prompt":"A person is dancing ballet","main_score":6,"scores":{"human_action":6}},
+"prompt_026":{"dimension":"human_action","prompt":"A person is brushing teeth","main_score":6,"scores":{"human_action":6}},
+"prompt_027":{"dimension":"human_action","prompt":"A person is cutting watermelon","main_score":5,"scores":{"human_action":5}},
+"prompt_028":{"dimension":"multiple_objects","prompt":"a frisbee and skis","main_score":8,"scores":{"multiple_objects":8}},
+"prompt_029":{"dimension":"multiple_objects","prompt":"a fork and a potted plant","main_score":8,"scores":{"multiple_objects":8}},
+"prompt_030":{"dimension":"multiple_objects","prompt":"a bicycle and an airplane","main_score":9,"scores":{"multiple_objects":9}},
+"prompt_031":{"dimension":"multiple_objects","prompt":"a skateboard and a surfboard","main_score":8,"scores":{"multiple_objects":8}},
+"prompt_032":{"dimension":"multiple_objects","prompt":"a bird and a cat","main_score":7,"scores":{"multiple_objects":7}},
+"prompt_033":{"dimension":"multiple_objects","prompt":"a backpack and an umbrella","main_score":8,"scores":{"multiple_objects":8}},
+"prompt_034":{"dimension":"multiple_objects","prompt":"a sink and a toilet","main_score":8,"scores":{"multiple_objects":8}},
+"prompt_035":{"dimension":"multiple_objects","prompt":"a car and a motorcycle","main_score":8,"scores":{"multiple_objects":8}},
+"prompt_036":{"dimension":"multiple_objects","prompt":"a person and a toilet","main_score":7,"scores":{"multiple_objects":7}},
+"prompt_037":{"dimension":"object_class","prompt":"a cow","main_score":10,"scores":{"object_class":10}},
+"prompt_038":{"dimension":"object_class","prompt":"a tie","main_score":9,"scores":{"object_class":9}},
+"prompt_039":{"dimension":"object_class","prompt":"a knife","main_score":8,"scores":{"object_class":8}},
+"prompt_040":{"dimension":"object_class","prompt":"a bench","main_score":9,"scores":{"object_class":9}},
+"prompt_041":{"dimension":"object_class","prompt":"a stop sign","main_score":9,"scores":{"object_class":9}},
+"prompt_042":{"dimension":"object_class","prompt":"a sandwich","main_score":9,"scores":{"object_class":9}},
+"prompt_043":{"dimension":"object_class","prompt":"a parking meter","main_score":9,"scores":{"object_class":9}},
+"prompt_044":{"dimension":"object_class","prompt":"a bowl","main_score":10,"scores":{"object_class":10}},
+"prompt_045":{"dimension":"object_class","prompt":"a spoon","main_score":10,"scores":{"object_class":10}},
+"prompt_046":{"dimension":"overall_consistency","prompt":"A modern art museum, with colorful paintings","main_score":8,"scores":{"overall_consistency":8}},
+"prompt_047":{"dimension":"overall_consistency","prompt":"A raccoon that looks like a turtle, digital art.","main_score":8,"scores":{"overall_consistency":8}},
+"prompt_048":{"dimension":"overall_consistency","prompt":"Two pandas discussing an academic paper.","main_score":7,"scores":{"overall_consistency":7}},
+"prompt_049":{"dimension":"overall_consistency","prompt":"A super cool giant robot in Cyberpunk Beijing","main_score":8,"scores":{"overall_consistency":8}},
+"prompt_050":{"dimension":"overall_consistency","prompt":"A car moving slowly on an empty street, rainy evening","main_score":9,"scores":{"overall_consistency":9}},
+"prompt_051":{"dimension":"overall_consistency","prompt":"A cat wearing sunglasses and working as a lifeguard at a pool.","main_score":8,"scores":{"overall_consistency":8}},
+"prompt_052":{"dimension":"overall_consistency","prompt":"A raccoon is playing the electronic guitar.","main_score":8,"scores":{"overall_consistency":8}},
+"prompt_053":{"dimension":"overall_consistency","prompt":"Fireworks.","main_score":9,"scores":{"overall_consistency":9}},
+"prompt_054":{"dimension":"overall_consistency","prompt":"A cat wearing sunglasses at a pool","main_score":8,"scores":{"overall_consistency":8}},
+"prompt_055":{"dimension":"scene","prompt":"golf course","main_score":9,"scores":{"scene":9}},
+"prompt_056":{"dimension":"scene","prompt":"train station platform","main_score":9,"scores":{"scene":9}},
+"prompt_057":{"dimension":"scene","prompt":"train railway","main_score":9,"scores":{"scene":9}},
+"prompt_058":{"dimension":"scene","prompt":"junkyard","main_score":8,"scores":{"scene":8}},
+"prompt_059":{"dimension":"scene","prompt":"staircase","main_score":9,"scores":{"scene":9}},
+"prompt_060":{"dimension":"scene","prompt":"construction site","main_score":9,"scores":{"scene":9}},
+"prompt_061":{"dimension":"scene","prompt":"bar","main_score":9,"scores":{"scene":9}},
+"prompt_062":{"dimension":"scene","prompt":"bathroom","main_score":9,"scores":{"scene":9}},
+"prompt_063":{"dimension":"scene","prompt":"waterfall","main_score":9,"scores":{"scene":9}},
+"prompt_064":{"dimension":"scene","prompt":"driveway","main_score":10,"scores":{"scene":10}},
+"prompt_065":{"dimension":"spatial_relationship","prompt":"a tennis racket on the left of a frisbee, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_066":{"dimension":"spatial_relationship","prompt":"a bird on the left of a cat, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_067":{"dimension":"spatial_relationship","prompt":"a clock on the left of a vase, front view","main_score":8,"scores":{"spatial_relationship":8}},
+"prompt_068":{"dimension":"spatial_relationship","prompt":"a dog on the left of a horse, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_069":{"dimension":"spatial_relationship","prompt":"a train on the right of a boat, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_070":{"dimension":"spatial_relationship","prompt":"a baseball bat on the left of a baseball glove, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_071":{"dimension":"spatial_relationship","prompt":"an apple on the top of a sandwich, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_072":{"dimension":"spatial_relationship","prompt":"a dining table on the left of a chair, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_073":{"dimension":"spatial_relationship","prompt":"a bottle on the left of a wine glass, front view","main_score":9,"scores":{"spatial_relationship":9}},
+"prompt_074":{"dimension":"subject_consistency","prompt":"a dog drinking water","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_075":{"dimension":"subject_consistency","prompt":"a dog enjoying a peaceful walk","main_score":9,"scores":{"subject_consistency":9}},
+"prompt_076":{"dimension":"subject_consistency","prompt":"a bus accelerating to gain speed","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_077":{"dimension":"subject_consistency","prompt":"a truck accelerating to gain speed","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_078":{"dimension":"subject_consistency","prompt":"a bicycle slowing down to stop","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_079":{"dimension":"subject_consistency","prompt":"an airplane taking off","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_080":{"dimension":"subject_consistency","prompt":"a truck anchored in a tranquil bay","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_081":{"dimension":"subject_consistency","prompt":"an airplane soaring through a clear blue sky","main_score":8,"scores":{"subject_consistency":8}},
+"prompt_082":{"dimension":"temporal_flickering","prompt":"A tranquil tableau of the lampposts were adorned with Art Deco motifs, their geometric shapes and frosted glass creating a sense of vintage glamour","main_score":7,"scores":{"temporal_flickering":7}},
+"prompt_083":{"dimension":"temporal_flickering","prompt":"static view on a desert scene with an oasis, palm trees, and a clear, calm pool of water","main_score":7,"scores":{"temporal_flickering":7}},
+"prompt_084":{"dimension":"temporal_flickering","prompt":"A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers","main_score":6,"scores":{"temporal_flickering":6}},
+"prompt_085":{"dimension":"temporal_flickering","prompt":"In a still frame, a tranquil pond was fringed by weeping cherry trees, their blossoms drifting lazily onto the glassy surface","main_score":6,"scores":{"temporal_flickering":6}},
+"prompt_086":{"dimension":"temporal_flickering","prompt":"A tranquil tableau of a bunch of grapes","main_score":7,"scores":{"temporal_flickering":7}},
+"prompt_087":{"dimension":"temporal_flickering","prompt":"A tranquil tableau of a picturesque barn was painted a warm shade of red and nestled in a picturesque meadow","main_score":6,"scores":{"temporal_flickering":6}},
+"prompt_088":{"dimension":"temporal_flickering","prompt":"A tranquil tableau of bedroom","main_score":7,"scores":{"temporal_flickering":7}},
+"prompt_089":{"dimension":"temporal_flickering","prompt":"A tranquil tableau of a bowl on the kitchen counter","main_score":6,"scores":{"temporal_flickering":6}},
+"prompt_090":{"dimension":"temporal_style","prompt":"A beautiful coastal beach in spring, waves lapping on sand, pan right","main_score":9,"scores":{"temporal_style":9}},
+"prompt_091":{"dimension":"temporal_style","prompt":"A cute happy Corgi playing in park, sunset, in super slow motion","main_score":8,"scores":{"temporal_style":8}},
+"prompt_093":{"dimension":"temporal_style","prompt":"A panda drinking coffee in a cafe in Paris, pan right","main_score":8,"scores":{"temporal_style":8}},
+"prompt_094":{"dimension":"temporal_style","prompt":"A beautiful coastal beach in spring, waves lapping on sand, featuring a steady and smooth perspective","main_score":9,"scores":{"temporal_style":9}},
+"prompt_095":{"dimension":"temporal_style","prompt":"a shark is swimming in the ocean, with an intense shaking effect","main_score":9,"scores":{"temporal_style":9}},
+"prompt_097":{"dimension":"temporal_style","prompt":"Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, zoom in","main_score":8,"scores":{"temporal_style":8}},
+"prompt_098":{"dimension":"temporal_style","prompt":"An astronaut flying in space, pan left","main_score":9,"scores":{"temporal_style":9}},
+"prompt_099":{"dimension":"temporal_style","prompt":"A boat sailing leisurely along the Seine River with the Eiffel Tower in background, pan left","main_score":9,"scores":{"temporal_style":9}}
+};
+
+// Dimension result summary
+const DIM_RESULTS = {
+"appearance_style":{
+"main":9.44,
+"subject_consistency":8.11,"background_consistency":7.89,"temporal_flickering":8.11,
+"motion_smoothness":8.67,"dynamic_degree":7.11,"aesthetic_quality":9.0,
+"imaging_quality":8.0,"object_class":8.78,"multiple_objects":7.78,
+"human_action":7.89,"color":9.22,"spatial_relationship":8.22,
+"scene":8.89,"temporal_style":8.44,"overall_consistency":8.0,"overall_quality":8.33
+},
+"color":{
+"main":9.11,
+"subject_consistency":8.56,"background_consistency":8.0,"temporal_flickering":7.78,
+"motion_smoothness":8.56,"dynamic_degree":6.11,"aesthetic_quality":8.44,
+"imaging_quality":8.0,"object_class":9.44,"multiple_objects":7.67,
+"human_action":6.11,"color":9.11,"spatial_relationship":8.22,
+"scene":8.44,"temporal_style":8.33,"overall_consistency":7.56,"overall_quality":7.89
+},
+"human_action":{
+"main":6.8,
+"subject_consistency":7.7,"background_consistency":7.4,"temporal_flickering":7.5,
+"motion_smoothness":7.7,"dynamic_degree":7.9,"aesthetic_quality":8.0,
+"imaging_quality":7.4,"object_class":8.5,"multiple_objects":7.1,
+"human_action":6.8,"color":8.4,"spatial_relationship":7.8,
+"scene":8.0,"temporal_style":7.8,"overall_consistency":7.3,"overall_quality":7.2
+},
+"multiple_objects":{
+"main":7.89,
+"subject_consistency":8.22,"background_consistency":7.89,"temporal_flickering":7.78,
+"motion_smoothness":8.33,"dynamic_degree":7.11,"aesthetic_quality":9.0,
+"imaging_quality":8.11,"object_class":9.11,"multiple_objects":7.89,
+"human_action":7.0,"color":8.67,"spatial_relationship":8.89,
+"scene":8.0,"temporal_style":8.0,"overall_consistency":8.11,"overall_quality":8.11
+},
+"object_class":{
+"main":9.22,
+"subject_consistency":8.78,"background_consistency":8.44,"temporal_flickering":8.56,
+"motion_smoothness":9.11,"dynamic_degree":6.44,"aesthetic_quality":9.44,
+"imaging_quality":8.56,"object_class":9.22,"multiple_objects":8.11,
+"human_action":7.11,"color":9.11,"spatial_relationship":7.89,
+"scene":8.33,"temporal_style":8.44,"overall_consistency":8.33,"overall_quality":8.67
+},
+"overall_consistency":{
+"main":8.11,
+"subject_consistency":8.22,"background_consistency":8.22,"temporal_flickering":7.67,
+"motion_smoothness":8.56,"dynamic_degree":7.33,"aesthetic_quality":8.78,
+"imaging_quality":8.11,"object_class":8.89,"multiple_objects":7.67,
+"human_action":8.0,"color":8.67,"spatial_relationship":7.78,
+"scene":8.56,"temporal_style":8.22,"overall_consistency":8.11,"overall_quality":7.78
+},
+"scene":{
+"main":9.0,
+"subject_consistency":8.8,"background_consistency":8.6,"temporal_flickering":8.6,
+"motion_smoothness":8.9,"dynamic_degree":7.0,"aesthetic_quality":9.5,
+"imaging_quality":8.5,"object_class":8.7,"multiple_objects":8.0,
+"human_action":7.3,"color":8.6,"spatial_relationship":8.0,
+"scene":9.0,"temporal_style":8.1,"overall_consistency":8.5,"overall_quality":8.4
+},
+"spatial_relationship":{
+"main":8.89,
+"subject_consistency":8.33,"background_consistency":8.22,"temporal_flickering":8.0,
+"motion_smoothness":8.67,"dynamic_degree":7.22,"aesthetic_quality":8.89,
+"imaging_quality":8.22,"object_class":9.0,"multiple_objects":8.0,
+"human_action":6.33,"color":8.89,"spatial_relationship":8.89,
+"scene":7.89,"temporal_style":8.11,"overall_consistency":8.11,"overall_quality":8.22
+},
+"subject_consistency":{
+"main":8.12,
+"subject_consistency":8.12,"background_consistency":7.88,"temporal_flickering":8.25,
+"motion_smoothness":8.75,"dynamic_degree":7.88,"aesthetic_quality":9.0,
+"imaging_quality":8.38,"object_class":9.0,"multiple_objects":7.75,
+"human_action":7.12,"color":8.88,"spatial_relationship":8.0,
+"scene":8.25,"temporal_style":8.25,"overall_consistency":8.0,"overall_quality":8.38
+},
+"temporal_flickering":{
+"main":6.5,
+"subject_consistency":7.75,"background_consistency":7.5,"temporal_flickering":6.5,
+"motion_smoothness":8.0,"dynamic_degree":6.0,"aesthetic_quality":8.38,
+"imaging_quality":7.62,"object_class":8.62,"multiple_objects":7.75,
+"human_action":7.62,"color":8.5,"spatial_relationship":7.88,
+"scene":7.75,"temporal_style":7.62,"overall_consistency":7.75,"overall_quality":8.0
+},
+"temporal_style":{
+"main":8.62,
+"subject_consistency":8.5,"background_consistency":8.25,"temporal_flickering":7.62,
+"motion_smoothness":8.12,"dynamic_degree":7.75,"aesthetic_quality":8.88,
+"imaging_quality":8.12,"object_class":9.12,"multiple_objects":7.75,
+"human_action":7.25,"color":8.88,"spatial_relationship":7.75,
+"scene":8.12,"temporal_style":8.62,"overall_consistency":7.88,"overall_quality":8.38
+}
+};
+
+const DIMENSION_NAMES = {
+    "appearance_style":"外观风格","color":"颜色","human_action":"人物动作",
+    "multiple_objects":"多对象","object_class":"对象类别","overall_consistency":"整体一致性",
+    "scene":"场景","spatial_relationship":"空间关系","subject_consistency":"主体一致性",
+    "temporal_flickering":"时间闪烁","temporal_style":"时间风格"
+};
+
+const SUB_DIM_NAMES = {
+    "subject_consistency":"主体一致性","background_consistency":"背景一致性",
+    "temporal_flickering":"时间闪烁","motion_smoothness":"运动平滑度",
+    "dynamic_degree":"动态程度","aesthetic_quality":"美学质量",
+    "imaging_quality":"成像质量","object_class":"对象类别",
+    "multiple_objects":"多对象","human_action":"人物动作",
+    "color":"颜色","spatial_relationship":"空间关系",
+    "scene":"场景","temporal_style":"时间风格",
+    "overall_consistency":"整体一致性","overall_quality":"整体质量"
+};
+
+const SUB_DIMS = Object.keys(SUB_DIM_NAMES);
+
+// Build English -> Chinese prompt lookup map
+const promptZhMap = {};
+PROMPT_DATA.forEach(p => { promptZhMap[p.prompt] = p.zh; });
+
+// Global prompt language state (default: English)
+let promptLangVideo = 'en';
+let promptLangResult = 'en';
+
+// Toggle all prompt languages for a table page
+function togglePromptLang(page) {
+    if (page === 'video') {
+        promptLangVideo = promptLangVideo === 'en' ? 'zh' : 'en';
+        const btn = document.getElementById('video-lang-btn');
+        btn.textContent = promptLangVideo === 'en' ? '中' : 'EN';
+        renderVideos();
+    } else if (page === 'result') {
+        promptLangResult = promptLangResult === 'en' ? 'zh' : 'en';
+        const btn = document.getElementById('result-lang-btn');
+        btn.textContent = promptLangResult === 'en' ? '中' : 'EN';
+        renderResultDetails();
+    }
+}
+
+// Helper: escape HTML
+function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Helper: format file size
+function formatSize(bytes) {
+    if (!bytes || bytes === 0) return '-';
+    if (bytes < 1024*1024) return (bytes/1024).toFixed(0) + ' KB';
+    return (bytes/(1024*1024)).toFixed(1) + ' MB';
+}
+
+// Helper: get score class
+function getScoreClass(s) {
+    if (s >= 9) return 'score-high';
+    if (s >= 7) return 'score-mid';
+    return 'score-low';
+}
+
+// ==================== NAVIGATION ====================
+function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const navLink = document.querySelector(`nav a[href="#${name}"]`);
+    if (navLink) navLink.classList.add('active');
+
+    // Trigger renders for dynamic pages
+    if (name === 'prompts') renderPrompts();
+    if (name === 'videos') { populateFilters(); renderVideos(); }
+    if (name === 'results') { populateResultFilters(); renderResultSummary(); renderResultDetails(); renderHeatmap(); }
+    window.scrollTo(0, 0);
+}
+
+// ==================== PAGE: PROMPTS ====================
+function populatePromptFilter() {
+    const seen = new Set();
+    const sel = document.getElementById('prompt-filter');
+    sel.innerHTML = '<option value="all">全部维度</option>';
+    PROMPT_DATA.forEach(p => {
+        if (!seen.has(p.dimension)) {
+            seen.add(p.dimension);
+            const opt = document.createElement('option');
+            opt.value = p.dimension;
+            opt.textContent = DIMENSION_NAMES[p.dimension] || p.dimension;
+            sel.appendChild(opt);
+        }
+    });
+}
+populatePromptFilter();
+
+function renderPrompts() {
+    const dimFilter = document.getElementById('prompt-filter').value;
+    const search = document.getElementById('prompt-search').value.toLowerCase();
+    let filtered = PROMPT_DATA;
+    if (dimFilter !== 'all') filtered = filtered.filter(p => p.dimension === dimFilter);
+    if (search) filtered = filtered.filter(p => p.prompt.toLowerCase().includes(search) || p.zh.includes(search));
+
+    const tbody = document.getElementById('prompt-tbody');
+    tbody.innerHTML = filtered.map((p, i) => `
+        <tr>
+            <td>${i+1}</td>
+            <td><span class="badge badge-blue">${DIMENSION_NAMES[p.dimension]||p.dimension}</span></td>
+            <td style="font-size:0.88em;max-width:400px;word-break:break-word;">${p.prompt}</td>
+            <td style="font-size:0.88em;max-width:280px;word-break:break-word;">${p.zh}</td>
+        </tr>
+    `).join('');
+    document.getElementById('prompt-count').textContent = `共 ${filtered.length} 条`;
+}
+
+// ==================== PAGE: VIDEOS ====================
+function populateFilters() {
+    const seen = new Set();
+    const sel = document.getElementById('video-filter');
+    sel.innerHTML = '<option value="all">全部维度</option>';
+    Object.values(VIDEO_LOG).forEach(v => {
+        if (!seen.has(v.dimension)) {
+            seen.add(v.dimension);
+            const opt = document.createElement('option');
+            opt.value = v.dimension;
+            opt.textContent = DIMENSION_NAMES[v.dimension] || v.dimension;
+            sel.appendChild(opt);
+        }
+    });
+}
+
+function renderVideos() {
+    const dimFilter = document.getElementById('video-filter').value;
+    const statusFilter = document.getElementById('video-status-filter').value;
+    let entries = Object.entries(VIDEO_LOG);
+    if (dimFilter !== 'all') entries = entries.filter(([k,v]) => v.dimension === dimFilter);
+    if (statusFilter !== 'all') entries = entries.filter(([k,v]) => v.status === statusFilter);
+
+    const tbody = document.getElementById('video-tbody');
+    tbody.innerHTML = entries.map(([key, v], i) => {
+        const num = key.replace('prompt_', '');
+        const dimSlug = v.dimension;
+        const videoPath = `generated-video/${dimSlug}_prompt_${num.padStart(3,'0')}.mp4`;
+        const txtPath = `video2txt/${dimSlug}_prompt_${num.padStart(3,'0')}.txt`;
+        const hasVideo = v.status === 'downloaded';
+        return `
+        <tr>
+            <td>${num}</td>
+            <td><span class="badge badge-blue">${DIMENSION_NAMES[v.dimension]||v.dimension}</span></td>
+            <td style="font-size:0.85em;max-width:300px;word-break:break-word;">
+                ${promptLangVideo==='zh' ? escHtml(promptZhMap[v.prompt]||v.prompt||'') : escHtml(v.prompt||'')}
+            </td>
+            <td><span class="badge ${v.status==='downloaded'?'badge-green':'badge-yellow'}">${v.status==='downloaded'?'✅ 成功':'❌ 失败'}</span>${v.error?`<br><small style="color:var(--red)">${v.error}</small>`:''}</td>
+            <td style="white-space:nowrap;">${formatSize(v.file_size)}</td>
+            <td>${hasVideo ? `<a class="data-link" href="javascript:openVideo('${videoPath}')">▶ 播放</a>` : '<span style="color:var(--text-muted)">-</span>'}</td>
+            <td>${hasVideo ? `<a class="data-link" href="${txtPath}" target="_blank">📄 查看</a>` : '<span style="color:var(--text-muted)">-</span>'}</td>
+        </tr>`;
+    }).join('');
+    document.getElementById('video-count').textContent = `共 ${entries.length} 条记录`;
+}
+
+// ==================== VIDEO MODAL ====================
+function openVideo(path) {
+    const modal = document.getElementById('video-modal');
+    const player = document.getElementById('video-player');
+    player.src = path;
+    modal.classList.add('active');
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('video-modal');
+    const player = document.getElementById('video-player');
+    player.pause();
+    player.src = '';
+    modal.classList.remove('active');
+}
+
+// ==================== PAGE: RESULTS ====================
+function populateResultFilters() {
+    const seen = new Set();
+    const sel = document.getElementById('result-dim-filter');
+    sel.innerHTML = '<option value="all">全部维度</option>';
+    Object.values(SCORE_RESULTS).forEach(r => {
+        if (!seen.has(r.dimension)) {
+            seen.add(r.dimension);
+            const opt = document.createElement('option');
+            opt.value = r.dimension;
+            opt.textContent = DIMENSION_NAMES[r.dimension] || r.dimension;
+            sel.appendChild(opt);
+        }
+    });
+}
+
+function switchResultTab(tab) {
+    document.querySelectorAll('#page-results .tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#page-results .tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('result-tab-' + tab).classList.add('active');
+    document.querySelector(`#page-results .tab-btn:nth-child(${tab==='scores'?1:tab==='details'?2:3})`).classList.add('active');
+}
+
+function renderResultSummary() {
+    const tbody = document.getElementById('result-summary-tbody');
+    const rows = Object.entries(DIM_RESULTS).map(([dim, data]) => {
+        const cells = SUB_DIMS.map(sd => {
+            const val = data[sd];
+            if (val === undefined) return '<td>-</td>';
+            const cls = val >= 9 ? 'score-high' : val >= 7 ? 'score-mid' : 'score-low';
+            return `<td><span class="score-badge ${cls}" style="font-size:0.8em;">${val.toFixed(1)}</span></td>`;
+        }).join('');
+        return `<tr>
+            <td><strong>${DIMENSION_NAMES[dim]||dim}</strong></td>
+            <td><span class="score-badge ${getScoreClass(data.main)}">${data.main.toFixed(1)}</span></td>
+            ${cells}
+        </tr>`;
+    }).join('');
+    tbody.innerHTML = rows;
+}
+
+function renderResultDetails() {
+    const dimFilter = document.getElementById('result-dim-filter').value;
+    const search = document.getElementById('result-search').value.toLowerCase();
+    let entries = Object.entries(SCORE_RESULTS);
+    if (dimFilter !== 'all') entries = entries.filter(([k,v]) => v.dimension === dimFilter);
+    if (search) entries = entries.filter(([k,v]) => v.prompt.toLowerCase().includes(search));
+
+    const tbody = document.getElementById('result-detail-tbody');
+    tbody.innerHTML = entries.map(([key, r]) => {
+        const num = key.replace('prompt_', '');
+        return `
+        <tr>
+            <td>${num}</td>
+            <td><span class="badge badge-blue">${DIMENSION_NAMES[r.dimension]||r.dimension}</span></td>
+            <td style="font-size:0.85em;max-width:350px;word-break:break-word;">
+                ${promptLangResult==='zh' ? escHtml(promptZhMap[r.prompt]||r.prompt) : escHtml(r.prompt)}
+            </td>
+            <td><span class="score-badge ${getScoreClass(r.main_score)}">${r.main_score}</span></td>
+            <td><a class="data-link" href="results/vbench_scores.json" target="_blank">查看原始数据 →</a></td>
+        </tr>`;
+    }).join('');
+    document.getElementById('result-detail-count').textContent = `共 ${entries.length} 条`;
+}
+
+function renderHeatmap() {
+    const wrap = document.getElementById('result-heatmap-wrap');
+    const dims = Object.keys(DIM_RESULTS);
+    
+    let headerCells = '<th style="position:sticky;left:0;background:#1e293b;z-index:1;">主维度 \\ 子维度</th>';
+    SUB_DIMS.forEach(sd => {
+        headerCells += `<th style="font-size:0.75em;">${SUB_DIM_NAMES[sd]}</th>`;
+    });
+
+    let bodyRows = dims.map(dim => {
+        const data = DIM_RESULTS[dim];
+        let cells = `<td style="position:sticky;left:0;background:#1e293b;z-index:1;font-weight:600;">${DIMENSION_NAMES[dim]}</td>`;
+        SUB_DIMS.forEach(sd => {
+            const val = data[sd];
+            if (val === undefined) { cells += '<td style="color:var(--text-muted)">-</td>'; return; }
+            // Color intensity based on score
+            const intensity = val / 10;
+            const r = Math.round(15 + (1-intensity)*20);
+            const g = Math.round(23 + intensity*60);
+            const b = Math.round(42 + intensity*40);
+            cells += `<td style="background:rgb(${r},${g},${b});text-align:center;font-weight:600;font-size:0.85em;">${val.toFixed(1)}</td>`;
+        });
+        return `<tr>${cells}</tr>`;
+    }).join('');
+
+    wrap.innerHTML = `<div class="table-wrap"><table>
+        <thead><tr>${headerCells}</tr></thead>
+        <tbody>${bodyRows}</tbody>
+    </table></div>`;
+}
+
+// ==================== PAGE: FEEDBACK ====================
+let feedbackRating = 0;
+function selectRating(el) {
+    document.querySelectorAll('#fb-rating .rating-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    feedbackRating = parseInt(el.dataset.val);
+}
+
+async function submitFeedback() {
+    const name = document.getElementById('fb-name').value.trim() || '匿名';
+    const aspect = document.getElementById('fb-aspect').value;
+    const content = document.getElementById('fb-content').value.trim();
+    const errEl = document.getElementById('fb-error');
+    const btn = document.getElementById('fb-submit');
+
+    errEl.style.display = 'none';
+
+    if (!feedbackRating) {
+        errEl.textContent = '请先选择整体体验评分';
+        errEl.style.display = 'block';
+        return;
+    }
+    if (!content) {
+        errEl.textContent = '请填写详细反馈内容';
+        errEl.style.display = 'block';
+        return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '⏳ 提交中...';
+
+    try {
+        const resp = await fetch('/api/feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, rating: feedbackRating, aspect, content })
+        });
+        const data = await resp.json();
+        if (data.success) {
+            document.getElementById('feedback-form-wrap').style.display = 'none';
+            document.getElementById('feedback-success').style.display = 'block';
+        } else {
+            throw new Error(data.error || '提交失败');
+        }
+    } catch (e) {
+        errEl.textContent = '提交失败：' + e.message + '，请稍后重试';
+        errEl.style.display = 'block';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = '🚀 提交反馈';
+    }
+}
+
+function resetFeedback() {
+    document.getElementById('feedback-form-wrap').style.display = 'block';
+    document.getElementById('feedback-success').style.display = 'none';
+    document.getElementById('fb-name').value = '';
+    document.getElementById('fb-aspect').value = '';
+    document.getElementById('fb-content').value = '';
+    document.querySelectorAll('#fb-rating .rating-btn').forEach(b => b.classList.remove('selected'));
+    feedbackRating = 0;
+}
+
+// ==================== INITIALIZATION ====================
+document.addEventListener('DOMContentLoaded', () => {
+    renderPrompts();
+    populateFilters();
+    renderVideos();
+    populateResultFilters();
+    renderResultSummary();
+    renderResultDetails();
+    renderHeatmap();
+    
+    // Handle hash navigation
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById('page-' + hash)) {
+        showPage(hash);
+    }
+});
+
+window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById('page-' + hash)) {
+        showPage(hash);
+    }
+});
+</script>
+
+</body>
+</html>

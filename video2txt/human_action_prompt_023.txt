@@ -1,0 +1,46 @@
+Dimension: human_action
+Prompt: A person is running on treadmill
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a woman running intensely on a treadmill in a dimly lit, modern gym environment. The video features dynamic camera angles that shift from close-ups of the feet on the belt, to the runner's determined face, to the treadmill's digital console displaying workout metrics, and finally to a wider shot showing her full upper body in motion. The sequence captures the intensity and physical exertion of treadmill running with cinematic lighting and smooth motion.",
+  "objects_scene": {
+    "main_subject": "A physically fit woman with brown hair tied back, wearing a black sports bra and black athletic shorts/leggings, running on a treadmill",
+    "equipment": "Treadmill with brand name 'FPES' visible on the console, featuring digital displays showing speed (8.0), time (8:1), distance (2.71), heart rate (72), and a red LED graph",
+    "footwear": "Black athletic shoes with white soles and red accents on the heel",
+    "environment": "Dark indoor gym or fitness studio with teal/cyan vertical LED light strips in the background creating a moody, atmospheric setting",
+    "additional_elements": "Sweat visible on the woman's skin indicating intense exertion, slight motion blur suggesting speed"
+  },
+  "motion_quality": {
+    "overall_smoothness": "High - the running motion appears fluid and natural with proper biomechanics",
+    "foot_strike_pattern": "Realistic alternating foot strikes on the treadmill belt with appropriate heel-to-toe rolling motion",
+    "upper_body_movement": "Natural arm swing coordinated with leg movement, shoulders rotate appropriately, hair bounces with each stride",
+    "camera_movement": "Smooth transitions between shots: low-angle tracking of feet, push-in on face, static on console, pull-back to wide shot",
+    "temporal_consistency": "Good continuity between cuts - the running pace appears consistent across different angles, maintaining the same intensity level",
+    "facial_expressions": "Authentic showing of exertion - mouth slightly open for breathing, focused gaze, skin glistening with sweat"
+  },
+  "visual_quality": {
+    "lighting": "Cinematic and dramatic - high contrast with dark shadows and bright teal accent lights, rim lighting on the subject's shoulders and arms, sweaty skin reflects light realistically",
+    "color_grading": "Cool teal/cyan dominant palette with warm skin tones creating pleasing contrast, desaturated environment draws focus to the subject",
+    "resolution": "High definition with sharp detail visible in skin texture, fabric weave of clothing, and treadmill console digits",
+    "depth_of_field": "Shallow focus used effectively - feet and face in sharp focus while backgrounds blur slightly, console display has crisp focus on LED elements",
+    "texture_quality": "Realistic skin textures with visible sweat droplets, fabric details on sportswear, rubber texture on treadmill belt"
+  },
+  "prompt_alignment": {
+    "core_requirement": "Perfectly matches - clearly shows a person running on a treadmill",
+    "action_accuracy": "Authentic running gait with appropriate speed and intensity, not walking or jogging",
+    "subject_details": "Single person (woman) engaged in the activity as specified",
+    "equipment_accuracy": "Treadmill is correctly depicted with moving belt and functional console",
+    "environment_context": "Gym/fitness setting appropriate for the activity",
+    "exceeds_prompt": "Adds cinematic quality, emotional intensity, and technical details (metrics on console) that enhance the core concept without deviating from it"
+  },
+  "artifacts": {
+    "noticeable_issues": "Minimal - some very slight temporal inconsistencies in the console display numbers between frames (numbers appear to glitch slightly)",
+    "minor_concerns": "The brand name 'FPES' on the console may be a generated fictional brand; some Cyrillic-like text appears on the console ('РАССТ', 'СКОРОСТЬ') suggesting mixed language generation",
+    "motion_artifacts": "Occasional slight foot sliding on the belt in some frames, but generally well-executed",
+    "facial_details": "Highly detailed and realistic, no obvious uncanny valley effects",
+    "overall_cleanliness": "Very clean generation with no major distortions, blurring, or morphing issues common in earlier AI video models"
+  },
+  "overall_rating": 8.5
+}
+```

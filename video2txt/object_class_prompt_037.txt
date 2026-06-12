@@ -1,0 +1,39 @@
+Dimension: object_class
+Prompt: a cow
+============================================================
+```json
+{
+  "summary": "A serene, photorealistic video of a single light brown cow in a pastoral meadow at golden hour, featuring a slow camera push-in that creates an intimate portrait as the cow transitions from grazing to direct eye contact with the viewer.",
+  "objects_scene": {
+    "primary_subject": "A single light brown/tan cow with a white marking on its forehead, positioned centrally in the frame",
+    "environment": "Lush green meadow with scattered wildflowers (white daisies and purple blooms), rolling hills in the distance",
+    "background_elements": "Several deciduous trees of varying sizes distributed across the horizon line, soft clouds in a warm-toned sky suggesting sunset or sunrise",
+    "scene_composition": "Wide establishing shot that gradually tightens into an extreme close-up of the cow's face, maintaining shallow depth of field throughout"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, continuous push-in/dolly forward motion from approximately 3 meters to within inches of the cow's nose",
+    "subject_motion": "Cow initially grazes with head lowered (00:00:00.000-00:00:01.500), then slowly raises head (00:00:01.500-00:00:02.500), locks eyes with camera, and exhibits subtle natural movements—ear twitches, slight head tilts, gentle breathing/muzzle movements, and periodic blinking",
+    "temporal_consistency": "Excellent temporal coherence with no jumps or discontinuities; the cow's physical form and proportions remain consistent throughout the approach; lighting angles on the cow's face maintain logical consistency as the camera moves closer",
+    "motion_smoothness": "Very smooth, cinematic quality with natural easing; the cow's movements feel organic and unhurried, matching the contemplative pace of the camera movement"
+  },
+  "visual_quality": {
+    "lighting": "Warm golden hour illumination with soft directional light from the left/west, creating beautiful rim lighting on the cow's back and ears; subtle shadows under the cow's jaw and around the eyes that deepen naturally as the camera approaches; sky shows gentle gradient from pale blue to warm peach/orange near the horizon",
+    "color_palette": "Rich, saturated natural tones—warm amber-browns of the cow's coat, vibrant greens of the meadow with yellow and purple wildflower accents, soft pastels in the sky; color grading evokes peaceful, nostalgic pastoral aesthetics",
+    "resolution_and_detail": "High apparent resolution with crisp detail visible in individual hairs on the cow's muzzle, texture of the nose, and grass blades in foreground; shallow depth of field progressively isolates the subject as the camera approaches, with creamy bokeh in background elements",
+    "atmospheric_effects": "Subtle atmospheric perspective with distant hills slightly softened; possible very light haze or mist in the far background enhancing depth"
+  },
+  "prompt_alignment": {
+    "primary_prompt_fulfillment": "Excellent—the prompt 'a cow' is directly and completely satisfied with a single, clearly identifiable bovine subject as the undeniable focal point",
+    "semantic_enrichment": "The generation has intelligently expanded the minimal prompt with contextually appropriate setting (pasture), lighting (golden hour), and narrative arc (grazing to engagement), which enhances rather than distracts from the core subject",
+    "subject_prominence": "The cow occupies progressively more frame real estate, from roughly 15% of frame height initially to filling nearly the entire frame by conclusion, ensuring unambiguous focus on the requested object class",
+    "class_accuracy": "Anatomically correct bovine representation with proper proportions, characteristic features (large ears, broad muzzle, dewlap), and plausible coat texture for a dairy or dual-purpose breed (resembling Jersey or Guernsey characteristics)"
+  },
+  "artifacts": {
+    "detected_issues": "Minimal; slight potential softness in the extreme foreground grass during the closest approach (00:00:03.500+); very subtle possible temporal inconsistency in the exact positioning of background trees relative to cow's head during the head-raise transition",
+    "anatomical_accuracy": "Cow's eyes maintain proper binocular placement and reflection patterns; nostrils show appropriate asymmetry and moisture; ear positioning and movement appear natural",
+    "physics_and_logic": "Shadow direction remains consistent; the cow's center of gravity and stance appear stable and physically plausible throughout; no obvious floating, merging, or impossible geometry",
+    "temporal_artifacts": "No flickering, sudden morphing, or frame-to-frame inconsistencies; the gradual approach maintains coherent parallax with background elements"
+  },
+  "overall_rating": 8.5
+}
+```

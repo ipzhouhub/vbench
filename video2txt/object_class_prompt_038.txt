@@ -1,0 +1,43 @@
+Dimension: object_class
+Prompt: a tie
+============================================================
+```json
+{
+  "summary": "A close-up video showing a man in a white dress shirt tying a blue patterned necktie, with the camera gradually panning upward from his hands to his face as he completes the knot and adjusts it.",
+  "objects_scene": {
+    "primary_subject": "A man (only torso and lower face visible, wearing a white button-down dress shirt with collar up)",
+    "main_object": "Blue patterned necktie (dark blue with subtle geometric or paisley pattern)",
+    "actions": "Hands manipulating the tie to form a standard knot (appears to be a four-in-hand or half-Windsor knot), pulling the wide end through loops, tightening, and adjusting the knot",
+    "background": "Indoor setting with soft natural light from a window with sheer white curtains, wooden furniture (dresser with drawer visible), and warm-toned wall/curtain on the right side",
+    "other_details": "The man's hands are well-groomed, shirt has standard collar and cuff buttons, a ring is visible on his left hand"
+  },
+  "motion_quality": {
+    "smoothness": "Very smooth, natural hand movements with realistic finger articulation and fabric manipulation",
+    "consistency": "Temporally consistent throughout—tie physics and hand positions progress logically from loose to tightened knot without jumps or reversals",
+    "pacing": "Approximately 4.6 seconds duration showing a complete tie-tying sequence at realistic speed",
+    "camera_motion": "Slow, steady upward pan from mid-torso to upper chest/neck area, maintaining focus on the tie-tying action"
+  },
+  "visual_quality": {
+    "lighting": "Soft, diffused natural window light creating gentle shadows and realistic fabric sheen on the silk tie; no harsh highlights",
+    "colors": "Natural and well-balanced—crisp white shirt, rich deep blue tie, warm wood tones in background; color grading appears natural without oversaturation",
+    "resolution": "High resolution with sharp detail visible in fabric texture, tie pattern, and skin texture",
+    "depth_of_field": "Shallow to moderate—subject in sharp focus with softly blurred background, creating professional aesthetic",
+    "detail": "Fine details visible including individual threads in the tie pattern, shirt weave texture, and subtle skin pores"
+  },
+  "prompt_alignment": {
+    "relevance": "Excellent—prompt was simply 'a tie' and the video centers entirely on a necktie being tied",
+    "completeness": "Goes beyond minimum by showing the tie in functional context (being worn and tied) rather than just a static object",
+    "appropriateness": "The tie is the undeniable focal point throughout, with all action serving to showcase this object"
+  },
+  "artifacts": {
+    "noticeable_issues": "None significant",
+    "minor_observations": [
+      "Slight unnatural smoothness in skin texture typical of AI generation, particularly visible on the back of hands",
+      "Tie knot forms perhaps slightly too perfectly/symmetrically for a hand-tied knot, though this is within normal variation",
+      "The very brief duration (4.6s) limits complexity but is appropriate for the action shown"
+    ],
+    "temporal_coherence": "Excellent—no flickering, morphing, or sudden changes in object appearance across frames"
+  },
+  "overall_rating": 9
+}
+```

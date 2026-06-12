@@ -1,0 +1,100 @@
+[appearance_style] Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, Van Gogh style
+[appearance_style] The bund Shanghai, in cyberpunk style
+[appearance_style] A beautiful coastal beach in spring, waves lapping on sand, black and white
+[appearance_style] A panda drinking coffee in a cafe in Paris, surrealism style
+[appearance_style] A panda drinking coffee in a cafe in Paris, pixel art
+[appearance_style] A panda drinking coffee in a cafe in Paris, oil painting
+[appearance_style] The bund Shanghai, surrealism style
+[appearance_style] The bund Shanghai, pixel art
+[appearance_style] Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, in cyberpunk style
+[color] a blue clock
+[color] a blue car
+[color] a white clock
+[color] a purple bowl
+[color] an orange bicycle
+[color] a yellow bicycle
+[color] a black vase
+[color] a black cat
+[color] an orange cat
+[human_action] A person is doing laundry
+[human_action] A person is strumming guitar
+[human_action] A person is tasting beer
+[human_action] A person is motorcycling
+[human_action] A person is shooting basketball
+[human_action] A person is running on treadmill
+[human_action] A person is using computer
+[human_action] A person is dancing ballet
+[human_action] A person is brushing teeth
+[human_action] A person is cutting watermelon
+[multiple_objects] a frisbee and skis
+[multiple_objects] a fork and a potted plant
+[multiple_objects] a bicycle and an airplane
+[multiple_objects] a skateboard and a surfboard
+[multiple_objects] a bird and a cat
+[multiple_objects] a backpack and an umbrella
+[multiple_objects] a sink and a toilet
+[multiple_objects] a car and a motorcycle
+[multiple_objects] a person and a toilet
+[object_class] a cow
+[object_class] a tie
+[object_class] a knife
+[object_class] a bench
+[object_class] a stop sign
+[object_class] a sandwich
+[object_class] a parking meter
+[object_class] a bowl
+[object_class] a spoon
+[overall_consistency] A modern art museum, with colorful paintings
+[overall_consistency] A raccoon that looks like a turtle, digital art.
+[overall_consistency] Two pandas discussing an academic paper.
+[overall_consistency] A super cool giant robot in Cyberpunk Beijing
+[overall_consistency] A car moving slowly on an empty street, rainy evening
+[overall_consistency] A cat wearing sunglasses and working as a lifeguard at a pool.
+[overall_consistency] A raccoon is playing the electronic guitar.
+[overall_consistency] Fireworks.
+[overall_consistency] A cat wearing sunglasses at a pool
+[scene] golf course
+[scene] train station platform
+[scene] train railway
+[scene] junkyard
+[scene] staircase
+[scene] construction site
+[scene] bar
+[scene] bathroom
+[scene] waterfall
+[scene] driveway
+[spatial_relationship] a tennis racket on the left of a frisbee, front view
+[spatial_relationship] a bird on the left of a cat, front view
+[spatial_relationship] a clock on the left of a vase, front view
+[spatial_relationship] a dog on the left of a horse, front view
+[spatial_relationship] a train on the right of a boat, front view
+[spatial_relationship] a baseball bat on the left of a baseball glove, front view
+[spatial_relationship] an apple on the top of a sandwich, front view
+[spatial_relationship] a dining table on the left of a chair, front view
+[spatial_relationship] a bottle on the left of a wine glass, front view
+[subject_consistency] a dog drinking water
+[subject_consistency] a dog enjoying a peaceful walk
+[subject_consistency] a bus accelerating to gain speed
+[subject_consistency] a truck accelerating to gain speed
+[subject_consistency] a bicycle slowing down to stop
+[subject_consistency] an airplane taking off
+[subject_consistency] a truck anchored in a tranquil bay
+[subject_consistency] an airplane soaring through a clear blue sky
+[temporal_flickering] A tranquil tableau of the lampposts were adorned with Art Deco motifs, their geometric shapes and frosted glass creating a sense of vintage glamour
+[temporal_flickering] static view on a desert scene with an oasis, palm trees, and a clear, calm pool of water
+[temporal_flickering] A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers
+[temporal_flickering] In a still frame, a tranquil pond was fringed by weeping cherry trees, their blossoms drifting lazily onto the glassy surface
+[temporal_flickering] A tranquil tableau of a bunch of grapes
+[temporal_flickering] A tranquil tableau of a picturesque barn was painted a warm shade of red and nestled in a picturesque meadow
+[temporal_flickering] A tranquil tableau of bedroom
+[temporal_flickering] A tranquil tableau of a bowl on the kitchen counter
+[temporal_style] A beautiful coastal beach in spring, waves lapping on sand, pan right
+[temporal_style] A cute happy Corgi playing in park, sunset, in super slow motion
+[temporal_style] Gwen Stacy reading a book, zoom in
+[temporal_style] A panda drinking coffee in a cafe in Paris, pan right
+[temporal_style] A beautiful coastal beach in spring, waves lapping on sand, featuring a steady and smooth perspective
+[temporal_style] a shark is swimming in the ocean, with an intense shaking effect
+[temporal_style] A couple in formal evening wear going home get caught in a heavy downpour with umbrellas, zoom out
+[temporal_style] Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, zoom in
+[temporal_style] An astronaut flying in space, pan left
+[temporal_style] A boat sailing leisurely along the Seine River with the Eiffel Tower in background, pan left

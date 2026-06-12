@@ -1,0 +1,53 @@
+Dimension: human_action
+Prompt: A person is brushing teeth
+============================================================
+```json
+{
+  "summary": "A woman with light brown hair wearing a pink long-sleeve shirt is brushing her teeth while looking at her reflection in a bathroom mirror. The video shows a continuous brushing motion with gradual camera zoom-in, set in a modern, brightly lit bathroom with marble finishes.",
+  "objects_scene": {
+    "main_subject": "A woman with shoulder-length light brown hair, wearing a pale pink long-sleeve shirt",
+    "action": "Brushing teeth with a white manual toothbrush",
+    "setting": "Modern bathroom with large mirror, white vessel sink, chrome faucet, glass shower enclosure with marble tile walls, and a window with white panes allowing natural light",
+    "objects_visible": [
+      "White toothbrush",
+      "Mirror (showing reflection)",
+      "White vessel sink",
+      "Chrome wall-mounted faucet",
+      "Glass shower door with chrome fixtures",
+      "Marble countertop and backsplash",
+      "Soap dispenser",
+      "Small metallic container on counter"
+    ]
+  },
+  "motion_quality": {
+    "brushing_motion": "The woman performs a consistent horizontal brushing motion across her teeth, with her right hand moving the toothbrush back and forth. The motion is repetitive and maintains reasonable consistency throughout the video.",
+    "camera_movement": "Gradual slow zoom-in from medium shot to close-up, starting around 00:00:01.5 and continuing through the sequence. The zoom is smooth and deliberate.",
+    "head_movement": "Slight natural head movements as she brushes different areas of her mouth. She occasionally shifts her gaze between her reflection and her own face.",
+    "smoothness": "Overall smooth with minor subtle inconsistencies in the brushing rhythm that are typical of natural human movement. No jarring or abrupt motions.",
+    "temporal_consistency": "The action flows continuously without cuts or jumps. The brushing speed remains relatively constant."
+  },
+  "visual_quality": {
+    "lighting": "Bright, even, natural-looking light from the window, supplemented with soft ambient lighting. No harsh shadows. The scene is well-illuminated with a clean, airy aesthetic.",
+    "colors": "Soft, muted palette dominated by whites, pale pinks, and light grays. The color grading is natural and pleasing, with no oversaturation.",
+    "resolution": "High definition with clear detail visible in hair strands, fabric texture, and bathroom fixtures.",
+    "focus": "Sharp focus on the woman's face and upper body, with gradual shallowing of depth of field as the camera zooms in. Background remains appropriately soft.",
+    "detail_level": "Fine details visible including skin texture, individual teeth, toothbrush bristles, and marble veining."
+  },
+  "prompt_alignment": {
+    "core_prompt": "A person is brushing teeth",
+    "alignment_score": "Excellent",
+    "details": "The video directly and accurately depicts a person brushing their teeth. The action is central, clearly visible, and sustained throughout the entire duration. The setting (bathroom) is contextually appropriate and enhances the prompt's realism.",
+    "additional_elements": "The mirror reflection adds visual interest and authenticity. The modern bathroom setting provides appropriate context without distracting from the main action."
+  },
+  "artifacts": {
+    "noticeable_issues": [
+      "Minor temporal inconsistency in the brushing motion speed between frames (slight variation in hand position)",
+      "Very subtle smoothing/softening effect on skin that appears slightly artificial in close-up",
+      "The reflection in the mirror shows minor geometric inconsistencies when compared to the subject's actual position (common in AI-generated mirror scenes)"
+    ],
+    "severity": "Minor",
+    "specific_observations": "At around 00:00:02.5-00:00:03.0, the toothbrush position relative to the mouth shows a slight jump. The mirror reflection's hand position doesn't perfectly match the real hand position in some frames. No major glitches, distortions, or impossible physics observed."
+  },
+  "overall_rating": 8
+}
+```

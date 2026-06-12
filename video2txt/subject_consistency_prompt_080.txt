@@ -1,0 +1,48 @@
+Dimension: subject_consistency
+Prompt: a truck anchored in a tranquil bay
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a vintage truck anchored in a tranquil bay during golden hour. The camera performs a smooth vertical rotation reveal, starting with an upside-down view of the water's surface and gradually rotating to show the truck sitting perfectly still in calm, mirror-like waters. The scene is serene and visually striking, with exceptional reflection quality and atmospheric lighting.",
+  "objects_scene": {
+    "main_subject": "A vintage, light-colored pickup truck (appears to be from 1950s-1960s era) anchored stationary in water",
+    "secondary_elements": [
+      "A single bird perched on the truck's roof",
+      "Perfect mirror reflection of the truck on the water surface",
+      "Rolling green hills/mountains on both sides of the bay",
+      "Distant shoreline visible through the valley opening",
+      "Calm, glassy water surface with subtle ripples in foreground"
+    ],
+    "environment": "Tranquil bay or inlet surrounded by lush, dark green hills under a sunset/sunrise sky with warm orange-pink clouds against soft blue gradient"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, continuous vertical rotation (pitch) from inverted/upside-down position to upright orientation",
+    "temporal_consistency": "Excellent - the rotation is perfectly smooth with no jumps or stutters across all frames",
+    "subject_motion": "No motion from the truck, bird, or environment; the scene is completely static except for camera movement",
+    "water_dynamics": "Subtle, realistic ripple patterns in the foreground that gradually smooth out toward the truck"
+  },
+  "visual_quality": {
+    "lighting": "Golden hour cinematography with warm, directional light from behind the hills; beautiful rim lighting on the truck; soft ambient fill",
+    "color_grading": "Rich, cinematic palette - warm oranges and pinks in sky, deep teals and blues in water, dark greens in hills, muted cream/gray of the truck",
+    "resolution": "High definition with good detail on the truck's chrome grille, body panels, and the bird silhouette",
+    "reflection_quality": "Exceptional - the water reflection is nearly perfect, creating a surreal, dreamlike symmetry",
+    "depth_of_field": "Deep focus throughout, maintaining sharpness from foreground water to distant hills"
+  },
+  "prompt_alignment": {
+    "truck_presence": "Fully satisfied - vintage truck clearly visible and central",
+    "anchored_state": "Implied by complete stillness and isolated position in water; no visible anchor but the static positioning conveys this",
+    "tranquil_bay": "Exceptionally well executed - glassy water, serene atmosphere, enclosed by natural landscape",
+    "additional_elements": "The bird and sunset lighting enhance the prompt beyond literal requirements without contradicting it",
+    "alignment_score": "Near perfect - the video captures the essence of tranquility and the unusual scenario of a truck in water with poetic, cinematic quality"
+  },
+  "artifacts": {
+    "detected_issues": [
+      "Minor: The physics of a truck floating/anchored in deep water is surreal (likely intentional artistic choice)",
+      "Very subtle: The bird remains completely static, which is slightly unnatural though not visually disruptive",
+      "Minor: The water immediately around the truck shows no disturbance from its presence, suggesting compositing"
+    ],
+    "overall_cleanliness": "Very high - no obvious AI artifacts like morphing, flickering, or inconsistent details across frames"
+  },
+  "overall_rating": 9
+}
+```

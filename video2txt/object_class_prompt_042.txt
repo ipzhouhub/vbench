@@ -1,0 +1,62 @@
+Dimension: object_class
+Prompt: a sandwich
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts a sandwich on a wooden cutting board in a kitchen setting. The camera slowly orbits around the sandwich before a knife enters the frame and cuts it in half diagonally. The video concludes with a static shot of the two separated halves. While visually appealing in terms of lighting and color, the video exhibits significant physical impossibilities in the cutting sequence, where the knife passes through the sandwich without proper interaction physics, and the final separated halves show inconsistent internal structure compared to the uncut sandwich.",
+  "objects_scene": {
+    "primary_objects": [
+      "A toasted sandwich with white bread, containing lettuce, sliced cheddar cheese, tomato slices, and cucumber slices",
+      "A wooden cutting board with natural grain and dark bark edge",
+      "A silver/steel kitchen knife",
+      "Kitchen countertop surface"
+    ],
+    "background_elements": [
+      "Blurred kitchen interior with window light",
+      "Indistinct kitchen items including what appears to be bottles, bowls, and possibly fruit",
+      "Soft natural daylight coming from windows"
+    ],
+    "scene_type": "Food photography/videography in a domestic kitchen setting"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, slow orbital dolly around the sandwich from 00:00:00 to 00:00:01.8, moving from a three-quarter front view to a more side-oriented perspective",
+    "object_motion": "Knife enters from top-right at 00:00:01.8 and moves downward in a diagonal cutting motion until 00:00:03.3; the sandwich halves then appear instantly separated at 00:00:03.5",
+    "physics_realism": "Highly problematic. The knife passes through the sandwich without any compression, displacement, or resistance from the ingredients. There is no visible separation occurring during the cut—the knife simply slices through and then the scene cuts to two pre-separated halves. The cheese, tomatoes, and lettuce do not deform or move realistically during the cutting action",
+    "temporal_consistency": "The orbital camera movement is consistent, but there is a temporal discontinuity between the cutting action and the final result. The transition from 'knife cutting' to 'separated halves' is abrupt and lacks intermediate frames showing the actual separation"
+  },
+  "visual_quality": {
+    "lighting": "Warm, soft, diffused natural light with gentle shadows. The lighting is consistent throughout and professionally styled, resembling high-end food photography. Subtle caustics and highlights on the tomato surfaces and knife blade",
+    "colors": "Vibrant and saturated—rich greens from lettuce, bright red tomatoes, golden-yellow cheese, warm brown toasted bread. Color grading is warm and appetizing",
+    "resolution": "High resolution with good detail on bread texture, wood grain, and vegetable surfaces. Shallow depth of field keeps focus on sandwich while background remains pleasantly blurred",
+    "texture_quality": "Generally good—bread shows realistic toasting patterns, lettuce has proper translucency and vein detail, tomatoes show seed structure and moisture. However, some artificial smoothness is visible on cheese surfaces"
+  },
+  "prompt_alignment": {
+    "core_prompt_fulfillment": "The prompt 'a sandwich' is fulfilled—a clear, recognizable sandwich is the central subject throughout",
+    "completeness": "The video goes beyond a static sandwich by adding dynamic elements (camera movement, cutting action) that enhance the basic prompt without contradicting it",
+    "contextual_enrichment": "The kitchen setting, cutting board, and knife add natural contextual elements that would accompany a sandwich in real-world scenarios",
+    "accuracy_of_representation": "The sandwich ingredients are clearly identifiable and typical of a standard vegetarian sandwich. No unexpected or incongruous elements appear"
+  },
+  "artifacts": {
+    "physics_violations": [
+      "Knife passes through sandwich without compressing or displacing ingredients",
+      "No crumbs, juice, or debris from cutting",
+      "Cheese slices in final separated halves do not match the geometry of the uncut cheese (appear to fold differently)",
+      "The internal cross-section in the final shot shows different ingredient arrangement than what was visible from the exterior before cutting"
+    ],
+    "temporal_artifacts": [
+      "Abrupt transition between cutting motion and separated result—missing the actual moment of separation",
+      "The knife disappears instantly without exit motion"
+    ],
+    "geometric_inconsistencies": [
+      "In the uncut sandwich, cheese appears as flat slices; in the cut halves, cheese appears folded and draped differently",
+      "Tomato slice positions shift between uncut and cut states",
+      "The diagonal cut angle in the close-up doesn't perfectly match the separation angle in the final wide shot"
+    ],
+    "minor_issues": [
+      "Slight unnatural glossiness on some surfaces",
+      "Background blur has some painterly/artificial qualities characteristic of AI generation"
+    ]
+  },
+  "overall_rating": 6
+}
+```

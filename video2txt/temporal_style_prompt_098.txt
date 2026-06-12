@@ -1,0 +1,45 @@
+Dimension: temporal_style
+Prompt: An astronaut flying in space, pan left
+============================================================
+```json
+{
+  "summary": "This AI-generated video depicts an astronaut in a white spacesuit floating in space above Earth, with the camera panning left to reveal more of the planet's curvature and the vastness of space. The sequence shows a transition from a close-up view through a spacecraft window to a wide shot of the astronaut drifting away, with Earth's blue atmosphere and cloud formations prominently visible against the blackness of space.",
+  "objects_scene": {
+    "primary_subject": "An astronaut in a white EVA (Extravehicular Activity) spacesuit with reflective helmet visor, life support backpack, and American flag patch visible on the arm",
+    "environment": "Low Earth orbit with Earth's curved horizon, blue atmospheric glow, white cloud formations, and deep black space with scattered stars",
+    "initial_framing": "The video begins with a view from inside or near a spacecraft, showing the astronaut partially visible through a circular window or hatch frame",
+    "progression": "As the camera pans left, the spacecraft structure recedes and the astronaut becomes the central focus, eventually becoming a smaller figure against the vast backdrop of Earth and space",
+    "lighting_source": "Bright sunlight from the upper left creates lens flares and illuminates the Earth's surface and astronaut"
+  },
+  "motion_quality": {
+    "camera_movement": "Smooth, continuous leftward pan that gradually reveals more of the scene",
+    "subject_motion": "The astronaut transitions from a relatively static position near the window to a free-floating state, with subtle limb movements suggesting zero-gravity drift",
+    "temporal_consistency": "The motion is generally smooth with no abrupt jumps, though the astronaut's position relative to Earth maintains plausible orbital mechanics",
+    "motion_blur": "Minimal motion blur, suggesting either slow movement or high frame rate capture",
+    "physics_realism": "The floating behavior appears reasonably consistent with microgravity physics, with the astronaut's body orientation changing subtly as they drift"
+  },
+  "visual_quality": {
+    "resolution": "High definition with crisp details visible on the spacesuit texture, Earth surface features, and cloud formations",
+    "lighting": "Dramatic cinematic lighting with strong directional sunlight creating contrast between illuminated and shadowed areas; realistic lens flares from bright light sources",
+    "color_palette": "Rich blues of Earth's atmosphere and oceans, pure whites of clouds and spacesuit, deep blacks of space, and warm golden tones from sunlight",
+    "depth_of_field": "Shallow depth initially with focus on the astronaut, transitioning to wider focus as the scene expands",
+    "atmospheric_effects": "Realistic atmospheric scattering along Earth's limb with gradient from deep blue to black space; subtle star field in background"
+  },
+  "prompt_alignment": {
+    "astronaut_flying": "Well executed - the astronaut is clearly depicted in a floating/flying state in space",
+    "space_setting": "Accurately represented with Earth visible, black space background, and appropriate lighting",
+    "pan_left": "The camera movement consistently pans left throughout the sequence, revealing progressively more of the scene from right to left",
+    "overall_fidelity": "The video closely matches the prompt intent, delivering a cinematic space scene with the requested camera movement"
+  },
+  "artifacts": {
+    "minor_issues": [
+      "Slight inconsistency in the astronaut's reflection in the helmet visor - difficult to discern specific details",
+      "Some cloud formations appear slightly painterly or smoothed, potentially indicative of generative processes",
+      "The transition from the window/hatch view to open space is seamless but the initial framing structure is somewhat ambiguous"
+    ],
+    "temporal_artifacts": "No significant flickering or frame-to-frame inconsistencies detected",
+    "spatial_artifacts": "Earth's curvature and atmospheric glow appear physically plausible; no obvious geometric distortions"
+  },
+  "overall_rating": 8
+}
+```

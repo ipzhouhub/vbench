@@ -1,0 +1,402 @@
+[
+  {
+    "dimension": "appearance_style",
+    "prompt": "Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, Van Gogh style"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "The bund Shanghai, in cyberpunk style"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "A beautiful coastal beach in spring, waves lapping on sand, black and white"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "A panda drinking coffee in a cafe in Paris, surrealism style"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "A panda drinking coffee in a cafe in Paris, pixel art"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "A panda drinking coffee in a cafe in Paris, oil painting"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "The bund Shanghai, surrealism style"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "The bund Shanghai, pixel art"
+  },
+  {
+    "dimension": "appearance_style",
+    "prompt": "Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, in cyberpunk style"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a blue clock"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a blue car"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a white clock"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a purple bowl"
+  },
+  {
+    "dimension": "color",
+    "prompt": "an orange bicycle"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a yellow bicycle"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a black vase"
+  },
+  {
+    "dimension": "color",
+    "prompt": "a black cat"
+  },
+  {
+    "dimension": "color",
+    "prompt": "an orange cat"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is doing laundry"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is strumming guitar"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is tasting beer"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is motorcycling"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is shooting basketball"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is running on treadmill"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is using computer"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is dancing ballet"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is brushing teeth"
+  },
+  {
+    "dimension": "human_action",
+    "prompt": "A person is cutting watermelon"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a frisbee and skis"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a fork and a potted plant"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a bicycle and an airplane"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a skateboard and a surfboard"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a bird and a cat"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a backpack and an umbrella"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a sink and a toilet"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a car and a motorcycle"
+  },
+  {
+    "dimension": "multiple_objects",
+    "prompt": "a person and a toilet"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a cow"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a tie"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a knife"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a bench"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a stop sign"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a sandwich"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a parking meter"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a bowl"
+  },
+  {
+    "dimension": "object_class",
+    "prompt": "a spoon"
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A modern art museum, with colorful paintings"
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A raccoon that looks like a turtle, digital art."
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "Two pandas discussing an academic paper."
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A super cool giant robot in Cyberpunk Beijing"
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A car moving slowly on an empty street, rainy evening"
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A cat wearing sunglasses and working as a lifeguard at a pool."
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A raccoon is playing the electronic guitar."
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "Fireworks."
+  },
+  {
+    "dimension": "overall_consistency",
+    "prompt": "A cat wearing sunglasses at a pool"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "golf course"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "train station platform"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "train railway"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "junkyard"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "staircase"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "construction site"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "bar"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "bathroom"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "waterfall"
+  },
+  {
+    "dimension": "scene",
+    "prompt": "driveway"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a tennis racket on the left of a frisbee, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a bird on the left of a cat, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a clock on the left of a vase, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a dog on the left of a horse, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a train on the right of a boat, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a baseball bat on the left of a baseball glove, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "an apple on the top of a sandwich, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a dining table on the left of a chair, front view"
+  },
+  {
+    "dimension": "spatial_relationship",
+    "prompt": "a bottle on the left of a wine glass, front view"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "a dog drinking water"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "a dog enjoying a peaceful walk"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "a bus accelerating to gain speed"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "a truck accelerating to gain speed"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "a bicycle slowing down to stop"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "an airplane taking off"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "a truck anchored in a tranquil bay"
+  },
+  {
+    "dimension": "subject_consistency",
+    "prompt": "an airplane soaring through a clear blue sky"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "A tranquil tableau of the lampposts were adorned with Art Deco motifs, their geometric shapes and frosted glass creating a sense of vintage glamour"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "static view on a desert scene with an oasis, palm trees, and a clear, calm pool of water"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "In a still frame, a tranquil pond was fringed by weeping cherry trees, their blossoms drifting lazily onto the glassy surface"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "A tranquil tableau of a bunch of grapes"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "A tranquil tableau of a picturesque barn was painted a warm shade of red and nestled in a picturesque meadow"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "A tranquil tableau of bedroom"
+  },
+  {
+    "dimension": "temporal_flickering",
+    "prompt": "A tranquil tableau of a bowl on the kitchen counter"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "A beautiful coastal beach in spring, waves lapping on sand, pan right"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "A cute happy Corgi playing in park, sunset, in super slow motion"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "Gwen Stacy reading a book, zoom in"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "A panda drinking coffee in a cafe in Paris, pan right"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "A beautiful coastal beach in spring, waves lapping on sand, featuring a steady and smooth perspective"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "a shark is swimming in the ocean, with an intense shaking effect"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "A couple in formal evening wear going home get caught in a heavy downpour with umbrellas, zoom out"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "Snow rocky mountains peaks canyon. snow blanketed rocky mountains surround and shadow deep canyons. the canyons twist and bend through the high elevated mountain peaks, zoom in"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "An astronaut flying in space, pan left"
+  },
+  {
+    "dimension": "temporal_style",
+    "prompt": "A boat sailing leisurely along the Seine River with the Eiffel Tower in background, pan left"
+  }
+]
