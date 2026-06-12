@@ -1028,7 +1028,7 @@
             </div>
 
             <div class="feedback-field">
-                <label>🏷️ 最满意的方面</label>
+                <label id="fb-aspect-label">🏷️ 最满意的方面</label>
                 <select id="fb-aspect">
                     <option value="">请选择...</option>
                     <option value="画面质量">画面质量</option>
@@ -1747,6 +1747,17 @@ function selectRating(el) {
     document.querySelectorAll('#fb-rating .rating-btn').forEach(b => b.classList.remove('selected'));
     el.classList.add('selected');
     feedbackRating = parseInt(el.dataset.val);
+
+    const label = document.getElementById('fb-aspect-label');
+    const select = document.getElementById('fb-aspect');
+    const negative = feedbackRating <= 2;
+    label.textContent = negative ? '🏷️ 最不满意的方面' : '🏷️ 最满意的方面';
+
+    const posOptions = ['画面质量','动作流畅度','提示词遵循','风格一致性','生成速度','综合都不错'];
+    const negOptions = ['画面质量差','动作不流畅','提示词不遵循','风格不一致','生成速度慢','综合都不满意'];
+    const opts = negative ? negOptions : posOptions;
+    select.innerHTML = '<option value="">请选择...</option>' +
+        opts.map(o => `<option value="${o}">${o}</option>`).join('');
 }
 
 async function submitFeedback() {
