@@ -1,86 +1,98 @@
-# VBench 评测报告 - Seedance + Whaleze AI
+# VBench 评测报告 — Seedance × Whaleze AI
 
-基于 [VBench](https://github.com/Vchitect/VBench) 框架，对 Seedance + Whaleze AI 的文生视频（Text-to-Video）能力进行多维度评估。
+> 基于 [VBench](https://github.com/Vchitect/VBench) 框架，对 Seedance + Whaleze AI 文生视频能力进行全维度评估的可视化报告平台。
 
-## 在线访问
+**在线地址**：[https://vbench.ailiantang.top](https://vbench.ailiantang.top)
 
-- 自有服务器：`https://vbench.ailiantang.top`
-- Vercel 镜像：`https://vbench-green.vercel.app`
+---
 
-## 项目结构
+## 项目概览
 
 ```
 vbench/
-├── index.html              # 主报告页面（单页应用）
-├── api/
-│   └── feedback.js         # Vercel Serverless Function（企业微信 Webhook 代理）
-├── prompts/                # 测试提示词
-│   ├── selected_prompts.json   # 精选测试用例（100条）
-│   ├── all_prompts.txt         # 完整提示词集
-│   └── *.txt                   # 按维度分类的提示词文件
-├── generated-video/        # 生成的视频文件（.mp4）
-├── video2txt/              # 视频转文字描述（用于语义相似度评估）
-├── results/
-│   ├── vbench_results.json # VBench 各维度详细评分
-│   └── vbench_scores.json  # 逐条提示词的评分结果
-├── .env.local              # 本地环境变量（不提交到 Git）
+├── index.html              # 主报告（单页应用，纯前端）
+├── feedback-server.js      # 反馈 API 服务（Node.js，PM2 托管）
+├── README.md               # 本文档
+│
+├── prompts/                # 测试提示词（按维度分类）
+│   ├── selected_prompts.json
+│   └── *.txt
+├── generated-video/        # 生成的 .mp4 视频
+├── video2txt/              # 视频→文字描述（语义评估用）
+├── results/                # 评分数据
+│   ├── vbench_results.json
+│   └── vbench_scores.json
+│
+├── api/feedback.js         # Vercel Serverless 版本（已弃用）
 └── .gitignore
 ```
 
+## 报告功能
+
+| 页面 | 内容 |
+|------|------|
+| 评测报告 | 总分卡片、各维度雷达图、评分分布 |
+| VBench 介绍 | 评估框架背景与方法论 |
+| 测试流程 | 提示词→视频→评分的完整 pipeline |
+| 提示词数据 | 中英文对照表格，支持搜索与维度筛选 |
+| 视频数据 | 视频预览播放器，按维度分类筛选 |
+| 结果数据 | 评分热力图、主/子维度交叉分析 |
+| T2V 反馈 | 用户体验反馈表单 → 企业微信群通知 |
+
 ## 评估维度
 
-VBench 从以下 12 个维度评估视频生成质量：
+Subject Consistency · Background Consistency · Temporal Flickering · Motion Smoothness · Dynamic Degree · Aesthetic Quality · Imaging Quality · Object Class · Multiple Objects · Human Action · Color · Spatial Relationship · Scene · Appearance Style · Temporal Style · Overall Consistency
 
-| 维度 | 说明 |
-|------|------|
-| Subject Consistency | 主体一致性 |
-| Background Consistency | 背景一致性 |
-| Temporal Flickering | 时序闪烁 |
-| Motion Smoothness | 运动流畅度 |
-| Dynamic Degree | 动态程度 |
-| Aesthetic Quality | 美学质量 |
-| Imaging Quality | 成像质量 |
-| Object Class | 物体类别准确度 |
-| Multiple Objects | 多物体生成 |
-| Human Action | 人类动作 |
-| Color | 颜色准确度 |
-| Spatial Relationship | 空间关系 |
-| Scene | 场景一致性 |
-| Appearance Style | 外观风格 |
-| Temporal Style | 时序风格 |
-| Overall Consistency | 整体一致性 |
+## 反馈功能架构
 
-## 报告页面功能
+```
+浏览器 POST /api/feedback
+    ↓
+Nginx (vbench.ailiantang.top:443)
+    ↓ proxy_pass
+Node.js feedback-server.js (127.0.0.1:3890)
+    ↓ fetch
+企业微信 Webhook → 群消息通知
+```
 
-- **评测报告**：总分、各维度雷达图、详细评分卡片
-- **VBench 介绍**：评估框架说明
-- **测试流程**：从提示词到评分的完整流程图
-- **提示词数据**：可搜索、可筛选的提示词表格（中英文对照）
-- **视频数据**：生成视频预览、按维度筛选
-- **结果数据**：评分热力图、子维度交叉分析
-- **T2V 反馈**：用户体验反馈表单，通过企业微信 Webhook 提交
+- Webhook key 仅存于服务器环境变量 `QY_WEBHOOK`，源码中不含
+- 内置 IP 级限流（60s / 5次）
+- 前端提交失败自动重试 3 次，带 10s 超时
+- 低评分时自动切换为「最不满意的方面」
 
 ## 部署
 
-### 静态文件部署（自有服务器）
+### 静态文件同步
 
 ```bash
-rsync -avz --exclude='.git' --exclude='.DS_Store' ./ sh:/www/wwwroot/vbench.ailiantang.top/
+rsync -avz --exclude='.git' --exclude='.DS_Store' \
+    --exclude='api' ./ sh:/www/wwwroot/vbench.ailiantang.top/
 ```
 
-### Vercel 部署（Serverless 反馈 API）
+### 反馈 API 服务（服务器端）
 
-1. 将项目推送到 GitHub
-2. 在 Vercel 导入项目
-3. 设置环境变量 `QY_WEBHOOK`（企业微信 Webhook Key，不带 URL 前缀）
-4. Vercel 自动部署，`api/feedback.js` 作为 Serverless Function 运行
+```bash
+# 1. 设置环境变量（写入 ~/.bashrc 持久化）
+echo 'export QY_WEBHOOK="你的webhook-key"' >> ~/.bashrc
+source ~/.bashrc
 
-## 反馈功能
+# 2. PM2 启动
+cd /www/wwwroot/vbench.ailiantang.top
+pm2 start feedback-server.js --name vbench-feedback
+pm2 save
 
-前端通过 `POST /api/feedback` 提交用户反馈，Vercel Serverless Function 代理转发到企业微信 Webhook，webhook key 仅存在服务端环境变量中。
+# 3. Nginx 反向代理（server {} 块内添加）
+location /api/ {
+    proxy_pass http://127.0.0.1:3890;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+nginx -s reload
+```
 
-**环境变量：**
+## 环境变量
 
-| 变量名 | 说明 | 示例 |
-|--------|------|------|
-| `QY_WEBHOOK` | 企业微信 Webhook Key | `5c388183-xxxx-xxxx-xxxx` |
+| 变量 | 说明 | 示例 |
+|------|------|------|
+| `QY_WEBHOOK` | 企业微信机器人 Webhook Key | `5c388183-4085-451b-...` |
