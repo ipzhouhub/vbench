@@ -1802,7 +1802,6 @@ async function submitFeedback() {
     btn.disabled = true;
     btn.textContent = '⏳ 提交中...';
 
-    const apiBase = 'https://vbench-green.vercel.app';
     const maxRetries = 3;
     let lastErr;
 
@@ -1811,7 +1810,7 @@ async function submitFeedback() {
             btn.textContent = attempt > 1 ? `⏳ 第${attempt}次重试...` : '⏳ 提交中...';
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 10000);
-            const resp = await fetch(apiBase + '/api/feedback', {
+            const resp = await fetch('/api/feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, rating: feedbackRating, aspect, content }),
